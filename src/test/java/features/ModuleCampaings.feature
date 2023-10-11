@@ -775,9 +775,8 @@ Feature: Escenarios Modulo de campañas
     And click en anverso uno
     And tomo la foto de documento
     Examples:
-      | usuario                | password     | Documento | monto   | cuotas |
-      | dterronesh@craclasadev.com | Testing.1234 | 42325973  | 1000.00 | 33     |
-
+      | Documento | monto   | cuotas |
+      | 42325973  | 1000.00 | 33     |
 
     #Se repite para el caso 39
   Scenario Outline: CPC38 - Campaña-Validar la funcionalidad correcta de la carga de Documentos Virtuales

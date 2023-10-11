@@ -1,7 +1,6 @@
 package utility;
 
 import io.appium.java_client.AppiumDriver;
-
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.cucumber.java.After;
@@ -18,7 +17,6 @@ import java.util.concurrent.TimeUnit;
 public class Hook {
 
     private static AndroidDriver<WebElement> driver;
-    //private static WebElement drivers;
 
     @Before
     public void setUpAppium() throws Exception {
@@ -32,12 +30,7 @@ public class Hook {
        // cap.setCapability(MobileCapabilityType.APP, System.getProperty("user.dir")+"//App//Formiik_New.apk");
         driver = new AndroidDriver<WebElement>(new URL(Constantes.URL_APPIUM), cap);
         driver.manage().timeouts().implicitlyWait(5000, TimeUnit.SECONDS);
-    }
-    public void setUpSelenium() throws Exception{
-        DesiredCapabilities capSel = new DesiredCapabilities();
-        System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir"+"/src/main/java/drivers/chromedriver.exe" +
-                "" +
-                ""));
+
     }
 
     @After
@@ -60,5 +53,4 @@ public class Hook {
     public static AppiumDriver getDriver() {
         return driver;
     }
-
 }

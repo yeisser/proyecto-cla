@@ -1,12 +1,8 @@
 package screens;
 
-import org.openqa.selenium.By;
-import task.Login_Task;
 import task.Recoveries_Task;
 import task.Welcome_Task;
-import utility.Element;
 import utility.UIOperation;
-import utility.Constantes;
 import utility.Util;
 
 
@@ -35,6 +31,17 @@ public class WelcomeScreen {
         }
 
     }
+    public void btn_permitir_permisos(){
+        UIOperation.waitAndClick(Welcome_Task.btn_permiso_gps, 15);
+        UIOperation.waitAndClick(Welcome_Task.btn_permiso_calendario, 15);
+        UIOperation.waitAndClick(Welcome_Task.btn_permiso_notificaciones, 15);
+    }
+    public void btn_permitir_gps(){
+        UIOperation.giveClick(Welcome_Task.btn_permiso_gps);
+    }
+    public void btn_permitir_notificaciones(){
+        UIOperation.giveClick(Welcome_Task.btn_permiso_notificaciones);
+    }
     public void btn_permitir_calendario(){
         UIOperation.giveClick(Welcome_Task.btn_permiso_calendario);
     }
@@ -45,7 +52,16 @@ public class WelcomeScreen {
     public void ingresa_organizacion(String organizacion) {
         UIOperation.insertValue(Welcome_Task.organizacion, organizacion);
     }
+    public void ingresa_organizacion2(String organizacion) {
+        UIOperation.insertValue(Welcome_Task.organizacion2, organizacion);
+    }
     public void btn_continuar() {
+        UIOperation.giveClick(Welcome_Task.continuar);
+    }
+    public void btn_continuarNew() {
+        UIOperation.waitAndClick(Welcome_Task.continuar,15);
+    }
+    public void click_btnContinuar() {
         UIOperation.giveClick(Welcome_Task.continuar);
     }
     public void btn_festivos() {

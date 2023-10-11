@@ -2,7 +2,6 @@ package stepDefinations;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
-import io.cucumber.java.en_au.ButattheendofthedayIreckon;
 import org.testng.Assert;
 import screens.LoginScreen;
 import screens.recoveries_screens;
@@ -16,9 +15,12 @@ public class ModuleRecoveriesStep {
         gestionmora.enter_nueva_orden();
     }
 
+
+
     @When("^el usuario hago click en la opcion cobranza del menu de Tipo de proceso$")
     public void elUsuarioclickCobranzaMenuProcesos() {
         gestionmora.click_cobranza();
+
     }
 
     @And("^hago click en el boton siguiente$")
@@ -136,6 +138,8 @@ public class ModuleRecoveriesStep {
     public void metodo_tempora_ingresa_valor_resultado_gestion(String valor) {
         gestionmora.ingresa_valor_temporal_resultados_gestion(valor);
     }
+
+
     @And("^hago click en el deplegable Accion y seleccion \"([^\"]*)\"$")
     public void desplegable_accion(String accion) {
         gestionmora.ingresa_accion(accion);
@@ -346,8 +350,37 @@ public class ModuleRecoveriesStep {
         gestionmora.click_reporte_mora();
     }
 
+
+
     @When("^el ingresa password \"([^\"]*)\"$")
     public void elIngresaP(String pass) {
         gestionmora.enter_pass(pass);
     }
+
+
+    @And("el usuario ingresa al home y hace click en el boton de nueva orden")
+    public void elUsuarioIngresaAlHomeYHaceClickEnElBotonDeNuevaOrden() {
+        gestionmora.enter_nueva_orden2();
+
+    }
+
+    @And("el usuario hago click en la opcion credito del menu de Tipo de proceso")
+    public void elUsuarioHagoClickEnLaOpcionCreditoDelMenuDeTipoDeProceso() {
+        gestionmora.click_credito();
+        gestionmora.click_siguiente2();
+    }
+
+    @And("el usuario hace click en la opcion {string} del menu")
+    public void elUsuarioHaceClickEnLaOpcionDelMenu(String tipoFormulario) {
+        gestionmora.click_TipoFormulario(tipoFormulario);
+
+    }
+
+    @And("el usuario hace click en boton crear")
+    public void elUsuarioHaceClickEnBotonCrear() {
+        gestionmora.click_crear_evento();
+
+    }
+
+
 }

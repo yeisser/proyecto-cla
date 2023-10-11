@@ -2,11 +2,11 @@ package screens;
 
 import org.openqa.selenium.By;
 import task.Login_Task;
-import task.Recoveries_Task;
-import utility.Element;
-import utility.UIOperation;
+import task.Welcome_Task;
 import utility.Constantes;
-import utility.Util;
+import utility.Element;
+import utility.Hook;
+import utility.UIOperation;
 
 public class LoginScreen {
 
@@ -17,7 +17,19 @@ public class LoginScreen {
         UIOperation.insertValue(Login_Task.texto_pass, pass);
         UIOperation.giveClick(Login_Task.btn_sign_in);
     }
+    public void conditionContinue(){
+        boolean displayed = Hook.getDriver().findElement(txt_ConfigTerminada).isDisplayed();
+        if (displayed){
+            UIOperation.waitAndClick(Welcome_Task.continuar,30);
+        }
 
+        }
+
+
+    public static Boolean isVisible(By element)
+    {
+        return Hook.getDriver().findElement(element).isDisplayed();
+    }
     By btn_session = Element.Mobile_Element(Constantes.ID, "com.kata.formiik:id/fragmentCurrentSessionFloatingActionButton");
     By txt_usuario = Element.Mobile_Element(Constantes.XPATH,"//android.view.View[1]/android.view.View/android.widget.EditText");
     By txt_password = Element.Mobile_Element(Constantes.XPATH,"//android.view.View[2]/android.view.View/android.widget.EditText");
@@ -25,6 +37,7 @@ public class LoginScreen {
 
     By lbl_error_usuario = Element.Mobile_Element(Constantes.XPATH,"//*[@text='To sign in, start by entering a user ID.']");
     By lbl_error_password = Element.Mobile_Element(Constantes.XPATH,"//*[@text='Please enter your password.']");
+    By txt_ConfigTerminada = Element.Mobile_Element(Constantes.XPATH,"//*[@text='Configuración del dispositivo completa.']");
     By lbl_error_user_or_pass = Element.Mobile_Element(Constantes.XPATH,"//android.view.View[1]/android.view.View/android.view.View[2]/android.view.View/android.widget.TextView[1]");
 
     public void iniciar_session() {

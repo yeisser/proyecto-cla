@@ -11,5 +11,4 @@ public class Constantes {
     public static final String PARTIALLINKTEXT = "PARTIALLINKTEXT";
     public static final String RESOURCE_ID="RESOURCE-ID";
     public static final String URL_APPIUM = "http://127.0.0.1:4723/wd/hub";
-    public static final String URL_SELENIUM="https://qa.andes.engine.kata-software.com";
 }

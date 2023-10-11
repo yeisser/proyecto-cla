@@ -2,11 +2,13 @@ package utility;
 
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.android.nativekey.AndroidKey;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.awt.event.KeyEvent;
+import java.time.Duration;
+
 
 
 public class UIOperation {
@@ -15,10 +17,33 @@ public class UIOperation {
         Hook.getDriver().findElement(element).clear();
         Hook.getDriver().findElement(element).sendKeys(value);
     }
+    public static void insertValueWait(By element, String value, int tiempo) {
+        long segundosEspera = Duration.ofSeconds(tiempo).getSeconds();
+        WebDriverWait wait = new WebDriverWait(Hook.getDriver(),segundosEspera);
+        //wait.until(ExpectedConditions.elementToBeClickable(element)).click();
+        //Hook.getDriver().findElement(element).clear();
+        Hook.getDriver().findElement(element).sendKeys(value);
+    }
 
     public static void giveClick(By element) {
         Hook.getDriver().findElement(element).click();
     }
+    public static void waitAndClick(By element,int tiempo) {
+        long segundosEspera = Duration.ofSeconds(tiempo).getSeconds();
+        WebDriverWait wait = new WebDriverWait(Hook.getDriver(),segundosEspera);
+        wait.until(ExpectedConditions.elementToBeClickable(element)).click();
+    }
+    public static void waitConditionalSecondElement(By element,int tiempo1,By element2,int tiempo2) {
+//        long segundosEspera = Duration.ofSeconds(tiempo1).getSeconds();
+//        WebDriverWait wait = new WebDriverWait(Hook.getDriver(),segundosEspera);
+//        wait.until(ExpectedConditions.visibilityOf((WebElement) element));
+        Util.implicitWait(tiempo1);
+        boolean displayed = Hook.getDriver().findElement(element).isDisplayed();
+        if (displayed){
+        waitAndClick(element2,tiempo2);
+        }
+    }
+
     public static void giveEnter(By element) {
         Hook.getDriver().findElement(element).sendKeys(Keys.ENTER);
     }

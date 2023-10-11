@@ -7,6 +7,7 @@ import io.cucumber.java.en.When;
 import org.testng.Assert;
 import screens.LoginScreen;
 import screens.WelcomeScreen;
+import utility.Util;
 
 public class LoginStep {
 
@@ -20,7 +21,8 @@ public class LoginStep {
     @When("^el usuario ingresa al app y hago onbording con \"([^\"]*)\" y \"([^\"]*)\"$")
     public void elUsuarioIngresaAppOnbording(String user, String pass) {
         login.enter_onbording(user, pass);
-        welcome.btn_continuar();
+        login.conditionContinue();
+        Util.waitSleep(250);
     }
 
     @When("^el ingresa \"([^\"]*)\" y \"([^\"]*)\"$")

@@ -1,12 +1,16 @@
 package screens;
 
-import io.cucumber.java.en_au.ButattheendofthedayIreckon;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import task.Login_Task;
 import task.Recoveries_Task;
-import utility.*;
+import utility.Hook;
+import utility.UIOperation;
+import utility.Util;
 
 
-public class recoveries_screens {
+public class recoveries_screens{
 
 
     public void enter_user_pass(String user, String pass) {
@@ -14,14 +18,41 @@ public class recoveries_screens {
         //UIOperation.giveClick(btn_sign_in);
         //UIOperation.insertValue(txt_password,pass);
     }
+
+
+
     public void enter_nueva_orden() {
         UIOperation.giveClick(Recoveries_Task.btn_new_orders);
+
+    }
+    public void enter_nueva_orden2() {
+//        Util.waitSleep(250);
+//        UIOperation.waitAndClick(Recoveries_Task.btn_new_orders2,120);
+        UIOperation.waitConditionalSecondElement(
+                Recoveries_Task.text_UltimaSincro,180,
+                Recoveries_Task.btn_new_orders2,30);
 
     }
 
     public void click_cobranza() {
         UIOperation.giveClick(Recoveries_Task.btn_cobranza);
     }
+    public void click_credito() {
+        UIOperation.waitAndClick(Recoveries_Task.btn_credito,15);
+    }
+    public void click_TipoFormulario(String opcion) {
+//        By opcionMenuElement = (By) Recoveries_Task.opcionMenu(opcion);
+//        UIOperation.waitAndClick(opcionMenuElement,15);
+//        Util.implicitWait(10);
+//        Recoveries_Task.opcionMenu(opcion).click();
+//        UIOperation.waitAndClick(Recoveries_Task.btn_siguiente,10);
+        By opcionMenuElement = Recoveries_Task.opcionMenu(opcion);
+        WebElement elemento = Hook.getDriver().findElement(opcionMenuElement);
+        elemento.click();
+        UIOperation.waitAndClick(Recoveries_Task.btn_siguiente, 10);
+
+    }
+
 
     public void enter_user(String user) {
         //UIOperation.insertValue(txt_usuario,user);
@@ -37,6 +68,9 @@ public class recoveries_screens {
 
     public void click_siguiente() {
         UIOperation.giveClick(Recoveries_Task.btn_siguiente);
+    }
+    public void click_siguiente2() {
+        UIOperation.waitAndClick(Recoveries_Task.btn_siguiente,15);
     }
 
     public void click_consultar_catera() {
@@ -86,6 +120,9 @@ public class recoveries_screens {
 
     public void click_nuevo_evento() {
         UIOperation.giveClick(Recoveries_Task.btn_crear_evento);
+    }
+    public void click_crear_evento() {
+        UIOperation.waitAndClick(Recoveries_Task.btn_crear_confirmacion, 15);
     }
 
     public void consultar_creditos() {
@@ -302,5 +339,61 @@ public class recoveries_screens {
     public String get_mensaje_error_user_or_pass() {
         return UIOperation.getText(Recoveries_Task.lbl_error_user_or_pass);
     }
+
+    public void seleccionTipoDocumento(String TipoDocumento, String NumDocumento){
+        UIOperation.waitAndClick(Recoveries_Task.btn_MenuTipoDocumento,180);
+        By opcionTipoDocumento = Recoveries_Task.opcionMenu(TipoDocumento);
+        UIOperation.waitAndClick(opcionTipoDocumento,180);
+        Util.implicitWait(60);
+        //UIOperation.insertValueWait(Recoveries_Task.input_NumDocumento, NumDocumento, 30);
+        UIOperation.insertValue(Recoveries_Task.input_NumDocumento, NumDocumento);
+
+    }
+    public void autorizaTratamientoDatos(){
+        UIOperation.waitAndClick(Recoveries_Task.checkbox_Autorizacion,15);
+    }
+    public void autorizaPublicidad(){
+        UIOperation.waitAndClick(Recoveries_Task.radio_AutotizarPublicidad,15);
+    }
+    public void consultaCliente(){
+        UIOperation.waitAndClick(Recoveries_Task.btn_ConsultarCliente,15);
+    }
+    public void aceptarModalConsultaCliente(){
+//        String iframeContext  = "com.kata.formiik:id/action_bar_root";
+//        Hook.getDriver().switchTo().frame(iframeContext);
+//        Hook.getDriver().findElement(ModuleCampaingsStep.lbl_si).click();
+        Util.implicitWait(30);
+        UIOperation.waitAndClick(Recoveries_Task.btn_AceptarModalConsultaCliente,60);
+    }
+    public void consultaPosicionConsolidada(){
+        UIOperation.waitAndClick(Recoveries_Task.btn_consultarPosicionConsolidada,30);
+    }
+    public void aceptarModalPosicionConsolidada(){
+//        String iframeContext  = "com.kata.formiik:id/action_bar_root";
+//        Hook.getDriver().switchTo().frame(iframeContext);
+//        Hook.getDriver().findElement(ModuleCampaingsStep.lbl_si).click();
+        Util.implicitWait(30);
+
+        UIOperation.waitAndClick(Recoveries_Task.btn_AceptarModalPosicionConsolidada,60);
+    }
+    public void verificarCampana(){
+        Util.implicitWait(10);
+        UIOperation.isVisible(Recoveries_Task.txt_Campana);
+        Util.implicitWait(10);
+        UIOperation.waitAndClick(Recoveries_Task.menu_MantCliente,60);
+    }
+    public void verificarelementoVisible(){
+        Util.implicitWait(10);
+        UIOperation.isVisible(Recoveries_Task.txt_Campana);
+        Util.implicitWait(10);
+        UIOperation.waitAndClick(Recoveries_Task.menu_MantCliente,60);
+    }
+    public void seleccionarTipoIngreso(){
+        Util.implicitWait(10);
+        UIOperation.isVisible(Recoveries_Task.txt_Campana);
+        Util.implicitWait(10);
+        UIOperation.waitAndClick(Recoveries_Task.menu_MantCliente,60);
+    }
+
 
 }

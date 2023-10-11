@@ -1,14 +1,34 @@
 package task;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import utility.Constantes;
 import utility.Element;
+import utility.Hook;
 
 public class Recoveries_Task {
+
+    public Recoveries_Task(){
+    }
     public static By btn_new_orders = Element.Mobile_Element(Constantes.ID, "com.kata.formiik:id/activityOrdersNewOrderFloatingActionButton");
+    public static By btn_new_orders2 = Element.Mobile_Element(Constantes.ID, "com.kata.mobile:id/activityOrdersNewOrderFloatingActionButton");
+    public static By text_UltimaSincro = Element.Mobile_Element(Constantes.XPATH, "//*[contains(@text,'Última sincronización')]");
     public static By btn_cobranza = Element.Mobile_Element(Constantes.XPATH, "//*[@text='Cobranza']");
-
-
+    public static By btn_credito = Element.Mobile_Element(Constantes.XPATH, "//*[@text='Credito']");
+    public static By opcion_Menu;
+    public static By  opcionMenu(String opcion){
+//        String xpathOpcion = String.format("//*[@text='%s']", opcion);
+//        opcion_Menu = Hook.getDriver().findElement(By.xpath(xpathOpcion));
+//        return opcion_Menu;
+        String xpathOpcion = String.format("//*[@text='%s']", opcion);
+        return By.xpath(xpathOpcion);
+    }
+    public static WebElement select_TipoDocumento;
+    public static WebElement selectDocumento(String TipoDocumento){
+        String xpathOpcion = String.format("//*[@text='%s']", TipoDocumento);
+        select_TipoDocumento = Hook.getDriver().findElement(By.xpath(xpathOpcion));
+        return select_TipoDocumento;
+    }
     public static By btn_siguiente = Element.Mobile_Element(Constantes.XPATH, "//*[@text='SIGUIENTE']");
     public static By opt_gestion_mora = Element.Mobile_Element(Constantes.XPATH, "//*[@text='Gestion_Mora']");
 
@@ -70,6 +90,7 @@ public class Recoveries_Task {
 
     public static By txt_ingresa_monto_cero = Element.Mobile_Element(Constantes.XPATH, "//android.widget.FrameLayout[8]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.EditText");
     public static By btn_crear_confirmacion = Element.Mobile_Element(Constantes.XPATH, "//*[@text='CREAR']");
+    public static By btn_MenuTipoDocumento = Element.Mobile_Element(Constantes.XPATH, "//*[@text='Seleccionar elemento']");
     public static By btn_dni = Element.Mobile_Element(Constantes.XPATH, "//*[@text='DNI']");
 
     public static By desplegable_credito = Element.Mobile_Element(Constantes.XPATH, "//android.widget.FrameLayout/android.widget.ListView/android.widget.LinearLayout[2]/android.widget.TextView");
@@ -84,7 +105,18 @@ public class Recoveries_Task {
 
     public static By buton_saldo_deudor = Element.Mobile_Element(Constantes.XPATH, "//android.widget.FrameLayout[5]/android.widget.LinearLayout/android.widget.ImageButton");
     public static By button_garantias_credito = Element.Mobile_Element(Constantes.XPATH, "//android.widget.FrameLayout[10]/android.widget.LinearLayout/android.widget.ImageButton");
-
+    public static By input_NumDocumento = Element.Mobile_Element(Constantes.XPATH, "//android.view.View[2]/android.view.View[1]/android.view.View/android.view.View/android.widget.EditText");
+    public static By checkbox_Autorizacion = Element.Mobile_Element(Constantes.CLASSNAME, "android.widget.CheckBox");
+    public static By radio_AutotizarPublicidad = Element.Mobile_Element(Constantes.XPATH, "//android.view.View[1]/android.widget.RadioButton");
+    public static By btn_ConsultarCliente = Element.Mobile_Element(Constantes.XPATH, "//android.view.View[5]/android.view.View/android.widget.Button");
+    public static By btn_AceptarModalConsultaCliente = Element.Mobile_Element(Constantes.XPATH, "//android.widget.Button");
+    public static By btn_consultarPosicionConsolidada = Element.Mobile_Element(Constantes.XPATH, "//android.view.View[2]/android.view.View/android.widget.Button");
+    public static By btn_AceptarModalPosicionConsolidada = Element.Mobile_Element(Constantes.XPATH, "//android.widget.Button");
+    public static By txt_Campana = Element.Mobile_Element(Constantes.XPATH, "//*[@text='CAMPAÑA']");
+    public static By menu_MantCliente = Element.Mobile_Element(Constantes.XPATH, "//*[@text='Mantenimiento cliente']");
 
 
 }
+//android.widget.FrameLayout[2]/android.view.ViewGroup/android.widget.ScrollView/android.widget.RadioGroup/android.widget.RadioButton[2]
+//android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/androidx.compose.ui.platform.m1/android.view.View/android.view.View/android.view.View[2]/android.view.View[3]/android.view.View[1]/android.widget.RadioButton
+//android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/androidx.compose.ui.platform.m1/android.view.View/android.view.View/android.view.View[2]/android.view.View[3]/android.view.View[1]/android.widget.TextView
