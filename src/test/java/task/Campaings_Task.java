@@ -15,13 +15,18 @@ public class Campaings_Task {
     public static By btn_consultar_cliente = Element.Mobile_Element(Constantes.XPATH, "//*[@resource-id='com.kata.formiik:id/widget_update']");
     public static By opt_tipo_credito = Element.Mobile_Element(Constantes.XPATH, "//android.widget.FrameLayout[6]/android.widget.FrameLayout/androidx.cardview.widget.CardView/android.view.ViewGroup/android.view.ViewGroup/android.widget.LinearLayout[3]/android.widget.LinearLayout/android.widget.Spinner");
     public static By opt_microempresas = Element.Mobile_Element(Constantes.XPATH, "//*[@text='MICROEMPRESAS']");
+    public static By opt_consumo = Element.Mobile_Element(Constantes.XPATH, "//*[@text='CONSUMO']");
     public static By click_subtipo_credito = Element.Mobile_Element(Constantes.XPATH, "//android.widget.FrameLayout[5]/android.widget.FrameLayout/androidx.cardview.widget.CardView/android.view.ViewGroup/android.view.ViewGroup/android.widget.LinearLayout[4]/android.widget.LinearLayout/android.widget.Spinner");
     public static By click_primer_item_sub_tipo = Element.Mobile_Element(Constantes.XPATH, "//android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.LinearLayout[2]/android.widget.TextView");
+    public static By click_primer_item_sub_tipo_consumo = Element.Mobile_Element(Constantes.XPATH, "//*[@text='CONSUMO']");
     public static By click_primer_item_producto = Element.Mobile_Element(Constantes.XPATH, "//android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.LinearLayout[2]/android.widget.TextView");
     public static By click_selecciona_subproducto = Element.Mobile_Element(Constantes.XPATH, "//android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.LinearLayout[2]/android.widget.TextView");
+    public static By click_selecciona_subproducto_convenio = Element.Mobile_Element(Constantes.XPATH, "//*[@text='CONVENIO']");
     public static By click_tipo_operacion = Element.Mobile_Element(Constantes.XPATH, "//android.widget.FrameLayout[7]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.Spinner");
     public static By click_otorgamiento = Element.Mobile_Element(Constantes.XPATH, "//*[@text='OTORGAMIENTO']");
     public static By click_producto = Element.Mobile_Element(Constantes.XPATH, "//*[@text='Datos de solicitud']");
+    public static By click_producto_convenio = Element.Mobile_Element(Constantes.XPATH, "//*[@text='CONVENIO']");
+
     public static By btn_selecciona_ubigeo = Element.Mobile_Element(Constantes.XPATH, "//*[@resource-id='com.kata.formiik:id/widget_update']");
     public static By verifica_geolocalizacion = Element.Mobile_Element(Constantes.XPATH, "//androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[11]/android.widget.LinearLayout/android.widget.ImageButton");
     public static By opt_tipo_ingreso = Element.Mobile_Element(Constantes.XPATH, "//android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.LinearLayout[2]/android.widget.TextView");
@@ -58,6 +63,8 @@ public class Campaings_Task {
     public static By btn_ok = Element.Mobile_Element(Constantes.XPATH, "//android.widget.ScrollView/android.widget.LinearLayout/android.widget.Button");
     public static By click_subproducto_temp = Element.Mobile_Element(Constantes.XPATH, "//android.widget.FrameLayout[5]/android.widget.FrameLayout/androidx.cardview.widget.CardView/android.view.ViewGroup/android.view.ViewGroup/android.widget.LinearLayout[8]/android.widget.LinearLayout/android.widget.Spinner");
     public static By click_ampliacion = Element.Mobile_Element(Constantes.XPATH, "//android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.LinearLayout[2]/android.widget.TextView");
+    public static By click_destino = Element.Mobile_Element(Constantes.XPATH, "(//android.view.View[@content-desc=\"Menú desplegable\"])[3]/android.widget.EditText/android.view.View");
+    public static By click_libre_disponibilidad = Element.Mobile_Element(Constantes.XPATH, "//*[@text='LIBRE DISPONIBILIDAD']");
     public static By click_tipo_cronograma = Element.Mobile_Element(Constantes.XPATH, "//android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[6]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.Spinner");
     public static By selecciono_tipo_cronograma = Element.Mobile_Element(Constantes.XPATH, "//android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.LinearLayout[2]/android.widget.TextView");
     public static By selecciono_cuotas_libres_no = Element.Mobile_Element(Constantes.XPATH, "//android.view.ViewGroup/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[10]/android.widget.LinearLayout/android.widget.RadioGroup/android.widget.RadioButton[2]");

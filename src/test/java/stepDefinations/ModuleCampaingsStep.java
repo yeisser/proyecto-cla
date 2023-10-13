@@ -194,6 +194,14 @@ public class ModuleCampaingsStep {
     public void click_item_microempresas() {
         credito.click_item_microempresas();
     }
+    @And("^selecciona item CONSUMO$")
+    public void click_item_consumo_tipo_credito(){
+        credito.click_item_consumo();
+    }
+    @And("^selecciona item de tipo de credito \"([^\"]*)\"$")
+    public void click_item_seleccion() {
+        credito.click_item_microempresas();
+    }
 
     @And("^hago click en subtipo de credito$")
     public void click_subtipo_credito() {
@@ -203,6 +211,10 @@ public class ModuleCampaingsStep {
     @And("^selecciona primer item AGROPECUARIOS de subtipo de credito$")
     public void click_subtipo() {
         credito.click_subtipo();
+    }
+    @And("^selecciona subtipo de credito CONSUMO$")
+    public void click_subtipo_consumo() {
+        credito.click_subtipo_consumo();
     }
 
     @And("^selecciona primer item de productos")
@@ -214,11 +226,20 @@ public class ModuleCampaingsStep {
     public void click_producto() {
         credito.click_producto();
     }
+    @And("^selecciona producto CONVENIO$")
+    public void click_producto_convenio() {
+        credito.click_producto_convenio();
+    }
 
     @And("^selecciona subproducto datos de solicitud$")
     public void click_selecciona_subproducto() {
         credito.click_subproducto_temp();
         credito.click_selecciona_subproducto();
+    }
+    @And("^selecciona subproducto CONVENIO$")
+    public void click_selecciona_subproducto_convenio() {
+        credito.click_subproducto_temp();
+        credito.click_selecciona_subproducto_convenio();
     }
 
     @And("^Hago click en suproducto$")
@@ -239,6 +260,12 @@ public class ModuleCampaingsStep {
     public void click_ampliacion() {
         credito.click_ampliacion();
     }
+    @And("^selecciono Destino del credito y hago click en LIBRE DISPONIBILIDAD$")
+    public void click_destino_credito_seleccion_libre_disponibilidad() {
+        credito.click_destino_credito();
+        credito.selecciona_libre_disponibilidad();
+    }
+
 
     @And("^hago click Tipo de cronograma$")
     public void click_tipo_cronograma() {

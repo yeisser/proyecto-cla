@@ -122,12 +122,19 @@ public class campaings_screens {
     public void click_item_microempresas() {
         UIOperation.giveClick(Campaings_Task.opt_microempresas);
     }
+    public void click_item_consumo(){
+        UIOperation.giveClick(Campaings_Task.opt_consumo);
+
+    }
     public void click_subtipo_credito(){
         UIOperation.giveClick(Campaings_Task.click_subtipo_credito);
     }
 
     public void click_subtipo() {
         UIOperation.giveClick(Campaings_Task.click_primer_item_sub_tipo);
+    }
+    public void click_subtipo_consumo() {
+        UIOperation.giveClick(Campaings_Task.click_primer_item_sub_tipo_consumo);
     }
 
     public void click_primer_item_producto() {
@@ -138,9 +145,16 @@ public class campaings_screens {
     public void click_producto() {
         UIOperation.giveClick(Campaings_Task.click_producto);
     }
+    public void click_producto_convenio() {
+        UIOperation.giveClick(Campaings_Task.click_producto_convenio);
+    }
+
 
     public void click_selecciona_subproducto() {
         UIOperation.giveClick(Campaings_Task.click_selecciona_subproducto);
+    }
+    public void click_selecciona_subproducto_convenio() {
+        UIOperation.giveClick(Campaings_Task.click_selecciona_subproducto_convenio);
     }
 
     public void click_subproducto_temp() {
@@ -159,6 +173,12 @@ public class campaings_screens {
         UIOperation.giveClick(Campaings_Task.click_ampliacion);
     }
 
+    public void selecciona_libre_disponibilidad(){
+        UIOperation.giveClick(Campaings_Task.click_libre_disponibilidad);
+    }
+    public void click_destino_credito(){
+        UIOperation.giveClick(Campaings_Task.click_destino);
+    }
 
     public void click_tipo_cronograma() {
         UIOperation.giveClick(Campaings_Task.click_tipo_cronograma);
