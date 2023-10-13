@@ -109,8 +109,6 @@ R
 "src/test/java/runner/RunnTest.java,9\9\990b63c44715006272222d4589358a95033fefa7
 T
 $src/test/java/features/Login.feature,7\5\7547904f979a4bd380ac2279c6a2328d8740ff94
-_
-/src/test/java/features/ModuleRecoveries.feature,b\c\bc571378155111eac2e4d3756399067795fd8a3d
 ^
 .src/test/java/stepDefinations/WelcomeStep.java,7\2\724c5d0bb442d55dde0246daf563e51264982bc4
 X

@@ -67,6 +67,12 @@ public class Campaings_Task {
     public static By click_libre_disponibilidad = Element.Mobile_Element(Constantes.XPATH, "//*[@text='LIBRE DISPONIBILIDAD']");
     public static By click_tipo_cronograma = Element.Mobile_Element(Constantes.XPATH, "//android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[6]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.Spinner");
     public static By selecciono_tipo_cronograma = Element.Mobile_Element(Constantes.XPATH, "//android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.LinearLayout[2]/android.widget.TextView");
+    public static By selecciono_menu_datos_conyuge = Element.Mobile_Element(Constantes.XPATH, "//*[@text='Datos del cónyuge']");
+    public static By selecciono_menu_excepciones = Element.Mobile_Element(Constantes.XPATH, "//*[@text='Excepciones']");
+    public static By click_reglas_caja = Element.Mobile_Element(Constantes.XPATH, "//android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/androidx.compose.ui.platform.m1/android.view.View/android.view.View/android.view.View[2]/android.view.View[1]/android.view.View/android.widget.Button");
+    public static By selecciona_regla_tres_entidades = Element.Mobile_Element(Constantes.XPATH, "//*[@text='Fiador Solidario PN: Máximo 03 entidades incluido la del cónyuge.']");
+
+    public static By click_aceptar = Element.Mobile_Element(Constantes.XPATH, "//*[@text='ACEPTAR']");
     public static By selecciono_cuotas_libres_no = Element.Mobile_Element(Constantes.XPATH, "//android.view.ViewGroup/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[10]/android.widget.LinearLayout/android.widget.RadioGroup/android.widget.RadioButton[2]");
     public static By btn_actividad_principal = Element.Mobile_Element(Constantes.XPATH, "//androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[9]/android.widget.LinearLayout/android.widget.ImageButton");
     public static By btn_actividad_secundaria_si = Element.Mobile_Element(Constantes.XPATH, "//android.view.ViewGroup/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[17]/android.widget.LinearLayout/android.widget.RadioGroup/android.widget.RadioButton[1]");

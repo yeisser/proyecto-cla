@@ -277,6 +277,22 @@ public class ModuleCampaingsStep {
     public void selecciono_tipo_cronograma() {
         credito.selecciono_tipo_cronograma();
     }
+    @And("^hago click en el menu Datos del conyuge$")
+    public void selecciono_menu_datos_conyuge() {
+        credito.selecciono_menu_datos_conyuge();
+    }
+    @And("^hago click en el menu Excepciones$")
+    public void selecciono_menu_excepciones() {
+        credito.selecciono_menu_excepciones();
+    }
+    @And("^verifico regla max de entidades es tres para clientes solteros$")
+    public void verifica_reglas_entidades_soltero_tres_clientes() {
+        credito.hago_click_consultar_reglas_caja();
+        credito.click_aceptar();
+        credito.selecciono_regla_tres_entidades();
+    }
+
+
 
     @And("^verifico que cliente tenga credito activo$")
     public void cliente_activo() {

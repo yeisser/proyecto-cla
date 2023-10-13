@@ -88,6 +88,7 @@ public class Recoveries_Task {
     public static By clic_cancelar_evento = Element.Mobile_Element(Constantes.XPATH, "//android.widget.FrameLayout/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.Button[1]");
     public static By clic_aceptar_evento = Element.Mobile_Element(Constantes.XPATH, "//android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.Button[2]");
 
+
     public static By txt_ingresa_monto_cero = Element.Mobile_Element(Constantes.XPATH, "//android.widget.FrameLayout[8]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.EditText");
     public static By btn_crear_confirmacion = Element.Mobile_Element(Constantes.XPATH, "//*[@text='CREAR']");
     public static By btn_MenuTipoDocumento = Element.Mobile_Element(Constantes.XPATH, "//*[@text='Seleccionar elemento']");

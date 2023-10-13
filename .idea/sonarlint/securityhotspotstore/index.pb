@@ -115,8 +115,6 @@ X
 (src/test/java/screens/WelcomeScreen.java,2\8\281dd6441d330c30e3f1e811a7422f764ff8e3ab
 ^
 .src/test/java/stepDefinations/WelcomeStep.java,7\2\724c5d0bb442d55dde0246daf563e51264982bc4
-_
-/src/test/java/features/ModuleRecoveries.feature,b\c\bc571378155111eac2e4d3756399067795fd8a3d
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 V

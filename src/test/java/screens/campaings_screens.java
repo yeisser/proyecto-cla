@@ -187,9 +187,23 @@ public class campaings_screens {
     public void selecciono_tipo_cronograma() {
         UIOperation.giveClick(Campaings_Task.selecciono_tipo_cronograma);
     }
-    public void trae_cliente_activo(){
-
+    public void selecciono_menu_datos_conyuge(){
+        UIOperation.giveClick(Campaings_Task.selecciono_menu_datos_conyuge);
     }
+    public void selecciono_menu_excepciones(){
+        UIOperation.giveClick(Campaings_Task.selecciono_menu_excepciones);
+    }
+    public void hago_click_consultar_reglas_caja(){
+        UIOperation.giveClick(Campaings_Task.click_reglas_caja);
+    }
+    public void selecciono_regla_tres_entidades(){
+        UIOperation.giveClick(Campaings_Task.selecciona_regla_tres_entidades);
+    }
+
+    public void click_aceptar(){
+        UIOperation.giveClick(Campaings_Task.click_aceptar);
+    }
+
 
     public void click_no_cuotas_libres() {
         UIOperation.giveClick(Campaings_Task.selecciono_cuotas_libres_no);
