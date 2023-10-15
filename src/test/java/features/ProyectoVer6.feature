@@ -16,7 +16,7 @@ Feature: Escenarios Modulo de recuperaciones
       | andesqa      | ncordova@craclasadev.com | Andes$2023   |
 
   @mobile
-  Scenario Outline: CP01 - Kata Mobile - Monto y número de cuotas - El Monto y número de Cuotas deben mostrarse autocompletados y ser editable
+  Scenario Outline: CP0001 - Kata Mobile - Monto y número de cuotas - El Monto y número de Cuotas deben mostrarse autocompletados y ser editable
     Given se observa la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
     When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
     And el usuario ingresa al home y hace click en el boton de nueva orden
@@ -286,16 +286,10 @@ Feature: Escenarios Modulo de recuperaciones
     And selecciona item CONSUMO
     And hago click en subtipo de credito
     And selecciona primer item AGROPECUARIOS de subtipo de credito
-    And selecciona producto CONVENIO
-    And selecciona subproducto CONVENIO
-    And hago click en tipo de operacion
-    And selecciona ampliacion del tipo de operacion
-    And selecciono Destino del credito y hago click en LIBRE DISPONIBILIDAD
+    And selecciona producto PERSONAL
+    And selecciona subproducto credichamba
     And hago click Tipo de cronograma
     And selecciono tipo de cronograma fecha fija
-    And ingreso Monto Solicitado "<monto>"
-    And ingreso Nro de cuotas "<cuotas>"
-    And selecciono agua saneamiento del Destino del crédito
 
     Examples:
       | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoItem | monto   | cuotas |

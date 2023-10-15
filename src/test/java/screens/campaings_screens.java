@@ -1,6 +1,7 @@
 package screens;
 
 import org.openqa.selenium.By;
+import task.Recoveries_Task;
 import utility.Constantes;
 import utility.Element;
 import utility.UIOperation;
@@ -148,6 +149,9 @@ public class campaings_screens {
     public void click_producto_convenio() {
         UIOperation.giveClick(Campaings_Task.click_producto_convenio);
     }
+    public void click_producto_personal() {
+        UIOperation.giveClick(Campaings_Task.click_producto_personal);
+    }
 
 
     public void click_selecciona_subproducto() {
@@ -156,6 +160,14 @@ public class campaings_screens {
     public void click_selecciona_subproducto_convenio() {
         UIOperation.giveClick(Campaings_Task.click_selecciona_subproducto_convenio);
     }
+
+    public String get_celular_cliente_nueve_digitos() {
+        return UIOperation.getText(Recoveries_Task.txtview_celular_cliente_nueve_digitos);
+    }
+    public void click_selecciona_subproducto_credichamba() {
+        UIOperation.giveClick(Campaings_Task.click_selecciona_subproducto_credichamba);
+    }
+
 
     public void click_subproducto_temp() {
         UIOperation.giveClick(Campaings_Task.click_subproducto_temp);

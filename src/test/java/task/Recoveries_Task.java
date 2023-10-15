@@ -69,6 +69,8 @@ public class Recoveries_Task {
     public static By opt_option_tipo_contacto = Element.Mobile_Element(Constantes.XPATH, "//*[@text='Elegir una opción']");
     public static By desplegable_accion = Element.Mobile_Element(Constantes.XPATH, "//*[@text='Elegir una opción']");
     public static By txtview_celular_cliente_nueve_digitos = Element.Mobile_Element(Constantes.XPATH, "//android.widget.FrameLayout[4]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.EditText");
+
+
     public static By lbl_error_user_or_pass = Element.Mobile_Element(Constantes.XPATH, "//android.view.View[1]/android.view.View/android.view.View[2]/android.view.View/android.widget.TextView[1]");
     public static By btn_consultar_cartera = Element.Mobile_Element(Constantes.XPATH, "//androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[3]/android.widget.LinearLayout/android.widget.ImageButton");
     public static By btn_tabla_mora = Element.Mobile_Element(Constantes.XPATH, "//androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[6]/android.widget.LinearLayout/android.widget.ImageButton");

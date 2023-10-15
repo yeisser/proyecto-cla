@@ -22,10 +22,14 @@ public class Campaings_Task {
     public static By click_primer_item_producto = Element.Mobile_Element(Constantes.XPATH, "//android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.LinearLayout[2]/android.widget.TextView");
     public static By click_selecciona_subproducto = Element.Mobile_Element(Constantes.XPATH, "//android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.LinearLayout[2]/android.widget.TextView");
     public static By click_selecciona_subproducto_convenio = Element.Mobile_Element(Constantes.XPATH, "//*[@text='CONVENIO']");
+    public static By click_selecciona_subproducto_credichamba = Element.Mobile_Element(Constantes.XPATH, "//*[@text='PERSONAL-TU CREDI CHAMBA']");
+
     public static By click_tipo_operacion = Element.Mobile_Element(Constantes.XPATH, "//android.widget.FrameLayout[7]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.Spinner");
     public static By click_otorgamiento = Element.Mobile_Element(Constantes.XPATH, "//*[@text='OTORGAMIENTO']");
     public static By click_producto = Element.Mobile_Element(Constantes.XPATH, "//*[@text='Datos de solicitud']");
     public static By click_producto_convenio = Element.Mobile_Element(Constantes.XPATH, "//*[@text='CONVENIO']");
+    public static By click_producto_personal = Element.Mobile_Element(Constantes.XPATH, "//*[@text='PERSONAL']");
+
 
     public static By btn_selecciona_ubigeo = Element.Mobile_Element(Constantes.XPATH, "//*[@resource-id='com.kata.formiik:id/widget_update']");
     public static By verifica_geolocalizacion = Element.Mobile_Element(Constantes.XPATH, "//androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[11]/android.widget.LinearLayout/android.widget.ImageButton");

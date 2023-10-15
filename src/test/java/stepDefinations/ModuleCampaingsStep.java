@@ -230,6 +230,10 @@ public class ModuleCampaingsStep {
     public void click_producto_convenio() {
         credito.click_producto_convenio();
     }
+    @And("^selecciona producto PERSONAL$")
+    public void click_producto_personal() {
+        credito.click_producto_personal();
+    }
 
     @And("^selecciona subproducto datos de solicitud$")
     public void click_selecciona_subproducto() {
@@ -241,6 +245,12 @@ public class ModuleCampaingsStep {
         credito.click_subproducto_temp();
         credito.click_selecciona_subproducto_convenio();
     }
+    @And("^selecciona subproducto credichamba$")
+    public void click_selecciona_subproducto_credichamba() {
+        credito.click_subproducto_temp();
+        credito.click_selecciona_subproducto_credichamba();
+    }
+
 
     @And("^Hago click en suproducto$")
     public void click_subproducto_temp() {
