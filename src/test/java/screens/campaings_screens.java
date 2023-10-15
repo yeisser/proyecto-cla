@@ -179,6 +179,9 @@ public class campaings_screens {
     public void click_destino_credito(){
         UIOperation.giveClick(Campaings_Task.click_destino);
     }
+    public void selecciono_agua_saneamiento(){
+        UIOperation.giveClick(Campaings_Task.click_agua_saneamiento);
+    }
 
     public void click_tipo_cronograma() {
         UIOperation.giveClick(Campaings_Task.click_tipo_cronograma);

@@ -351,7 +351,11 @@ public class ModuleCampaingsStep {
         scrollByText_baja_hasta_nro_cuotas();
         credito.ingreso_nro_cuotas(cuotas);
     }
-
+    @And("^selecciono agua saneamiento del Destino del crédito$")
+    public void selecciono_destino_credito(){
+        credito.click_destino_credito();
+        credito.selecciono_agua_saneamiento();
+    }
     @And("^registro fecha de primera cuota$")
     public void registrofecha() {
         credito.registro_fecha();

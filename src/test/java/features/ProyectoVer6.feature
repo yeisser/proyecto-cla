@@ -102,7 +102,7 @@ Feature: Escenarios Modulo de recuperaciones
 
   @mobile
     #Pendiente el caso no se entiende.
-  Scenario Outline: CP0216 - Condiciones para los días de atraso: Promedio 8 días, máximo hasta 10 días, última cuota hasta 5 días. Realizar otorgamiento de crédito Pyme con 9 días de atraso.  Para tipo de regla Excepcionable.
+  Scenario Outline: CP0216 - Condiciones para los días de atraso: Promedio 8 días, máximo hasta 10 días, última cuota hasta 5 días. Realizar otorgamiento de crédito Pyme con 9 días de atraso.  Para tipo de regla Excepcionable
     Given el usuario ingresa al home y hace click en el boton de nueva orden
     And el usuario hace click en la opcion "<TipoFormulario>" del menu
     And el usuario hace click en la opcion "<TipoFormulario2>" del menu
@@ -137,7 +137,7 @@ Feature: Escenarios Modulo de recuperaciones
 
   @mobile
        #Pendiente el caso no se entiende. Se envió correo
-  Scenario Outline: CP0197 - Crédito Estacional: Solo aplica el destino capital de trabajo. Probar realizar solicitud de crédito estacional Pyme con destino capital de trabajo. Para tipo de regla No Excepcionable.
+  Scenario Outline: CP0197 - Crédito Estacional: Solo aplica el destino capital de trabajo. Probar realizar solicitud de crédito estacional Pyme con destino capital de trabajo. Para tipo de regla No Excepcionable
     Given el usuario ingresa al home y hace click en el boton de nueva orden
     And el usuario hace click en la opcion "<TipoFormulario>" del menu
     And el usuario hace click en la opcion "<TipoFormulario2>" del menu
@@ -172,7 +172,7 @@ Feature: Escenarios Modulo de recuperaciones
 
   @mobile
     #Pendiente el caso no se entiende. Se envió correo
-  Scenario Outline: CP0200 - Crédito Estacional: Solo aplica el destino capital de trabajo. Probar realizar solicitud de crédito estacional Pyme con destino capital de trabajo. Para tipo de regla No Excepcionable.
+  Scenario Outline: CP0200 - Crédito Estacional: Solo aplica el destino capital de trabajo. Probar realizar solicitud de crédito estacional Pyme con destino capital de trabajo. Para tipo de regla No Excepcionable
     Given el usuario ingresa al home y hace click en el boton de nueva orden
     And el usuario hace click en la opcion "<TipoFormulario>" del menu
     And el usuario hace click en la opcion "<TipoFormulario2>" del menu
@@ -200,6 +200,102 @@ Feature: Escenarios Modulo de recuperaciones
     And hago click en el menu Datos del conyuge
     And hago click en el menu Excepciones
     And verifico regla max de entidades es tres para clientes solteros
+
+    Examples:
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoItem | monto   | cuotas |
+      | Credito        | Credito_Individual | DNI           | 40603206     | CONSUMO  | 1000.01 | 336    |
+
+  @mobile
+  Scenario Outline: CP0206 - Producto Convenio: Solo aplica los destinos libre disponibilidad, compra de deuda y agua saneamiento. Probar un credito con agua y sanemamiento Para tipo de regla No Excepcionable
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And hago click menu Datos de solicitud
+    And ingresa tipo de credito
+    And selecciona item CONSUMO
+    And hago click en subtipo de credito
+    And selecciona primer item AGROPECUARIOS de subtipo de credito
+    And selecciona producto CONVENIO
+    And selecciona subproducto CONVENIO
+    And hago click en tipo de operacion
+    And selecciona ampliacion del tipo de operacion
+    And selecciono Destino del credito y hago click en LIBRE DISPONIBILIDAD
+    And hago click Tipo de cronograma
+    And selecciono tipo de cronograma fecha fija
+    And ingreso Monto Solicitado "<monto>"
+    And ingreso Nro de cuotas "<cuotas>"
+    And selecciono agua saneamiento del Destino del crédito
+
+    Examples:
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoItem | monto   | cuotas |
+      | Credito        | Credito_Individual | DNI           | 40603206     | CONSUMO  | 1000.01 | 336    |
+
+  @mobile
+  Scenario Outline: CP0207 - Producto Convenio: Solo aplica los destinos libre disponibilidad, compra de deuda y agua saneamiento. Probar un credito con destino diferente a libre disponiblidad, compra deuda y agua saneamiento. Para tipo de regla No Excepcionable
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And hago click menu Datos de solicitud
+    And ingresa tipo de credito
+    And selecciona item CONSUMO
+    And hago click en subtipo de credito
+    And selecciona primer item AGROPECUARIOS de subtipo de credito
+    And selecciona producto CONVENIO
+    And selecciona subproducto CONVENIO
+    And hago click en tipo de operacion
+    And selecciona ampliacion del tipo de operacion
+    And selecciono Destino del credito y hago click en LIBRE DISPONIBILIDAD
+    And hago click Tipo de cronograma
+    And selecciono tipo de cronograma fecha fija
+    And ingreso Monto Solicitado "<monto>"
+    And ingreso Nro de cuotas "<cuotas>"
+    And selecciono agua saneamiento del Destino del crédito
+
+    Examples:
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoItem | monto   | cuotas |
+      | Credito        | Credito_Individual | DNI           | 40603206     | CONSUMO  | 1000.01 | 336    |
+
+  @mobile
+  Scenario Outline: CP0211 - Tu Credi Chamba: La frecuencia de pago solo debe de ser mensual. Probar un credito con la frecuencia mensual Para tipo de regla No Excepcionable
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And hago click menu Datos de solicitud
+    And ingresa tipo de credito
+    And selecciona item CONSUMO
+    And hago click en subtipo de credito
+    And selecciona primer item AGROPECUARIOS de subtipo de credito
+    And selecciona producto CONVENIO
+    And selecciona subproducto CONVENIO
+    And hago click en tipo de operacion
+    And selecciona ampliacion del tipo de operacion
+    And selecciono Destino del credito y hago click en LIBRE DISPONIBILIDAD
+    And hago click Tipo de cronograma
+    And selecciono tipo de cronograma fecha fija
+    And ingreso Monto Solicitado "<monto>"
+    And ingreso Nro de cuotas "<cuotas>"
+    And selecciono agua saneamiento del Destino del crédito
 
     Examples:
       | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoItem | monto   | cuotas |
