@@ -72,6 +72,9 @@ public class Campaings_Task {
     public static By click_libre_disponibilidad = Element.Mobile_Element(Constantes.XPATH, "//*[@text='LIBRE DISPONIBILIDAD']");
     public static By click_tipo_cronograma = Element.Mobile_Element(Constantes.XPATH, "//android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[6]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.Spinner");
     public static By selecciono_tipo_cronograma = Element.Mobile_Element(Constantes.XPATH, "//android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.LinearLayout[2]/android.widget.TextView");
+    public static By selecciono_periodo_fijo = Element.Mobile_Element(Constantes.XPATH, "//*[@text='Periodo Fijo']");
+    public static By click_frecuencia = Element.Mobile_Element(Constantes.XPATH, "(//android.view.View[@content-desc=\"Menú desplegable\"])[4]/android.widget.EditText/android.view.View/android.view.View[1]");
+    public static By selecciono_frecuencia_bimensual = Element.Mobile_Element(Constantes.XPATH, "//*[@text='Bimensual']");
     public static By selecciono_menu_datos_conyuge = Element.Mobile_Element(Constantes.XPATH, "//*[@text='Datos del cónyuge']");
     public static By selecciono_menu_excepciones = Element.Mobile_Element(Constantes.XPATH, "//*[@text='Excepciones']");
     public static By click_reglas_caja = Element.Mobile_Element(Constantes.XPATH, "//android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/androidx.compose.ui.platform.m1/android.view.View/android.view.View/android.view.View[2]/android.view.View[1]/android.view.View/android.widget.Button");

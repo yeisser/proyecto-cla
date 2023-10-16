@@ -287,6 +287,17 @@ public class ModuleCampaingsStep {
     public void selecciono_tipo_cronograma() {
         credito.selecciono_tipo_cronograma();
     }
+    @And("^selecciono frecuencia Bimensual$")
+    public void selecciono_frecuencia() {
+        credito.click_frecuencia();
+        credito.selecciono_bimensual();
+    }
+
+    @And("^selecciono tipo de cronograma periodo Fijo$")
+    public void selecciono_tipo_cronograma_periodo_fijo() {
+        credito.selecciono_tipo_cronograma_periodo_fijo();
+
+    }
     @And("^hago click en el menu Datos del conyuge$")
     public void selecciono_menu_datos_conyuge() {
         credito.selecciono_menu_datos_conyuge();

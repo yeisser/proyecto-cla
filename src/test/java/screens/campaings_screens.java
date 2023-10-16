@@ -202,6 +202,18 @@ public class campaings_screens {
     public void selecciono_tipo_cronograma() {
         UIOperation.giveClick(Campaings_Task.selecciono_tipo_cronograma);
     }
+    public void click_frecuencia() {
+        UIOperation.giveClick(Campaings_Task.click_frecuencia);
+    }
+    public void selecciono_bimensual() {
+        UIOperation.giveClick(Campaings_Task.selecciono_frecuencia_bimensual);
+    }
+
+
+    public void selecciono_tipo_cronograma_periodo_fijo() {
+        UIOperation.giveClick(Campaings_Task.selecciono_periodo_fijo);
+    }
+
     public void selecciono_menu_datos_conyuge(){
         UIOperation.giveClick(Campaings_Task.selecciono_menu_datos_conyuge);
     }

@@ -294,3 +294,92 @@ Feature: Escenarios Modulo de recuperaciones
     Examples:
       | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoItem | monto   | cuotas |
       | Credito        | Credito_Individual | DNI           | 40603206     | CONSUMO  | 1000.01 | 336    |
+
+  @mobile
+  Scenario Outline: CP0212 - Tu Credi Chamba: La frecuencia de pago solo debe de ser mensual. Probar un credito con la frecuencia diferente a la mensual Para tipo de regla No Excepcionable.
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And hago click menu Datos de solicitud
+    And ingresa tipo de credito
+    And selecciona item CONSUMO
+    And hago click en subtipo de credito
+    And selecciona subtipo de credito CONSUMO
+    And selecciona producto PERSONAL
+    And selecciona subproducto credichamba
+    And hago click en tipo de operacion
+    And selecciona ampliacion del tipo de operacion
+    And hago click Tipo de cronograma
+    And selecciono tipo de cronograma fecha fija
+    And selecciono frecuencia Bimensual
+
+    Examples:
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoItem | monto   | cuotas |
+      | Credito        | Credito_Individual | DNI           | 40603206     | CONSUMO  | 1000.01 | 336    |
+
+  @mobile
+    #Se requiere data para avanzar con el caso
+  Scenario Outline: CP0240 - Tu Credi Chamba: No se puede realizar un OTORGAMIENTO o AMPLIACIÓN para Clientes con Clasificación Interna E. Realizar un OTORGAMIENTO  para Clientes con Clasificación Interna E . Para tipo de regla No Excepcionable.
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And hago click menu Datos de solicitud
+    And ingresa tipo de credito
+    And selecciona item CONSUMO
+    And hago click en subtipo de credito
+    And selecciona subtipo de credito CONSUMO
+    And selecciona producto PERSONAL
+    And selecciona subproducto credichamba
+    And hago click en tipo de operacion
+    And selecciona ampliacion del tipo de operacion
+    And hago click Tipo de cronograma
+    And selecciono tipo de cronograma fecha fija
+    And selecciono frecuencia Bimensual
+
+    Examples:
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoItem | monto   | cuotas |
+      | Credito        | Credito_Individual | DNI           | 40603206     | CONSUMO  | 1000.01 | 336    |
+
+  @mobile
+    #Se requiere data para avanzar con el caso
+  Scenario Outline: CP0241 - Tu Credi Chamba: No se puede realizar un OTORGAMIENTO o AMPLIACIÓN para Clientes con Clasificación Interna E. Realizar una AMPLIACION para Clientes con Clasificación Interna E . Para tipo de regla No Excepcionable.
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And hago click menu Datos de solicitud
+    And ingresa tipo de credito
+    And selecciona item CONSUMO
+    And hago click en subtipo de credito
+    And selecciona subtipo de credito CONSUMO
+    And selecciona producto PERSONAL
+    And selecciona subproducto credichamba
+    And hago click en tipo de operacion
+    And selecciona ampliacion del tipo de operacion
+    And hago click Tipo de cronograma
+    And selecciono tipo de cronograma fecha fija
+    And selecciono frecuencia Bimensual
+
+    Examples:
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoItem | monto   | cuotas |
+      | Credito        | Credito_Individual | DNI           | 40603206     | CONSUMO  | 1000.01 | 336    |
