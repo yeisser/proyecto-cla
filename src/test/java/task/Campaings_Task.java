@@ -26,6 +26,10 @@ public class Campaings_Task {
 
     public static By click_tipo_operacion = Element.Mobile_Element(Constantes.XPATH, "//android.widget.FrameLayout[7]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.Spinner");
     public static By click_otorgamiento = Element.Mobile_Element(Constantes.XPATH, "//*[@text='OTORGAMIENTO']");
+    public static By click_modalidad_credito_principal = Element.Mobile_Element(Constantes.XPATH, "//*[@text='PRINCIPAL']");
+
+    public static By click_modalidad_credito = Element.Mobile_Element(Constantes.XPATH, "(//android.view.View[@content-desc=\"Menú desplegable\"])[6]/android.widget.EditText/android.view.View");
+
     public static By click_producto = Element.Mobile_Element(Constantes.XPATH, "//*[@text='Datos de solicitud']");
     public static By click_producto_convenio = Element.Mobile_Element(Constantes.XPATH, "//*[@text='CONVENIO']");
     public static By click_producto_personal = Element.Mobile_Element(Constantes.XPATH, "//*[@text='PERSONAL']");

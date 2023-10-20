@@ -265,7 +265,14 @@ public class ModuleCampaingsStep {
     @And("^selecciona otorgamiento del tipo de operacion$")
     public void click_otorgamiento() {
         credito.click_otorgamiento();
+        credito.selecciona_modalidad_credito_principal();
     }
+    @And("^selecciono Modalidad de credito principal$")
+    public void click_modalidad_credito() {
+        credito.click_modalidad_credito();
+
+    }
+
     @And("^selecciona ampliacion del tipo de operacion$")
     public void click_ampliacion() {
         credito.click_ampliacion();

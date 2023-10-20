@@ -181,6 +181,15 @@ public class campaings_screens {
     public void click_otorgamiento() {
         UIOperation.giveClick(Campaings_Task.click_otorgamiento);
     }
+    public void selecciona_modalidad_credito_principal() {
+        UIOperation.giveClick(Campaings_Task.click_modalidad_credito_principal);
+    }
+
+    public void click_modalidad_credito() {
+        UIOperation.giveClick(Campaings_Task.click_modalidad_credito);
+    }
+
+
     public void click_ampliacion() {
         UIOperation.giveClick(Campaings_Task.click_ampliacion);
     }

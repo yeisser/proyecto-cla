@@ -383,3 +383,118 @@ Feature: Escenarios Modulo de recuperaciones
     Examples:
       | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoItem | monto   | cuotas |
       | Credito        | Credito_Individual | DNI           | 40603206     | CONSUMO  | 1000.01 | 336    |
+
+  @mobile
+    #En consulta de datos
+  Scenario Outline: CP0258 - ACTIVIDADES NO ADMITIDAS:No serán sujetos de elección las actividades de naturaleza ilegal, altamente especulativa u otras que impliquen contaminación o daño del medio ambiente. Considerando otorgamiento de crédito Personal (incluyendo campañas) con actividad de naturaleza ilegal. Para tipo de regla Excepcionable.
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And hago click menu Datos de solicitud
+    And ingresa tipo de credito
+    And selecciona item CONSUMO
+    And hago click en subtipo de credito
+    And selecciona subtipo de credito CONSUMO
+    And selecciona producto PERSONAL
+    And selecciona subproducto credichamba
+    And hago click en tipo de operacion
+    And selecciona ampliacion del tipo de operacion
+    And hago click Tipo de cronograma
+    And selecciono tipo de cronograma fecha fija
+    And selecciono frecuencia Bimensual
+
+    Examples:
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoItem | monto   | cuotas |
+      | Credito        | Credito_Individual | DNI           | 29267445     | CONSUMO  | 1000.01 | 336    |
+
+  @mobile
+    #En consulta
+  Scenario Outline: CP0259 - Visita de supervisión obligatoria pre desembolso Y/o Verificación. Para tipo de regla Excepcionable.
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And hago click menu Datos de solicitud
+    And ingresa tipo de credito
+    And selecciona item CONSUMO
+    And hago click en subtipo de credito
+    And selecciona subtipo de credito CONSUMO
+    And selecciona producto PERSONAL
+    And selecciona subproducto credichamba
+    And hago click en tipo de operacion
+    And selecciona ampliacion del tipo de operacion
+    And hago click Tipo de cronograma
+    And selecciono tipo de cronograma fecha fija
+    And selecciono frecuencia Bimensual
+
+    Examples:
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoItem | monto   | cuotas |
+      | Credito        | Credito_Individual | DNI           | 29267445     | CONSUMO  | 1000.01 | 336    |
+
+  @mobile
+  Scenario Outline: CP0262 - COMPRA DE DEUDA: Solo está permitido los tipos de operación Otorgamiento y ampliación; y la modalidad de crédito Principal o paralelo. Considerando tipo de operación otorgamiento con modalidad de crédito principal. Para tipo de regla No Excepcionable.
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And hago click menu Datos de solicitud
+    And ingresa tipo de credito
+    And selecciona item CONSUMO
+    And hago click en subtipo de credito
+    And selecciona subtipo de credito CONSUMO
+    And selecciona producto PERSONAL
+    And selecciona subproducto credichamba
+    And hago click en tipo de operacion
+    And selecciona otorgamiento del tipo de operacion
+    And selecciono Modalidad de credito principal
+
+    Examples:
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoItem | monto   | cuotas |
+      | Credito        | Credito_Individual | DNI           | 29267445     | CONSUMO  | 1000.01 | 336    |
+
+  @mobile
+  Scenario Outline: CP0265 - Crédito Pyme: El plazo para destino Agua y Saneamiento es hasta 36 meses y con garantía real es hasta 60 meses. Probar considerar  Otorgar crédito Pyme con plazo para destino Agua y Saneamiento menor a 36 meses. Para tipo de regla Excepcionable
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And hago click menu Datos de solicitud
+    And ingresa tipo de credito
+    And selecciona item CONSUMO
+    And hago click en subtipo de credito
+    And selecciona subtipo de credito CONSUMO
+    And selecciona producto PERSONAL
+    And selecciona subproducto credichamba
+    And hago click en tipo de operacion
+    And selecciona otorgamiento del tipo de operacion
+    And selecciono Modalidad de credito principal
+
+    Examples:
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoItem | monto   | cuotas |
+      | Credito        | Credito_Individual | DNI           | 29267445     | CONSUMO  | 1000.01 | 336    |
+
