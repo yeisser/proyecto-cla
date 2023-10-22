@@ -19,8 +19,11 @@ public class Campaings_Task {
     public static By click_subtipo_credito = Element.Mobile_Element(Constantes.XPATH, "//android.widget.FrameLayout[5]/android.widget.FrameLayout/androidx.cardview.widget.CardView/android.view.ViewGroup/android.view.ViewGroup/android.widget.LinearLayout[4]/android.widget.LinearLayout/android.widget.Spinner");
     public static By click_primer_item_sub_tipo = Element.Mobile_Element(Constantes.XPATH, "//android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.LinearLayout[2]/android.widget.TextView");
     public static By click_primer_item_sub_tipo_consumo = Element.Mobile_Element(Constantes.XPATH, "//*[@text='CONSUMO']");
+    public static By click_sub_tipo_empresarial = Element.Mobile_Element(Constantes.XPATH, "//*[@text='EMPRESARIAL']");
+    public static By click_selecciona_pymes = Element.Mobile_Element(Constantes.XPATH, "//*[@text='PYME']");
+    public static By click_selecciona_facilito = Element.Mobile_Element(Constantes.XPATH, "//*[@text='PYME-FACILITO']");
     public static By click_primer_item_producto = Element.Mobile_Element(Constantes.XPATH, "//android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.LinearLayout[2]/android.widget.TextView");
-    public static By click_selecciona_subproducto = Element.Mobile_Element(Constantes.XPATH, "//android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.LinearLayout[2]/android.widget.TextView");
+    public static By click_selecciona_subproducto = Element.Mobile_Element(Constantes.XPATH, "/hierarchy/android.view.ViewGroup/android.view.View/android.view.View/android.view.View/android.widget.ScrollView/android.view.View[4]/android.widget.TextView");
     public static By click_selecciona_subproducto_convenio = Element.Mobile_Element(Constantes.XPATH, "//*[@text='CONVENIO']");
     public static By click_selecciona_subproducto_credichamba = Element.Mobile_Element(Constantes.XPATH, "//*[@text='PERSONAL-TU CREDI CHAMBA']");
 
@@ -74,6 +77,7 @@ public class Campaings_Task {
     public static By click_destino = Element.Mobile_Element(Constantes.XPATH, "(//android.view.View[@content-desc=\"Menú desplegable\"])[3]/android.widget.EditText/android.view.View");
     public static By click_agua_saneamiento = Element.Mobile_Element(Constantes.XPATH, "//*[@text='AGUA Y SANEAMIENTO']");
     public static By click_libre_disponibilidad = Element.Mobile_Element(Constantes.XPATH, "//*[@text='LIBRE DISPONIBILIDAD']");
+
     public static By click_tipo_cronograma = Element.Mobile_Element(Constantes.XPATH, "//android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[6]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.Spinner");
     public static By selecciono_tipo_cronograma = Element.Mobile_Element(Constantes.XPATH, "//android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.LinearLayout[2]/android.widget.TextView");
     public static By selecciono_periodo_fijo = Element.Mobile_Element(Constantes.XPATH, "//*[@text='Periodo Fijo']");

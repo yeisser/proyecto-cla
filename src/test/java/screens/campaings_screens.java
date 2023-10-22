@@ -137,10 +137,21 @@ public class campaings_screens {
     public void click_subtipo_consumo() {
         UIOperation.giveClick(Campaings_Task.click_primer_item_sub_tipo_consumo);
     }
+    public void click_subtipo_empresarial() {
+        UIOperation.giveClick(Campaings_Task.click_sub_tipo_empresarial);
+    }
+
 
     public void click_primer_item_producto() {
         UIOperation.giveClick(Campaings_Task.click_primer_item_producto);
     }
+    public void click_selecciona_pymes() {
+        UIOperation.giveClick(Campaings_Task.click_selecciona_pymes);
+    }
+    public void click_selecciona_pyme_facilito() {
+        UIOperation.giveClick(Campaings_Task.click_selecciona_facilito);
+    }
+
 
 
     public void click_producto() {
@@ -197,6 +208,10 @@ public class campaings_screens {
     public void selecciona_libre_disponibilidad(){
         UIOperation.giveClick(Campaings_Task.click_libre_disponibilidad);
     }
+    public void selecciona_agua_saneamiento(){
+        UIOperation.giveClick(Campaings_Task.click_agua_saneamiento);
+    }
+
     public void click_destino_credito(){
         UIOperation.giveClick(Campaings_Task.click_destino);
     }

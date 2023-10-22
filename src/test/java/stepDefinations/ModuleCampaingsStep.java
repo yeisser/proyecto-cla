@@ -216,6 +216,30 @@ public class ModuleCampaingsStep {
     public void click_subtipo_consumo() {
         credito.click_subtipo_consumo();
     }
+    @And("^selecciona subtipo de credito empresarial$")
+    public void click_subtipo_empresarial(){
+        credito.click_subtipo_empresarial();
+    }
+    @And("^selecciona producto PYME$")
+    public void click_producto_pymes(){
+        credito.click_primer_item_producto();
+        credito.click_selecciona_pymes();
+    }
+    @And("^selecciona subproducto pyme$")
+    public void click_subproducto(){
+        credito.click_selecciona_subproducto();
+        credito.click_selecciona_pymes();
+    }
+    @And("^selecciona subproducto PYME$")
+    public void click_subproducto_pymes(){
+        credito.click_primer_item_producto();
+        credito.click_selecciona_pymes();
+    }
+    @And("^selecciona subproducto PYME-FACILITO$")
+    public void click_subproducto_pyme_facilito(){
+        credito.click_selecciona_subproducto();
+        credito.click_selecciona_pyme_facilito();
+    }
 
     @And("^selecciona primer item de productos")
     public void click_primer_item() {
@@ -282,6 +306,12 @@ public class ModuleCampaingsStep {
         credito.click_destino_credito();
         credito.selecciona_libre_disponibilidad();
     }
+    @And("^selecciono Destino del credito y hago click en AGUA Y SANEAMIENTO$")
+    public void click_destino_credito_seleccion_agua_saneamiento() {
+        credito.click_destino_credito();
+        credito.selecciona_agua_saneamiento();
+    }
+
 
 
     @And("^hago click Tipo de cronograma$")
