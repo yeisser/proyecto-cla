@@ -1,12 +1,9 @@
 package screens;
 
-import org.openqa.selenium.By;
+import task.Campaings_Task;
 import task.Recoveries_Task;
-import utility.Constantes;
-import utility.Element;
 import utility.UIOperation;
 import utility.Util;
-import task.Campaings_Task;
 
 public class campaings_screens {
     public void click_creditos() {
@@ -324,6 +321,12 @@ public class campaings_screens {
 
 
     public void click_sobreendeudamiento() {
+        UIOperation.giveClick(Campaings_Task.btn_sobreendeudamiento);
+    }
+    public void click_motorClienteNBancarizado() {
+        UIOperation.giveClick(Campaings_Task.btn_sobreendeudamiento);
+    }
+    public void click_envioSolicitud() {
         UIOperation.giveClick(Campaings_Task.btn_sobreendeudamiento);
     }
 
