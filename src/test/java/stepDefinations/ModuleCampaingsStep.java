@@ -5,12 +5,10 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import screens.campaings_screens;
-import task.Login_Task;
 import utility.Constantes;
 import utility.Element;
 import utility.Hook;
 import utility.UIOperation;
-import utility.Element;
 
 public class ModuleCampaingsStep {
 
@@ -495,4 +493,119 @@ public class ModuleCampaingsStep {
         credito.click_en_ok();
     }
 
+    @And("Consulta motor de decision de cliente no bancarizado")
+    public void consultaMotorDeDecisionDeClienteNoBancarizado() {
+        credito.click_motorClienteNBancarizado();
+    }
+
+    @And("enviar solicitud")
+    public void enviarSolicitud() {
+        credito.click_envioSolicitud();
+    }
+
+    @And("el usuario realiza manteniento de cliente")
+    public void elUsuarioRealizaMantenientoDeCliente() {
+        
+    }
+
+    @And("solicita periodo de gracia por {string} dias")
+    public void solicitaPeriodoDeGraciaPorDias(String arg0) {
+    }
+
+    @And("Verificar gastos financieros")
+    public void verificarGastosFinancieros() {
+
+    }
+
+    @And("aprobar solicitud")
+    public void aprobarSolicitud() {
+    }
+
+    @And("validar lista tipo de guardado")
+    public void validarListaTipoDeGuardado() {
+
+    }
+
+    @And("verifica creditos vigentes")
+    public void verificaCreditosVigentes() {
+        
+    }
+
+    @And("registra condiciones de credito")
+    public void registraCondicionesDeCredito() {
+    }
+
+    @And("verifico tarifario de cuotas")
+    public void verificoTarifarioDeCuotas() {
+        
+    }
+
+    @And("validar campo Nombre completo vacio")
+    public void validarCampoNombreCompletoVacio() {
+    }
+
+    @And("validar campo edad")
+    public void validarCampoEdad() {
+        
+    }
+
+    @And("validar actividad economica")
+    public void validarActividadEconomica() {
+        
+    }
+
+    @And("validar boton microfono")
+    public void validarBotonMicrofono() {
+        
+    }
+
+    @And("validar campo inicio de actividad economica")
+    public void validarCampoInicioDeActividadEconomica() {
+        
+    }
+
+    @And("validar campo geoposicion domicilio")
+    public void validarCampoGeoposicionDomicilio() {
+
+    }
+
+    @And("el usuario ingresa a documentos virtuales")
+    public void elUsuarioIngresaADocumentosVirtuales() {
+    }
+
+    @And("verificar dni anverso")
+    public void verificarDniAnverso() {
+    }
+
+    @And("el usuario ingresa a datos de solicitud")
+    public void elUsuarioIngresaADatosDeSolicitud() {
+    }
+
+    @And("verifica select subproducto")
+    public void verificaSelectSubproducto() {
+    }
+
+    @And("validar campo llamar")
+    public void validarCampoLlamar() {
+    }
+
+    @And("selecciona primer item PERSONAL de subtipo de credito")
+    public void seleccionaPrimerItemPERSONALDeSubtipoDeCredito() {
+    }
+
+    @And("valida campo TEA")
+    public void validaCampoTEA() {
+    }
+
+    @And("valida campo TEM")
+    public void validaCampoTEM() {
+    }
+
+    @And("valida boton consultar cliente")
+    public void validaBotonConsultarCliente() {
+    }
+
+    @And("validar campo se borrara los datos de la persona")
+    public void validarCampoSeBorraraLosDatosDeLaPersona() {
+    }
 }

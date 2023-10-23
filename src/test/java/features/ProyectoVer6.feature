@@ -36,6 +36,659 @@ Feature: Escenarios Modulo de recuperaciones
       | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 02040013     |
 
   @mobile
+  Scenario Outline: CP0040 - La Impresión contrato con varios intervinientes declarados debe plasmarse en el desembolso, para Pyme.
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And hago click menu Datos de solicitud
+    And ingresa tipo de credito
+    And selecciona primer item Microempresas
+    And hago click en subtipo de credito
+    And selecciona subtipo de credito empresarial
+    And selecciona producto PYME
+    And selecciona subproducto PYME
+    And hago click en tipo de operacion
+    And selecciona ampliacion del tipo de operacion
+    And selecciona otorgamiento del tipo de operacion
+    And selecciono Modalidad de credito principal
+    And selecciono Destino del credito y hago click en LIBRE DISPONIBILIDAD
+    And hago click Tipo de cronograma
+    And selecciono tipo de cronograma fecha fija
+    And ingreso Monto Solicitado "<monto>"
+    And ingreso Nro de cuotas "<cuotas>"
+    And selecciono no en el seguro de vida
+    And registro fecha de primera cuota
+    And selecciona calculo de plazo en días
+    And consulta niveles de autonomia de tasa
+    And Selecciona tasas
+    And selecciona NORMAL de tasas
+    And hago click en Simulador crédito
+    And Consulta sobreendeudamiento
+    And Consulta motor de decision de cliente no bancarizado
+    And enviar solicitud
+    Examples:
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoItem | monto | cuotas |
+      | Credito        | Credito_Individual | DNI           | 40603206     | CONSUMO  | 5000  | 336    |
+
+
+  @mobile
+  Scenario Outline: CP0050 - Validar las condiciones correctas  del campo  'Simular crédito', tipo de campo Botón plugin. Si  esta visible , Si  esta habilitado  , Si esta requerido
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And hago click menu Datos de solicitud
+    And ingresa tipo de credito
+    And selecciona primer item Microempresas
+    And hago click en subtipo de credito
+    And selecciona subtipo de credito empresarial
+    And selecciona producto PYME
+    And selecciona subproducto PYME
+    And hago click en tipo de operacion
+    And selecciona ampliacion del tipo de operacion
+    And selecciona otorgamiento del tipo de operacion
+    And selecciono Modalidad de credito principal
+    And selecciono Destino del credito y hago click en LIBRE DISPONIBILIDAD
+    And hago click Tipo de cronograma
+    And selecciono tipo de cronograma fecha fija
+    And ingreso Monto Solicitado "<monto>"
+    And ingreso Nro de cuotas "<cuotas>"
+    And selecciono no en el seguro de vida
+    And registro fecha de primera cuota
+    And selecciona calculo de plazo en días
+    And consulta niveles de autonomia de tasa
+    And Selecciona tasas
+    And selecciona NORMAL de tasas
+    And hago click en Simulador crédito
+
+    Examples:
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoItem | monto | cuotas |
+      | Credito        | Credito_Individual | DNI           | 40603206     | CONSUMO  | 5000  | 336    |
+
+  @mobile
+  Scenario Outline: CP0051 Validar Registro de datos generales del cliente, para Cliente Persona Jurídica - Recurrente
+    Given se observa la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
+    When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
+    And el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And el usuario verifica que tiene campaña y cambia de pestaña
+    And el usuario realiza manteniento de cliente
+
+    Examples:
+      | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoIngreso |
+      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | RUC           | 20602898025  | FIJO        |
+
+
+  @mobile
+  Scenario Outline: CP0057 - Validar las condiciones correctas  del campo  'Simular crédito', tipo de campo Botón plugin. Si  esta visible , Si  esta habilitado  , Si esta requerido
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And hago click menu Datos de solicitud
+    And ingresa tipo de credito
+    And selecciona primer item Microempresas
+    And hago click en subtipo de credito
+    And selecciona subtipo de credito empresarial
+    And selecciona producto PYME
+    And selecciona subproducto PYME
+    And hago click en tipo de operacion
+    And selecciona ampliacion del tipo de operacion
+    And selecciona otorgamiento del tipo de operacion
+    And selecciono Modalidad de credito principal
+    And selecciono Destino del credito y hago click en LIBRE DISPONIBILIDAD
+    And hago click Tipo de cronograma
+    And selecciono tipo de cronograma fecha fija
+    And ingreso Monto Solicitado "<monto>"
+    And ingreso Nro de cuotas "<cuotas>"
+    And selecciono no en el seguro de vida
+    And registro fecha de primera cuota
+    And selecciona calculo de plazo en días
+    And consulta niveles de autonomia de tasa
+    And Selecciona tasas
+    And selecciona NORMAL de tasas
+    And hago click en Simulador crédito
+    And Consulta sobreendeudamiento
+    And solicita periodo de gracia por "<dias>" dias
+
+
+    Examples:
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoItem | monto | cuotas |dias|
+      | Credito        | Credito_Individual | DNI           | 40603206     | CONSUMO  | 5000  | 336    |    |
+
+  @mobile
+  Scenario Outline: CP0065 - Visita de supervisión obligatoria pre desembolso Y/o Verificación. Aprobar crédito Pyme. Para tipo de regla Excepcionable.
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And hago click menu Datos de solicitud
+    And ingresa tipo de credito
+    And selecciona primer item Microempresas
+    And hago click en subtipo de credito
+    And selecciona subtipo de credito empresarial
+    And selecciona producto PYME
+    And selecciona subproducto PYME
+    And hago click en tipo de operacion
+    And selecciona ampliacion del tipo de operacion
+    And selecciona otorgamiento del tipo de operacion
+    And selecciono Modalidad de credito principal
+    And selecciono Destino del credito y hago click en LIBRE DISPONIBILIDAD
+    And hago click Tipo de cronograma
+    And selecciono tipo de cronograma fecha fija
+    And ingreso Monto Solicitado "<monto>"
+    And ingreso Nro de cuotas "<cuotas>"
+    And selecciono no en el seguro de vida
+    And registro fecha de primera cuota
+    And selecciona calculo de plazo en días
+    And consulta niveles de autonomia de tasa
+    And Selecciona tasas
+    And selecciona NORMAL de tasas
+    And hago click en Simulador crédito
+    And Consulta sobreendeudamiento
+    And Consulta motor de decision de cliente no bancarizado
+    And enviar solicitud
+    Examples:
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoItem | monto | cuotas |
+      | Credito        | Credito_Individual | DNI           | 40603206     | CONSUMO  | 5000  | 336    |
+
+  @mobile
+  Scenario Outline: CP0069 - Validar que Calculado 'Gastos Financieros' Si esté visible, No esté habilitado, No esté requerido y cumpla con la condición 'sumatoriaSaldosIndirectas+cuotaIndirectaFlujo'.
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And hago click menu Datos de solicitud
+    And ingresa tipo de credito
+    And selecciona primer item Microempresas
+    And hago click en subtipo de credito
+    And selecciona subtipo de credito empresarial
+    And selecciona producto PYME
+    And selecciona subproducto PYME
+    And hago click en tipo de operacion
+    And selecciona ampliacion del tipo de operacion
+    And selecciona otorgamiento del tipo de operacion
+    And selecciono Modalidad de credito principal
+    And selecciono Destino del credito y hago click en LIBRE DISPONIBILIDAD
+    And hago click Tipo de cronograma
+    And selecciono tipo de cronograma fecha fija
+    And ingreso Monto Solicitado "<monto>"
+    And ingreso Nro de cuotas "<cuotas>"
+    And selecciono no en el seguro de vida
+    And registro fecha de primera cuota
+    And selecciona calculo de plazo en días
+    And consulta niveles de autonomia de tasa
+    And Selecciona tasas
+    And selecciona NORMAL de tasas
+    And hago click en Simulador crédito
+    And Consulta sobreendeudamiento
+    And Verificar gastos financieros
+    Examples:
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoItem | monto | cuotas |
+      | Credito        | Credito_Individual | DNI           | 40603206     | CONSUMO  | 5000  | 336    |
+
+
+  @mobile
+  Scenario Outline: CP0070 - Visita de supervisión obligatoria pre desembolso Y/o Verificación. Aprobar crédito Pyme. Para tipo de regla Excepcionable.
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And hago click menu Datos de solicitud
+    And ingresa tipo de credito
+    And selecciona primer item Microempresas
+    And hago click en subtipo de credito
+    And selecciona subtipo de credito empresarial
+    And selecciona producto PYME
+    And selecciona subproducto PYME
+    And hago click en tipo de operacion
+    And selecciona ampliacion del tipo de operacion
+    And selecciona otorgamiento del tipo de operacion
+    And selecciono Modalidad de credito principal
+    And selecciono Destino del credito y hago click en LIBRE DISPONIBILIDAD
+    And hago click Tipo de cronograma
+    And selecciono tipo de cronograma fecha fija
+    And ingreso Monto Solicitado "<monto>"
+    And ingreso Nro de cuotas "<cuotas>"
+    And selecciono no en el seguro de vida
+    And registro fecha de primera cuota
+    And selecciona calculo de plazo en días
+    And consulta niveles de autonomia de tasa
+    And Selecciona tasas
+    And selecciona NORMAL de tasas
+    And hago click en Simulador crédito
+    And Consulta sobreendeudamiento
+    And Consulta motor de decision de cliente no bancarizado
+    And enviar solicitud
+    And aprobar solicitud
+    Examples:
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoItem | monto | cuotas |
+      | Credito        | Credito_Individual | DNI           | 40603206     | CONSUMO  | 4900  | 12    |
+
+  @mobile
+  Scenario Outline: CP0074 - Validar que Lista Desplegable '¿Tipo de guardado del formulario?' Si esté visible, No esté habilitado, Si esté requerido, debe contener 'Completo/Parcial'
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And hago click menu Datos de solicitud
+    And ingresa tipo de credito
+    And selecciona primer item Microempresas
+    And hago click en subtipo de credito
+    And selecciona subtipo de credito empresarial
+    And selecciona producto PYME
+    And selecciona subproducto PYME
+    And hago click en tipo de operacion
+    And selecciona ampliacion del tipo de operacion
+    And selecciona otorgamiento del tipo de operacion
+    And selecciono Modalidad de credito principal
+    And selecciono Destino del credito y hago click en LIBRE DISPONIBILIDAD
+    And hago click Tipo de cronograma
+    And selecciono tipo de cronograma fecha fija
+    And ingreso Monto Solicitado "<monto>"
+    And ingreso Nro de cuotas "<cuotas>"
+    And selecciono no en el seguro de vida
+    And registro fecha de primera cuota
+    And selecciona calculo de plazo en días
+    And consulta niveles de autonomia de tasa
+    And Selecciona tasas
+    And selecciona NORMAL de tasas
+    And hago click en Simulador crédito
+    And Consulta sobreendeudamiento
+    And Consulta motor de decision de cliente no bancarizado
+    And validar lista tipo de guardado
+    Examples:
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoItem | monto | cuotas |
+      | Credito        | Credito_Individual | DNI           | 40603206     | CONSUMO  | 4900  | 12    |
+
+  @mobile
+  Scenario Outline: CP0075 Validar Actualización de condiciones de crédito, para producto Pyme, sub producto Pyme, con destino Capital de trabajo, para Cliente Persona Jurídica - Nuevo.
+    Given se observa la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
+    When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
+    And el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And el usuario verifica que tiene campaña y cambia de pestaña
+    And el usuario realiza manteniento de cliente
+    And verifica creditos vigentes
+    And registra condiciones de credito
+
+    Examples:
+      | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoIngreso |
+      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | RUC           | 20602898025  | FIJO        |
+
+
+  @mobile
+  Scenario Outline: CP0076 - Se debe implementar el tarifario paralelo de Cuotas Chiquitas a partir del Servicios de Tasas para el proceso Campaña.
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And hago click menu Datos de solicitud
+    And ingresa tipo de credito
+    And selecciona primer item Microempresas
+    And hago click en subtipo de credito
+    And selecciona subtipo de credito empresarial
+    And selecciona producto PYME
+    And selecciona subproducto PYME
+    And hago click en tipo de operacion
+    And selecciona ampliacion del tipo de operacion
+    And selecciona otorgamiento del tipo de operacion
+    And selecciono Modalidad de credito principal
+    And selecciono Destino del credito y hago click en LIBRE DISPONIBILIDAD
+    And hago click Tipo de cronograma
+    And selecciono tipo de cronograma fecha fija
+    And ingreso Monto Solicitado "<monto>"
+    And ingreso Nro de cuotas "<cuotas>"
+    And selecciono no en el seguro de vida
+    And registro fecha de primera cuota
+    And verifico tarifario de cuotas
+    Examples:
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoItem | monto | cuotas |
+      | Credito        | Credito_Individual | DNI           | 40603206     | CONSUMO  | 4900  | 12    |
+
+ @mobile
+  Scenario Outline: CP0079 - El Servicio de Reniec debe funcionar para el proceso de Campaña.
+    Given se observa la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
+    When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
+    And el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+
+    Examples:
+      | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 02040013     |
+
+  @mobile
+  Scenario Outline: CP00100 - Validar que Calculado 'Nombre Completo' No esté visible, No esté habilitado, No esté requerido y cumpla con la condición 'Mostrar para clientes : 1 Con Id_Cliente y 2 Sin Id_Cliente pero con información recuperada del Servicio RENIEC El orden de mostrado es Primer Nombre + Segundo Nombre + Tercer Nombre + Otros Nombres+ Apellido Paterno+Apellido Materno+ Apellido de Casada'
+    Given se observa la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
+    When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
+    And el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And validar campo Nombre completo vacio
+    Examples:
+      | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    |
+      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual |
+
+  @mobile
+  Scenario Outline: CP0101 - Validar que Calculado 'Edad' Sí esté visible, Sí esté habilitado, Sí esté requerido y cumpla con la condición 'Calculada de acuerdo a la fecha de nacimiento y debe ser mayor de 18 años'
+    Given se observa la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
+    When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
+    And el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And validar campo edad
+
+    Examples:
+      | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 02040013     |
+
+  @mobile
+  Scenario Outline: CP0102|103 - Validar que Calculado 'Tiempo en la actividad económica (años)' Sí esté visible, No esté habilitado, No esté requerido y cumpla con la condición 'tiempoEnActividadEconomicaMesesFiadorTitular/12'
+    Given se observa la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
+    When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
+    And el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And validar actividad economica
+
+    Examples:
+      | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 02040013     |
+
+  @mobile
+  Scenario Outline: CP0105|117 - Validar las condiciones correctas  del campo  'Mensaje de Voz', tipo de campo Evento. Si  esta visible , Si  esta habilitado  , Si esta requerido.
+    Given se observa la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
+    When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
+    And el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And validar boton microfono
+
+    Examples:
+      | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 02040013     |
+
+  @mobile
+  Scenario Outline: CP0106 - Validar las condiciones correctas  del campo "Inicio actividad económica". es visible, se habilita de acuerdo a la precondicion, es requerido
+    Given se observa la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
+    When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
+    And el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And validar campo inicio de actividad economica
+
+    Examples:
+      | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 02040013     |
+
+  @mobile
+  Scenario Outline: CP0107 - Validar las condiciones correctas  del campo  'Geoposición Domicilio', tipo de campo GPS Automático. Si  esta visible , Si  esta habilitado  , Si esta requerido.
+    Given se observa la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
+    When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
+    And el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And validar campo geoposicion domicilio
+
+    Examples:
+      | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 02040013     |
+
+ @mobile
+  Scenario Outline: CP0108 - Validar que Imagen 'DNI titular anverso' Si esté visible, Si esté habilitado, No esté requerido.
+    Given se observa la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
+    When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
+    And el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario ingresa a documentos virtuales
+    And verificar dni anverso
+
+    Examples:
+      | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 02040013     |
+
+@mobile
+  Scenario Outline: CP0109 - Validar condiciones correctas en la lista desplegable "Subproducto". Las opciones de la lista desplegable deben ser visible de acuerdo al tipo de cliente, debe ser habilitado, debe ser requerido.
+    Given se observa la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
+    When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
+    And el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario ingresa a datos de solicitud
+    And verifica select subproducto
+
+    Examples:
+      | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 02040013     |
+
+  @mobile
+  Scenario Outline: CP0112 - Validar las condiciones correctas  del campo  'Llamar', tipo de campo Llamada. Si  esta visible , Si  esta habilitado  , No esta requerido.
+    Given se observa la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
+    When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
+    And el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And validar campo llamar
+
+    Examples:
+      | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 02040013     |
+
+  @mobile
+  Scenario Outline: CP0203 - Producto Personal: El plazo mínimo es 03 meses.
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And hago click menu Datos de solicitud
+    And ingresa tipo de credito
+    And selecciona item CONSUMO
+    And hago click en subtipo de credito
+    And selecciona primer item PERSONAL de subtipo de credito
+    And selecciona producto PERSONAL
+    And hago click en tipo de operacion
+    And selecciona ampliacion del tipo de operacion
+    And selecciono Destino del credito y hago click en LIBRE DISPONIBILIDAD
+    And hago click Tipo de cronograma
+    And selecciono tipo de cronograma fecha fija
+    And ingreso Monto Solicitado "<monto>"
+    And ingreso Nro de cuotas "<cuotas>"
+    And selecciono agua saneamiento del Destino del crédito
+    And enviar solicitud
+
+    Examples:
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoItem | monto   | cuotas |
+      | Credito        | Credito_Individual | DNI           | 40603206     | CONSUMO  | 1500 | 3    |
+
+  @mobile
+  Scenario Outline: CP0320 - Validar y verificar que el campo TEA% tenga 4 decimales en el acta de resolución para campaña aprobada, persona natural recurrente.
+    Given se observa la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
+    When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
+    And el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario ingresa a datos de solicitud
+    And valida campo TEA
+
+    Examples:
+      | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 02040013     |
+
+  @mobile
+  Scenario Outline: CP0321 - Validar y verificar que el campo TEM% tenga 4 decimales en el acta de resolución para campaña aprobada, persona natural recurrente.
+    Given se observa la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
+    When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
+    And el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario ingresa a datos de solicitud
+    And valida campo TEM
+
+    Examples:
+      | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 02040013     |
+
+  @mobile
+  Scenario Outline: CP0114 - Validar las condiciones correctas  del campo "Se borrara los datos  de la persona ¿Esta seguro de continuar?". es visible, esta habilitado, es requerido.
+    Given se observa la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
+    When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
+    And el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And valida boton consultar cliente
+
+    Examples:
+      | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 02040013     |
+
+  @mobile
+  Scenario Outline: CP0114 - Validar las condiciones correctas  del campo "Se borrara los datos  de la persona ¿Esta seguro de continuar?". es visible, esta habilitado, es requerido.
+    Given se observa la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
+    When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
+    And el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And validar campo se borrara los datos de la persona
+
+    Examples:
+      | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 02040013     |
+
+
+  @mobile
   Scenario Outline: CP0204 - Kata Mobile - Probar un credito con destino libre disponibilidad Para tipo de regla No Excepcionable
     Given el usuario ingresa al home y hace click en el boton de nueva orden
     And el usuario hace click en la opcion "<TipoFormulario>" del menu
