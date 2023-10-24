@@ -608,4 +608,25 @@ public class ModuleCampaingsStep {
     @And("validar campo se borrara los datos de la persona")
     public void validarCampoSeBorraraLosDatosDeLaPersona() {
     }
+
+    @And("verifico mensaje de credito paralelo")
+    public void verificoMensajeDeCreditoParalelo() {
+
+    }
+
+    @And("Selecciono documentos virtuales")
+    public void seleccionoDocumentosVirtuales() {
+    }
+
+    @And("proceso solicitud")
+    public void procesoSolicitud() {
+    }
+
+    @And("el usuario verifica que tiene campaña y cambia pestaña excepciones")
+    public void elUsuarioVerificaQueTieneCampañaYCambiaPestañaExcepciones() {
+    }
+
+    @And("el usuario visualiza excepciones manuales de negocio")
+    public void elUsuarioVisualizaExcepcionesManualesDeNegocio() {
+    }
 }
