@@ -36,6 +36,48 @@ Feature: Escenarios Modulo de recuperaciones
       | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 02040013     |
 
   @mobile
+  Scenario Outline: CP0008 - Validar No se debe poder registrar una orden con monto mayor al permitido, 10,000.00, para producto Pyme, sub producto Facilito, con destino Capital de trabajo, para Cliente Persona Natural - Recurrente y tipo seguro Desgravamen Individual, Conyugal, Devolución.
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And hago click menu Datos de solicitud
+    And ingresa tipo de credito
+    And selecciona primer item Microempresas
+    And hago click en subtipo de credito
+    And selecciona subtipo de credito empresarial
+    And selecciona producto PYME
+    And selecciona subproducto PYME-FACILITO
+    And hago click en tipo de operacion
+    And selecciona ampliacion del tipo de operacion
+    And selecciona otorgamiento del tipo de operacion
+    And selecciono Modalidad de credito principal
+    And selecciono Destino del credito y hago click en CAPITAL DE TRABAJO
+    And hago click Tipo de cronograma
+    And selecciono tipo de cronograma fecha fija
+    And ingreso Monto Solicitado "<monto>"
+    And ingreso Nro de cuotas "<cuotas>"
+    And selecciono no en el seguro de vida
+    And registro fecha de primera cuota
+    And selecciona calculo de plazo en días
+    And consulta niveles de autonomia de tasa
+    And Selecciona tasas
+    And selecciona NORMAL de tasas
+    And hago click en Simulador crédito
+    And Consulta sobreendeudamiento
+    And Consulta motor de decision de cliente no bancarizado
+    And enviar solicitud
+    Examples:
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento  | monto | cuotas |
+      | Credito        | Credito_Individual | DNI           | 40603206       | 10001  | 336    |
+
+  @mobile
   Scenario Outline: CP009 - Campaña pre aprobada no debe pasar directamente a aprobación, para producto Personal, sub producto Consumo Productivo 2, con destino Libre disponibilidad, para Cliente Persona Natural - Recurrente.
     Given el usuario ingresa al home y hace click en el boton de nueva orden
     And el usuario hace click en la opcion "<TipoFormulario>" del menu
@@ -636,6 +678,25 @@ Feature: Escenarios Modulo de recuperaciones
     Examples:
       | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
       | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 02040013     |
+
+  @mobile
+  Scenario Outline: CP0170 - No puede otorgar créditos a sí mismo o familiares.
+    Given se observa la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
+    When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
+    And el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And verifico mensaje de no poder solicitar un credito con el mismo documento
+
+    Examples:
+      | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 46829398     |
+
 
   @mobile
   Scenario Outline: CP0203 - Producto Personal: El plazo mínimo es 03 meses.

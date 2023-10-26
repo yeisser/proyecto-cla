@@ -629,4 +629,10 @@ public class ModuleCampaingsStep {
     @And("el usuario visualiza excepciones manuales de negocio")
     public void elUsuarioVisualizaExcepcionesManualesDeNegocio() {
     }
+
+    @And("selecciono Destino del credito y hago click en CAPITAL DE TRABAJO")
+    public void seleccionoDestinoDelCreditoYHagoClickEnCAPITALDETRABAJO() {
+    }
+
+
 }
