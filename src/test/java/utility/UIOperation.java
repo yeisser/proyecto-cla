@@ -7,7 +7,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
+import static java.time.Duration.ofSeconds;
 
 
 
@@ -18,7 +18,7 @@ public class UIOperation {
         Hook.getDriver().findElement(element).sendKeys(value);
     }
     public static void insertValueWait(By element, String value, int tiempo) {
-        long segundosEspera = Duration.ofSeconds(tiempo).getSeconds();
+        long segundosEspera = ofSeconds(tiempo).getSeconds();
         WebDriverWait wait = new WebDriverWait(Hook.getDriver(),segundosEspera);
         //wait.until(ExpectedConditions.elementToBeClickable(element)).click();
         //Hook.getDriver().findElement(element).clear();
@@ -29,7 +29,7 @@ public class UIOperation {
         Hook.getDriver().findElement(element).click();
     }
     public static void waitAndClick(By element,int tiempo) {
-        long segundosEspera = Duration.ofSeconds(tiempo).getSeconds();
+        long segundosEspera = ofSeconds(tiempo).getSeconds();
         WebDriverWait wait = new WebDriverWait(Hook.getDriver(),segundosEspera);
         wait.until(ExpectedConditions.elementToBeClickable(element)).click();
     }
@@ -51,6 +51,13 @@ public class UIOperation {
     public static String getText(By element) {
         return Hook.getDriver().findElement(element).getText();
     }
+//    public boolean  isVisibleElement(WebElement element, long timeSeconds) {
+//        boolean isVisible = false;
+//        long segundosEspera = ofSeconds(timeSeconds).getSeconds();
+//        WebDriverWait wait= new WebDriverWait(Hook.getDriver(), segundosEspera);
+//        isVisible = wait.until(ExpectedConditions.visibilityOf(element)) != null;
+//        return isVisible;
+//    }
 
     public static void retroceso(){
         Hook.getDriver().findElement(By.id("Value")).sendKeys(Keys.RETURN);
@@ -74,5 +81,8 @@ public class UIOperation {
 
         element.click();
     }
+
+
+
 
 }

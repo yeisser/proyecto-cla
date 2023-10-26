@@ -1,6 +1,8 @@
 package screens;
 
 
+import io.appium.java_client.TouchAction;
+import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import task.Login_Task;
@@ -355,26 +357,25 @@ public class recoveries_screens{
     public void autorizaPublicidad(){
         UIOperation.waitAndClick(Recoveries_Task.radio_AutotizarPublicidad,15);
     }
-    public void consultaCliente(){
+    public void consultaCliente()throws InterruptedException{
         UIOperation.waitAndClick(Recoveries_Task.btn_ConsultarCliente,15);
     }
-    public void aceptarModalConsultaCliente(){
-//        String iframeContext  = "com.kata.formiik:id/action_bar_root";
-//        Hook.getDriver().switchTo().frame(iframeContext);
-//        Hook.getDriver().findElement(ModuleCampaingsStep.lbl_si).click();
-        Util.implicitWait(30);
-        UIOperation.waitAndClick(Recoveries_Task.btn_AceptarModalConsultaCliente,60);
+    public void aceptarModalConsultaCliente() throws InterruptedException {
+        TouchAction action = new TouchAction(Hook.getDriver());
+        action.tap(PointOption.point(844, 1240)).perform();
     }
     public void consultaPosicionConsolidada(){
         UIOperation.waitAndClick(Recoveries_Task.btn_consultarPosicionConsolidada,30);
     }
-    public void aceptarModalPosicionConsolidada(){
+    public void aceptarModalPosicionConsolidada() throws InterruptedException {
 //        String iframeContext  = "com.kata.formiik:id/action_bar_root";
 //        Hook.getDriver().switchTo().frame(iframeContext);
 //        Hook.getDriver().findElement(ModuleCampaingsStep.lbl_si).click();
-        Util.implicitWait(30);
+        Thread.sleep(15);
 
-        UIOperation.waitAndClick(Recoveries_Task.btn_AceptarModalPosicionConsolidada,60);
+        TouchAction action = new TouchAction(Hook.getDriver());
+        action.tap(PointOption.point(844, 1240)).perform();
+       // UIOperation.waitAndClick(Recoveries_Task.btn_AceptarModalPosicionConsolidada,60);
     }
     public void verificarCampana(){
         Util.implicitWait(10);

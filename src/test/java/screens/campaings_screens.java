@@ -333,6 +333,15 @@ public class campaings_screens {
     public String get_mensaje_perfi() {
         return UIOperation.getText(Campaings_Task.txtview_perfil);
     }
+    public String get_mensaje_unoMismo() {
+        return UIOperation.getText(Campaings_Task.txtview_unoMismo);
+    }
+    public Boolean es_Visible_Monto(){
+        return UIOperation.isVisible(Campaings_Task.campo_Monto);
+    }
+    public Boolean es_Visible_Cuotas(){
+        return UIOperation.isVisible(Campaings_Task.campo_Cuota);
+    }
     public String get_trae_cliente_activo(){
         return UIOperation.getText(Campaings_Task.txt_tipo_credito);
     }

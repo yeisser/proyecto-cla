@@ -635,4 +635,18 @@ public class ModuleCampaingsStep {
     }
 
 
+    @And("verifico el mensaje (.*)$")
+    public void verificoElMensajeDeNoPoderSolicitarUnCreditoConElMismoDocumento(String mensaje_esperado) {
+        Assert.assertEquals(credito.get_mensaje_unoMismo(), mensaje_esperado);
+    }
+
+    @And("valido campo monto")
+    public void validoCampoMonto() {
+        credito.es_Visible_Monto();
+    }
+
+    @And("valido campo cuotas")
+    public void validoCampoCuotas() {
+        credito.es_Visible_Cuotas();
+    }
 }

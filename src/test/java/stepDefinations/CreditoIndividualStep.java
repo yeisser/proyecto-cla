@@ -23,13 +23,14 @@ public class CreditoIndividualStep {
     }
 
     @And("el usuario consulta el cliente")
-    public void elUsuarioConsultaElCliente() {
+    public void elUsuarioConsultaElCliente() throws InterruptedException{
         gestionCliente.consultaCliente();
+        Thread.sleep(15);
         gestionCliente.aceptarModalConsultaCliente();
     }
 
     @And("el usuario consulta la posicion consolidada")
-    public void elUsuarioConsultaLaPosicionConsolidada() {
+    public void elUsuarioConsultaLaPosicionConsolidada() throws InterruptedException{
         gestionCliente.consultaPosicionConsolidada();
         gestionCliente.aceptarModalPosicionConsolidada();
     }

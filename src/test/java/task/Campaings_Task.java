@@ -8,6 +8,7 @@ public class Campaings_Task {
     public static By btn_credito = Element.Mobile_Element(Constantes.XPATH, "//*[@text='Credito']");
     public static By opt_credito_individual = Element.Mobile_Element(Constantes.XPATH, "//*[@text='Credito_Individual']");
     public static By txtview_perfil = Element.Mobile_Element(Constantes.XPATH, "//*[@text='El perfil seleccionado no es válido para el flujo individual']");
+    public static By txtview_unoMismo = Element.Mobile_Element(Constantes.XPATH, "//*[@text='No puede otorgar créditos a sí mismo o familiares']");
     public static By chk_tratamiento_datos = Element.Mobile_Element(Constantes.XPATH, "//*[@class='android.widget.CheckBox']");
     public static By btn_mensaje_voz = Element.Mobile_Element(Constantes.XPATH, "//*[@resource-id='com.kata.formiik:id/widget_audioEdit']");
     public static By btn_iniciar_grabacion = Element.Mobile_Element(Constantes.XPATH, "//*[@text='INICIAR GRABACIÓN DE VOZ']");
@@ -102,5 +103,8 @@ public class Campaings_Task {
     public static By opt_otros = Element.Mobile_Element(Constantes.XPATH, "//android.view.ViewGroup/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[9]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.AutoCompleteTextView");
     public static By btn_session = Element.Mobile_Element(Constantes.ID, "com.kata.formiik:id/fragmentCurrentSessionFloatingActionButton");
     public static By txt_documento = Element.Mobile_Element(Constantes.ID, "com.kata.formiik:id/textedit");
+
+    public static By campo_Cuota = Element.Mobile_Element(Constantes.XPATH, "//*[@text='Nro. de cuotas']");
+    public static By campo_Monto = Element.Mobile_Element(Constantes.XPATH, "//*[@text='Monto Solicitado']");
 
 }

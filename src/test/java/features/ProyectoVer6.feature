@@ -17,23 +17,31 @@ Feature: Escenarios Modulo de recuperaciones
 
   @mobile
   Scenario Outline: CP0001 - Kata Mobile - Monto y número de cuotas - El Monto y número de Cuotas deben mostrarse autocompletados y ser editable
-    Given se observa la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
-    When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
-    And el usuario ingresa al home y hace click en el boton de nueva orden
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
     And el usuario hace click en la opcion "<TipoFormulario>" del menu
     And el usuario hace click en la opcion "<TipoFormulario2>" del menu
     And el usuario hace click en boton crear
     And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
     And Autoriza el tratamiento de sus datos personales
     And el usuario autoriza el envio de publicidad
+    ##### revisar aqui###
     And el usuario consulta el cliente
+    ##############################
     And el usuario consulta la posicion consolidada
-    And el usuario verifica que tiene campaña y cambia de pestaña
-    And el usuario realiza click en tipo de ingreso "<TipoIngreso>"
+    And hago click en Mantenimiento cliente
+    And hago click menu Datos de solicitud
+    And valido campo monto
+    And valido campo cuotas
 
     Examples:
       | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
-      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 02040013     |
+      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 02379972     |
+
+
+
+    Examples:
+      | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 02379972     |
 
   @mobile
   Scenario Outline: CP0008 - Validar No se debe poder registrar una orden con monto mayor al permitido, 10,000.00, para producto Pyme, sub producto Facilito, con destino Capital de trabajo, para Cliente Persona Natural - Recurrente y tipo seguro Desgravamen Individual, Conyugal, Devolución.
@@ -74,8 +82,8 @@ Feature: Escenarios Modulo de recuperaciones
     And Consulta motor de decision de cliente no bancarizado
     And enviar solicitud
     Examples:
-      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento  | monto | cuotas |
-      | Credito        | Credito_Individual | DNI           | 40603206       | 10001  | 336    |
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | monto | cuotas |
+      | Credito        | Credito_Individual | DNI           | 40603206     | 10001 | 336    |
 
   @mobile
   Scenario Outline: CP009 - Campaña pre aprobada no debe pasar directamente a aprobación, para producto Personal, sub producto Consumo Productivo 2, con destino Libre disponibilidad, para Cliente Persona Natural - Recurrente.
@@ -107,7 +115,7 @@ Feature: Escenarios Modulo de recuperaciones
 
     Examples:
       | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | monto | cuotas |
-      | Credito        | Credito_Individual | DNI           | 40603206     |   1500  | 3      |
+      | Credito        | Credito_Individual | DNI           | 40603206     | 1500  | 3      |
 
     #POR CONSULTAR - DATA ANALISTA DE RIESGO
   @mobile
@@ -172,7 +180,6 @@ Feature: Escenarios Modulo de recuperaciones
     Examples:
       | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoItem | monto | cuotas |
       | Credito        | Credito_Individual | DNI           | 40603206     | CONSUMO  | 5000  | 336    |
-
 
 
   @mobile
@@ -691,7 +698,7 @@ Feature: Escenarios Modulo de recuperaciones
     And Autoriza el tratamiento de sus datos personales
     And el usuario autoriza el envio de publicidad
     And el usuario consulta el cliente
-    And verifico mensaje de no poder solicitar un credito con el mismo documento
+    And verifico el mensaje No puede otorgar créditos a sí mismo o familiares
 
     Examples:
       | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
