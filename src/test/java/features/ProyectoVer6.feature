@@ -36,6 +36,27 @@ Feature: Escenarios Modulo de recuperaciones
       | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 02040013     |
 
   @mobile
+    #En consulta
+  Scenario Outline: CP0012 - Validar Funcionalidad del Modelo No Bancarizado dependiendo del monto, para producto Personal, sub producto Consumo Productivo 2, para Cliente Persona Natural - Nuevo No Bancarizado.
+    Given se observa la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
+    When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
+    And el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And el usuario verifica que tiene campaña y cambia de pestaña
+    And el usuario realiza click en tipo de ingreso "<TipoIngreso>"
+
+    Examples:
+      | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 40603206     |
+
+  @mobile
   Scenario Outline: CP0040 - La Impresión contrato con varios intervinientes declarados debe plasmarse en el desembolso, para Pyme.
     Given el usuario ingresa al home y hace click en el boton de nueva orden
     And el usuario hace click en la opcion "<TipoFormulario>" del menu
@@ -77,6 +98,72 @@ Feature: Escenarios Modulo de recuperaciones
       | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoItem | monto | cuotas |
       | Credito        | Credito_Individual | DNI           | 40603206     | CONSUMO  | 5000  | 336    |
 
+  @mobile
+    #En proceso
+  Scenario Outline: CP0043 - Validar vinculación de Garantía de Hipoteca o vehicular, para producto Personal, sub producto Personal.
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And hago click menu Datos de solicitud
+    And ingresa tipo de credito
+    And selecciona primer item Microempresas
+    And hago click en subtipo de credito
+    And selecciona subtipo de credito empresarial
+    And selecciona producto PYME
+    And selecciona subproducto PYME
+    And hago click en tipo de operacion
+    And selecciona ampliacion del tipo de operacion
+    And selecciona otorgamiento del tipo de operacion
+    And selecciono Modalidad de credito principal
+    And selecciono Destino del credito y hago click en LIBRE DISPONIBILIDAD
+    And hago click Tipo de cronograma
+    And selecciono tipo de cronograma fecha fija
+    And ingreso Monto Solicitado "<monto>"
+    And ingreso Nro de cuotas "<cuotas>"
+    And selecciono no en el seguro de vida
+    And registro fecha de primera cuota
+    And selecciona calculo de plazo en días
+    And consulta niveles de autonomia de tasa
+    And Selecciona tasas
+    And selecciona NORMAL de tasas
+    And hago click en Simulador crédito
+    And Consulta sobreendeudamiento
+    And Consulta motor de decision de cliente no bancarizado
+    And enviar solicitud
+    Examples:
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoItem | monto | cuotas |
+      | Credito        | Credito_Individual | DNI           | 40603206     | CONSUMO  | 5000  | 336    |
+
+  @mobile
+  Scenario Outline: CP0055 - Capacidad de pago debe estar entre 0 - 80. Probar Capacidad de pago del cliente se encuentre dentro del rango 0 - 80. Para tipo de regla No Excepcionable
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And hago click menu Datos de solicitud
+    And ingresa tipo de credito
+    And selecciona primer item Microempresas
+    And hago click en subtipo de credito
+    And selecciona subtipo de credito empresarial
+    And selecciona producto PYME
+    And selecciona subproducto PYME
+
+    Examples:
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoItem | monto | cuotas |
+      | Credito        | Credito_Individual | DNI           | 40603206     | CONSUMO  | 5000  | 336    |
 
   @mobile
   Scenario Outline: CP0050 - Validar las condiciones correctas  del campo  'Simular crédito', tipo de campo Botón plugin. Si  esta visible , Si  esta habilitado  , Si esta requerido
@@ -138,6 +225,30 @@ Feature: Escenarios Modulo de recuperaciones
       | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoIngreso |
       | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | RUC           | 20602898025  | FIJO        |
 
+  @mobile
+  Scenario Outline: CP0055 - Capacidad de pago debe estar entre 0 - 80. Probar Capacidad de pago del cliente se encuentre dentro del rango 0 - 80. Para tipo de regla No Excepcionable
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And hago click menu Datos de solicitud
+    And ingresa tipo de credito
+    And selecciona primer item Microempresas
+    And hago click en subtipo de credito
+    And selecciona subtipo de credito empresarial
+    And selecciona producto PYME
+    And selecciona subproducto PYME
+
+    Examples:
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoItem | monto | cuotas |
+      | Credito        | Credito_Individual | DNI           | 40603206     | CONSUMO  | 5000  | 336    |
+
 
   @mobile
   Scenario Outline: CP0057 - Validar las condiciones correctas  del campo  'Simular crédito', tipo de campo Botón plugin. Si  esta visible , Si  esta habilitado  , Si esta requerido
@@ -179,9 +290,41 @@ Feature: Escenarios Modulo de recuperaciones
 
 
     Examples:
-      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoItem | monto | cuotas |dias|
-      | Credito        | Credito_Individual | DNI           | 40603206     | CONSUMO  | 5000  | 336    |    |
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoItem | monto | cuotas | dias |
+      | Credito        | Credito_Individual | DNI           | 40603206     | CONSUMO  | 5000  | 336    |      |
+  @mobile
+  Scenario Outline: CP0058 - El monto máximo para destino libre disponibilidad es hasta S/ 20,000.00 (monto solicitado por el cliente). Solicitar 20,000 con destino libre disponibilidad con un cliente nuevo.  Para tipo de regla No Excepcionable.
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And hago click menu Datos de solicitud
+    And ingresa tipo de credito
+    And selecciona primer item Microempresas
+    And hago click en subtipo de credito
+    And selecciona subtipo de credito empresarial
+    And selecciona producto PYME
+    And selecciona subproducto PYME
+    And hago click en tipo de operacion
+    And selecciona ampliacion del tipo de operacion
+    And selecciona otorgamiento del tipo de operacion
+    And selecciono Modalidad de credito principal
+    And selecciono Destino del credito y hago click en LIBRE DISPONIBILIDAD
+    And hago click Tipo de cronograma
+    And selecciono tipo de cronograma fecha fija
+    And ingreso Monto Solicitado "<monto>"
+    And ingreso Nro de cuotas "<cuotas>"
 
+
+    Examples:
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoItem | monto | cuotas | dias |
+      | Credito        | Credito_Individual | DNI           | 40603206     | CONSUMO  | 20000  | 336    |      |
   @mobile
   Scenario Outline: CP0065 - Visita de supervisión obligatoria pre desembolso Y/o Verificación. Aprobar crédito Pyme. Para tipo de regla Excepcionable.
     Given el usuario ingresa al home y hace click en el boton de nueva orden
@@ -307,7 +450,7 @@ Feature: Escenarios Modulo de recuperaciones
     And aprobar solicitud
     Examples:
       | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoItem | monto | cuotas |
-      | Credito        | Credito_Individual | DNI           | 40603206     | CONSUMO  | 4900  | 12    |
+      | Credito        | Credito_Individual | DNI           | 40603206     | CONSUMO  | 4900  | 12     |
 
   @mobile
   Scenario Outline: CP0074 - Validar que Lista Desplegable '¿Tipo de guardado del formulario?' Si esté visible, No esté habilitado, Si esté requerido, debe contener 'Completo/Parcial'
@@ -349,7 +492,7 @@ Feature: Escenarios Modulo de recuperaciones
     And validar lista tipo de guardado
     Examples:
       | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoItem | monto | cuotas |
-      | Credito        | Credito_Individual | DNI           | 40603206     | CONSUMO  | 4900  | 12    |
+      | Credito        | Credito_Individual | DNI           | 40603206     | CONSUMO  | 4900  | 12     |
 
   @mobile
   Scenario Outline: CP0075 Validar Actualización de condiciones de crédito, para producto Pyme, sub producto Pyme, con destino Capital de trabajo, para Cliente Persona Jurídica - Nuevo.
@@ -407,9 +550,9 @@ Feature: Escenarios Modulo de recuperaciones
     And verifico tarifario de cuotas
     Examples:
       | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoItem | monto | cuotas |
-      | Credito        | Credito_Individual | DNI           | 40603206     | CONSUMO  | 4900  | 12    |
+      | Credito        | Credito_Individual | DNI           | 40603206     | CONSUMO  | 4900  | 12     |
 
- @mobile
+  @mobile
   Scenario Outline: CP0079 - El Servicio de Reniec debe funcionar para el proceso de Campaña.
     Given se observa la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
     When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
@@ -526,7 +669,7 @@ Feature: Escenarios Modulo de recuperaciones
       | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
       | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 02040013     |
 
- @mobile
+  @mobile
   Scenario Outline: CP0108 - Validar que Imagen 'DNI titular anverso' Si esté visible, Si esté habilitado, No esté requerido.
     Given se observa la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
     When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
@@ -545,7 +688,7 @@ Feature: Escenarios Modulo de recuperaciones
       | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
       | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 02040013     |
 
-@mobile
+  @mobile
   Scenario Outline: CP0109 - Validar condiciones correctas en la lista desplegable "Subproducto". Las opciones de la lista desplegable deben ser visible de acuerdo al tipo de cliente, debe ser habilitado, debe ser requerido.
     Given se observa la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
     When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
@@ -611,8 +754,8 @@ Feature: Escenarios Modulo de recuperaciones
     And enviar solicitud
 
     Examples:
-      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoItem | monto   | cuotas |
-      | Credito        | Credito_Individual | DNI           | 40603206     | CONSUMO  | 1500 | 3    |
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoItem | monto | cuotas |
+      | Credito        | Credito_Individual | DNI           | 40603206     | CONSUMO  | 1500  | 3      |
 
   @mobile
   Scenario Outline: CP0320 - Validar y verificar que el campo TEA% tenga 4 decimales en el acta de resolución para campaña aprobada, persona natural recurrente.
@@ -1293,4 +1436,50 @@ Feature: Escenarios Modulo de recuperaciones
       | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoItem | monto | cuotas |
       | Credito        | Credito_Individual | DNI           | 40603206     | CONSUMO  | 8000  | 336    |
 
+  @mobile
+  Scenario Outline: CP0275 - Tu Credi Chamba PYME: Solo aplica el destino de crédito ACTIVO FIJO. Probar con destino de credito distinto de Activo Fijo. Para tipo de regla No Excepcionable.
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And hago click menu Datos de solicitud
+    And ingresa tipo de credito
+    And selecciona item CONSUMO
+    And hago click en subtipo de credito
+    And selecciona primer item PERSONAL de subtipo de credito
+    And selecciona producto PERSONAL
+    And selecciona subproducto credichamba
 
+    Examples:
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoItem | monto | cuotas |
+      | Credito        | Credito_Individual | DNI           | 40603206     | CONSUMO  | 1500  | 3      |
+
+  @mobile
+  Scenario Outline: CP0276 - Tu Credi Chamba PYME: Solo aplica el destino de crédito ACTIVO FIJO. Probar con destino de credito Activo Fijo. Para tipo de regla No Excepcionable.
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And hago click menu Datos de solicitud
+    And ingresa tipo de credito
+    And selecciona item CONSUMO
+    And hago click en subtipo de credito
+    And selecciona primer item PERSONAL de subtipo de credito
+    And selecciona producto PERSONAL
+    And selecciona subproducto credichamba
+
+    Examples:
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoItem | monto | cuotas |
+      | Credito        | Credito_Individual | DNI           | 40603206     | CONSUMO  | 1500  | 3      |
