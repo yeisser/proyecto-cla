@@ -117,6 +117,40 @@ Feature: Escenarios Modulo de recuperaciones
       | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | monto | cuotas |
       | Credito        | Credito_Individual | DNI           | 40603206     | 1500  | 3      |
 
+  @mobile
+  Scenario Outline: CP027 - Validar Asignación al nivel autorizador correspondiente por respuesta favorable de Analista de Riesgos, para Cliente Persona Jurídica - Nuevo.
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And hago click menu Datos de solicitud
+    And ingresa tipo de credito
+    And selecciona item CONSUMO
+    And hago click en subtipo de credito
+    And selecciona primer item PERSONAL de subtipo de credito
+    And selecciona producto PERSONAL
+    And hago click en tipo de operacion
+    And selecciona ampliacion del tipo de operacion
+    And selecciono Destino del credito y hago click en LIBRE DISPONIBILIDAD
+    And hago click Tipo de cronograma
+    And selecciono tipo de cronograma fecha fija
+    And ingreso Monto Solicitado "<monto>"
+    And ingreso Nro de cuotas "<cuotas>"
+    And Selecciono documentos virtuales
+    And proceso solicitud
+    And ingreso a engine como analista de riesgo
+    And acepto solicitud
+
+    Examples:
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | monto | cuotas |
+      | Credito        | Credito_Individual | DNI           | 40603206     | 1500  | 3      |
+
     #POR CONSULTAR - DATA ANALISTA DE RIESGO
   @mobile
   Scenario Outline: CP0025 Validar Analista de riesgos debe revisar las excepciones, para Cliente Persona Natural - Recurrente.
@@ -672,6 +706,67 @@ Feature: Escenarios Modulo de recuperaciones
     Examples:
       | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
       | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 02040013     |
+
+
+  @mobile
+  Scenario Outline: CP091 - Validar que Botón Servicio 'Consultar garantías Titular y conyuge' Si esté visible, Si esté habilitado, Si esté requerido y cumpla con la condición 'se lleva la información de titular y conyuge para poder consultar y subproducto'.
+    Given se observa la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
+    When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
+    And el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And click en pestaña garantias
+    And click en boton consultar garantias
+
+    Examples:
+      | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 46829398     |
+
+  @mobile
+  Scenario Outline: CP092 - Validar que Botón Servicio 'Consultar posición consolidada' Si esté visible, No esté habilitado, No esté requerido
+    Given se observa la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
+    When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
+    And el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+
+    Examples:
+      | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 46829398     |
+
+
+  @mobile
+  Scenario Outline: CP093 - Validar que Botón Servicio 'Consultar cónyuge' Si esté visible, Si esté habilitado, No esté requerido
+    Given se observa la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
+    When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
+    And el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And click en pestaña garantias
+    And click en boton consultar conyuge
+
+    Examples:
+      | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 46829398     |
+
 
   @mobile
   Scenario Outline: CP00100 - Validar que Calculado 'Nombre Completo' No esté visible, No esté habilitado, No esté requerido y cumpla con la condición 'Mostrar para clientes : 1 Con Id_Cliente y 2 Sin Id_Cliente pero con información recuperada del Servicio RENIEC El orden de mostrado es Primer Nombre + Segundo Nombre + Tercer Nombre + Otros Nombres+ Apellido Paterno+Apellido Materno+ Apellido de Casada'

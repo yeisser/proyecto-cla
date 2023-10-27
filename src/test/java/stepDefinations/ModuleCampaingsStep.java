@@ -649,4 +649,24 @@ public class ModuleCampaingsStep {
     public void validoCampoCuotas() {
         credito.es_Visible_Cuotas();
     }
+
+    @And("ingreso a engine como analista de riesgo")
+    public void ingresoAEngineComoAnalistaDeRiesgo() {
+    }
+
+    @And("acepto solicitud")
+    public void aceptoSolicitud() {
+    }
+
+    @And("click en pestaña garantias")
+    public void clickEnPestañaGarantias() {
+    }
+
+    @And("click en boton consultar garantias")
+    public void clickEnBotonConsultarGarantias() {
+    }
+
+    @And("click en boton consultar conyuge")
+    public void clickEnBotonConsultarConyuge() {
+    }
 }
