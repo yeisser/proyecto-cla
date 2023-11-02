@@ -925,6 +925,79 @@ Feature: Escenarios Modulo de recuperaciones
       | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 02040013     |
 
   @mobile
+  Scenario Outline: CP0112 - Validar las condiciones correctas  del campo  'Llamar', tipo de campo Llamada. Si  esta visible , Si  esta habilitado  , No esta requerido.
+    Given se observa la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
+    When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
+    And el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And validar campo llamar
+
+    Examples:
+      | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 02040013     |
+
+  @mobile
+  Scenario Outline: CP0112 - Validar las condiciones correctas  del campo  'Llamar', tipo de campo Llamada. Si  esta visible , Si  esta habilitado  , No esta requerido.
+    Given se observa la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
+    When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
+    And el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And validar campo llamar
+
+    Examples:
+      | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 02040013     |
+
+  @mobile
+  Scenario Outline: CP0147 - El plazo máximo es hasta 18 meses para montos hasta S/ 8,000.00.
+    Given se observa la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
+    When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
+    And el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And validar campo llamar
+
+    Examples:
+      | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 02040013     |
+
+  @mobile
+  Scenario Outline: CP0152 - La modalidad de pago estacional NO aplica para los productos : Personal, Convenio y Contra depósito y sus campañas
+  Probar con producto Personal Para tipo de regla No Excepcionable.
+    Given se observa la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
+    When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
+    And el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And validar campo llamar
+
+    Examples:
+      | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 02040013     |
+
+  @mobile
   Scenario Outline: CP0170 - No puede otorgar créditos a sí mismo o familiares.
     Given se observa la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
     When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
@@ -942,6 +1015,24 @@ Feature: Escenarios Modulo de recuperaciones
       | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
       | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 46829398     |
 
+
+  @mobile
+  Scenario Outline: CP0177 - El monto máximo para destino libre disponibilidad es hasta S/ 20,000.00 (monto solicitado por el cliente).
+    Given se observa la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
+    When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
+    And el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And validar campo llamar
+
+    Examples:
+      | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 02040013     |
 
   @mobile
   Scenario Outline: CP0203 - Producto Personal: El plazo mínimo es 03 meses.
