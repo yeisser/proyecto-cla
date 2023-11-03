@@ -237,47 +237,27 @@ Feature: Escenarios Modulo de recuperaciones
       | Credito        | Credito_Individual | DNI           | 40603206     | CONSUMO  | 5000  | 336    |
 
   @mobile
-    #En proceso
+
   Scenario Outline: CP0043 - Validar vinculación de Garantía de Hipoteca o vehicular, para producto Personal, sub producto Personal.
-    Given el usuario ingresa al home y hace click en el boton de nueva orden
-    And el usuario hace click en la opcion "<TipoFormulario>" del menu
-    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
-    And el usuario hace click en boton crear
+    When el usuario ingresa al home y hago click en el boton de nueva orden
+    And el usuario hago click en la opcion cobranza del menu de Tipo de proceso
+    And hago click en el boton siguiente
+    And hago click en la opcion Gestion de mora del menu Tipo de formulario
+    And hago click en el boton siguiente
+    And hago click en el boton CREAR del menu Confirmacion
+    And visualiza dentro de la sección DATOS DEL TITULAR el titulo Tipo de documento
+    And selecciona dentro del menu desplegable el elemento DNI
     And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
-    And Autoriza el tratamiento de sus datos personales
-    And el usuario autoriza el envio de publicidad
-    And el usuario consulta el cliente
-    And el usuario consulta la posicion consolidada
-    And hago click en Mantenimiento cliente
-    And hago click menu Datos de solicitud
-    And ingresa tipo de credito
-    And selecciona primer item Microempresas
-    And hago click en subtipo de credito
-    And selecciona subtipo de credito empresarial
-    And selecciona producto PYME
-    And selecciona subproducto PYME
-    And hago click en tipo de operacion
-    And selecciona ampliacion del tipo de operacion
-    And selecciona otorgamiento del tipo de operacion
-    And selecciono Modalidad de credito principal
-    And selecciono Destino del credito y hago click en LIBRE DISPONIBILIDAD
-    And hago click Tipo de cronograma
-    And selecciono tipo de cronograma fecha fija
-    And ingreso Monto Solicitado "<monto>"
-    And ingreso Nro de cuotas "<cuotas>"
-    And selecciono no en el seguro de vida
-    And registro fecha de primera cuota
-    And selecciona calculo de plazo en días
-    And consulta niveles de autonomia de tasa
-    And Selecciona tasas
-    And selecciona NORMAL de tasas
-    And hago click en Simulador crédito
-    And Consulta sobreendeudamiento
-    And Consulta motor de decision de cliente no bancarizado
-    And enviar solicitud
+    And hago click consultar creditos y hago click en ok
+    And valido la funcionalidad dentro del desplegable de creditos de la seccion de creditos
+    And valido la funcionalidad del boton consultar cliente para 7 dias de atraso
+    And valido tres ultimas gestiones haciendo click en ultima gestion realizada
+    And valido que se muestren las garantias del credito seleccionado
+
     Examples:
-      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoItem | monto | cuotas |
-      | Credito        | Credito_Individual | DNI           | 40603206     | CONSUMO  | 5000  | 336    |
+      | TipoDocumento | NumDocumento |
+      | DNI           | 40603206     |
+
 
   @mobile
   Scenario Outline: CP0055 - Capacidad de pago debe estar entre 0 - 80. Probar Capacidad de pago del cliente se encuentre dentro del rango 0 - 80. Para tipo de regla No Excepcionable
@@ -462,7 +442,8 @@ Feature: Escenarios Modulo de recuperaciones
 
     Examples:
       | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoItem | monto | cuotas | dias |
-      | Credito        | Credito_Individual | DNI           | 40603206     | CONSUMO  | 20000  | 336    |      |
+      | Credito        | Credito_Individual | DNI           | 40603206     | CONSUMO  | 20000 | 336    |      |
+
   @mobile
   Scenario Outline: CP0065 - Visita de supervisión obligatoria pre desembolso Y/o Verificación. Aprobar crédito Pyme. Para tipo de regla Excepcionable.
     Given el usuario ingresa al home y hace click en el boton de nueva orden
