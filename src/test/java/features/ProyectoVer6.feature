@@ -258,31 +258,6 @@ Feature: Escenarios Modulo de recuperaciones
       | TipoDocumento | NumDocumento |
       | DNI           | 40603206     |
 
-
-  @mobile
-  Scenario Outline: CP0055 - Capacidad de pago debe estar entre 0 - 80. Probar Capacidad de pago del cliente se encuentre dentro del rango 0 - 80. Para tipo de regla No Excepcionable
-    Given el usuario ingresa al home y hace click en el boton de nueva orden
-    And el usuario hace click en la opcion "<TipoFormulario>" del menu
-    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
-    And el usuario hace click en boton crear
-    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
-    And Autoriza el tratamiento de sus datos personales
-    And el usuario autoriza el envio de publicidad
-    And el usuario consulta el cliente
-    And el usuario consulta la posicion consolidada
-    And hago click en Mantenimiento cliente
-    And hago click menu Datos de solicitud
-    And ingresa tipo de credito
-    And selecciona primer item Microempresas
-    And hago click en subtipo de credito
-    And selecciona subtipo de credito empresarial
-    And selecciona producto PYME
-    And selecciona subproducto PYME
-
-    Examples:
-      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoItem | monto | cuotas |
-      | Credito        | Credito_Individual | DNI           | 40603206     | CONSUMO  | 5000  | 336    |
-
   @mobile
   Scenario Outline: CP0050 - Validar las condiciones correctas  del campo  'Simular crédito', tipo de campo Botón plugin. Si  esta visible , Si  esta habilitado  , Si esta requerido
     Given el usuario ingresa al home y hace click en el boton de nueva orden
@@ -342,6 +317,33 @@ Feature: Escenarios Modulo de recuperaciones
     Examples:
       | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoIngreso |
       | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | RUC           | 20602898025  | FIJO        |
+
+
+  @mobile
+    #En consulta
+  Scenario Outline: CP0054 - Validar Gerente Regional debe revisar información de créditos, para Cliente Persona Natural - Nuevo
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And hago click menu Datos de solicitud
+    And ingresa tipo de credito
+    And selecciona primer item Microempresas
+    And hago click en subtipo de credito
+    And selecciona subtipo de credito empresarial
+    And selecciona producto PYME
+    And selecciona subproducto PYME
+
+    Examples:
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | Credito        | Credito_Individual | DNI           | 40603206     |
+
 
   @mobile
   Scenario Outline: CP0055 - Capacidad de pago debe estar entre 0 - 80. Probar Capacidad de pago del cliente se encuentre dentro del rango 0 - 80. Para tipo de regla No Excepcionable
@@ -441,8 +443,109 @@ Feature: Escenarios Modulo de recuperaciones
     And ingreso Nro de cuotas "<cuotas>"
 
     Examples:
-      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoItem | monto | cuotas | dias |
-      | Credito        | Credito_Individual | DNI           | 40603206     | CONSUMO  | 20000 | 336    |      |
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | monto | cuotas |
+      | Credito        | Credito_Individual | DNI           | 40603206     | 20000 | 336    |
+
+  @mobile
+    #En consulta, el caso es confuzo ya que indica que el titular debe estr al dia en sus creditos y en la parte final de la descripción indica que no debe estar al dia.
+  Scenario Outline: CP0059 - El titular y cónyuge deben estar al día en el pago de todos sus créditos directos o indirectos que tengan en la Caja, asimismo el Fiador Solidario, el cónyuge del FS y el Representante Legal de ser el caso. Probar  con un titular que no está al día en el pago de todos sus créditos Para tipo de regla No Excepcionable.
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And hago click menu Datos de solicitud
+    And ingresa tipo de credito
+    And selecciona primer item Microempresas
+    And hago click en subtipo de credito
+    And selecciona subtipo de credito empresarial
+    And selecciona producto PYME
+    And selecciona subproducto PYME
+    And hago click en tipo de operacion
+    And selecciona ampliacion del tipo de operacion
+    And selecciona otorgamiento del tipo de operacion
+    And selecciono Modalidad de credito principal
+    And selecciono Destino del credito y hago click en LIBRE DISPONIBILIDAD
+    And hago click Tipo de cronograma
+    And selecciono tipo de cronograma fecha fija
+    And ingreso Monto Solicitado "<monto>"
+    And ingreso Nro de cuotas "<cuotas>"
+
+    Examples:
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | monto | cuotas |
+      | Credito        | Credito_Individual | DNI           | 40603206     | 20000 | 336    |
+
+
+  @mobile
+  Scenario Outline: CP0064 - Condiciones de cuotas o capital para paralelo y estacional: 30% Saldo capital, 40% cuotas canceladas. Probar considerar  el Otorgamiento de crédito Pyme. Para tipo de regla Excepcionable.
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And hago click menu Datos de solicitud
+    And ingresa tipo de credito
+    And selecciona primer item Microempresas
+    And hago click en subtipo de credito
+    And selecciona subtipo de credito empresarial
+    And selecciona producto PYME
+    And selecciona subproducto PYME
+
+    Examples:
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | monto | cuotas |
+      | Credito        | Credito_Individual | DNI           | 40603206     | 5000  | 336    |
+
+  @mobile
+  Scenario Outline: CP0064 - Sobre la titularidad de la unidad familiar: La unidad familiar debe tener un único titular, pero está prohibido atender a ambos miembros de la unidad familiar.  Considerando el registro de más de un titular en la unidad familiar. Para tipo de regla Excepcionable (Manual)
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And hago click menu Datos de solicitud
+    And ingresa tipo de credito
+    And selecciona primer item Microempresas
+    And hago click en subtipo de credito
+    And selecciona subtipo de credito empresarial
+    And selecciona producto PYME
+    And selecciona subproducto PYME
+    And hago click en tipo de operacion
+    And selecciona ampliacion del tipo de operacion
+    And selecciona otorgamiento del tipo de operacion
+    And selecciono Modalidad de credito principal
+    And selecciono Destino del credito y hago click en LIBRE DISPONIBILIDAD
+    And hago click Tipo de cronograma
+    And selecciono tipo de cronograma fecha fija
+    And ingreso Monto Solicitado "<monto>"
+    And ingreso Nro de cuotas "<cuotas>"
+    And selecciono no en el seguro de vida
+    And registro fecha de primera cuota
+    And selecciona calculo de plazo en días
+    And consulta niveles de autonomia de tasa
+    And Selecciona tasas
+    And selecciona NORMAL de tasas
+    And hago click en Simulador crédito
+    And Consulta sobreendeudamiento
+    And Consulta motor de decision de cliente no bancarizado
+    And enviar solicitud
+    Examples:
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | monto | cuotas |
+      | Credito        | Credito_Individual | DNI           | 40603206     | 5000  | 336    |
 
   @mobile
   Scenario Outline: CP0065 - Visita de supervisión obligatoria pre desembolso Y/o Verificación. Aprobar crédito Pyme. Para tipo de regla Excepcionable.
@@ -483,8 +586,82 @@ Feature: Escenarios Modulo de recuperaciones
     And Consulta motor de decision de cliente no bancarizado
     And enviar solicitud
     Examples:
-      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoItem | monto | cuotas |
-      | Credito        | Credito_Individual | DNI           | 40603206     | CONSUMO  | 5000  | 336    |
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | monto | cuotas |
+      | Credito        | Credito_Individual | DNI           | 40603206     | 5000  | 336    |
+
+  @mobile
+  Scenario Outline: CP0066 - Sobre la titularidad de la unidad familiar: La unidad familiar debe tener un único titular, pero está prohibido atender a ambos miembros de la unidad familiar.  Considerando el registro de más de un titular en la unidad familiar. Para tipo de regla Excepcionable (Manual)
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And hago click menu Datos de solicitud
+    And ingresa tipo de credito
+    And selecciona item CONSUMO
+    And hago click en subtipo de credito
+    And selecciona primer item PERSONAL de subtipo de credito
+    And selecciona producto PERSONAL
+    And hago click en tipo de operacion
+    And selecciona ampliacion del tipo de operacion
+    And selecciono Destino del credito y hago click en LIBRE DISPONIBILIDAD
+    And hago click Tipo de cronograma
+    And selecciono tipo de cronograma fecha fija
+    And ingreso Monto Solicitado "<monto>"
+    And ingreso Nro de cuotas "<cuotas>"
+    And selecciono agua saneamiento del Destino del crédito
+    And enviar solicitud
+
+    Examples:
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | monto | cuotas |
+      | Credito        | Credito_Individual | DNI           | 40603206     | 4500  | 50     |
+
+  Scenario Outline: CP0067 - Periodo de gracia, hasta 90 (Con y sin pago de intereses y no aplica para créditos estacionales) solo para destino activo fijo. Probar considerar  Otorgar crédito Pyme Facilito con destino Activo Fijo y periodo de gracia igual a 90. Para tipo de regla No Excepcionable.
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And hago click menu Datos de solicitud
+    And ingresa tipo de credito
+    And selecciona primer item Microempresas
+    And hago click en subtipo de credito
+    And selecciona subtipo de credito empresarial
+    And selecciona producto PYME
+    And selecciona subproducto PYME
+    And hago click en tipo de operacion
+    And selecciona ampliacion del tipo de operacion
+    And selecciona otorgamiento del tipo de operacion
+    And selecciono Modalidad de credito principal
+    And selecciono Destino del credito y hago click en LIBRE DISPONIBILIDAD
+    And hago click Tipo de cronograma
+    And selecciono tipo de cronograma fecha fija
+    And ingreso Monto Solicitado "<monto>"
+    And ingreso Nro de cuotas "<cuotas>"
+    And selecciono no en el seguro de vida
+    And registro fecha de primera cuota
+    And selecciona calculo de plazo en días
+    And consulta niveles de autonomia de tasa
+    And Selecciona tasas
+    And selecciona NORMAL de tasas
+    And hago click en Simulador crédito
+    And Consulta sobreendeudamiento
+    And solicita periodo de gracia por "<dias>" dias
+
+
+    Examples:
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoItem | monto | cuotas | dias |
+      | Credito        | Credito_Individual | DNI           | 40603206     | CONSUMO  | 5000  | 336    | 90     |
 
   @mobile
   Scenario Outline: CP0069 - Validar que Calculado 'Gastos Financieros' Si esté visible, No esté habilitado, No esté requerido y cumpla con la condición 'sumatoriaSaldosIndirectas+cuotaIndirectaFlujo'.
