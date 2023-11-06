@@ -106,5 +106,38 @@ public class Campaings_Task {
 
     public static By campo_Cuota = Element.Mobile_Element(Constantes.XPATH, "//*[@text='Nro. de cuotas']");
     public static By campo_Monto = Element.Mobile_Element(Constantes.XPATH, "//*[@text='Monto Solicitado']");
+    public static By boton_SimularCredito = Element.Mobile_Element(Constantes.XPATH, "//android.view.View[3]/android.view.View/android.widget.Button");
+    public static By boton_Telefono = Element.Mobile_Element(Constantes.XPATH, "//android.view.View[4]/android.view.View/android.widget.Button");
+    public static By campo_InicioActividadEconomica = Element.Mobile_Element(Constantes.XPATH, "//android.view.View[4]/android.view.View/android.widget.Button");
+    public static By boton_GeoposicionDomicilio = Element.Mobile_Element(Constantes.XPATH, "//android.view.View[4]/android.widget.Button");
+    public static By boton_llamar = Element.Mobile_Element(Constantes.XPATH, "//android.view.View[2]/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.Button");
+    public static By campo_Subproducto = Element.Mobile_Element(Constantes.XPATH, "(//android.view.View[@content-desc='Menú desplegable'])[4]/android.widget.EditText/android.view.View/android.view.View[2]");
+    public static By campo_SubproductoPersonal = Element.Mobile_Element(Constantes.XPATH, "//android.view.View[2]/android.widget.TextView");
+    public static By boton_ConsultarMotorDeDecisiónClienteNoBancarizado = Element.Mobile_Element(Constantes.XPATH, "//android.view.View[4]/android.view.View/android.widget.Button");
+    public static By boton_MensajeVoz = Element.Mobile_Element(Constantes.XPATH, "//android.view.View[3]/android.view.View/android.widget.Button");
+    public static By boton_EditarConyugue = Element.Mobile_Element(Constantes.XPATH, "//android.view.View[2]/android.view.View/android.view.View/android.widget.Button");
+    public static By campo_NombreCompletoConyugue = Element.Mobile_Element(Constantes.XPATH, "//android.view.View[2]/android.widget.EditText[1]/android.view.View");
+    public static By campo_EdadConyugue = Element.Mobile_Element(Constantes.XPATH, "//android.view.View[2]/android.widget.EditText[2]/android.view.View");
+    public static By menu_PersonaDatosComplementarios = Element.Mobile_Element(Constantes.XPATH, "//*[@text='Persona - Datos Complementarios']");
+    public static By campo_TiempoActividadEconomicaAnio = Element.Mobile_Element(Constantes.XPATH, "//android.view.View[2]/android.widget.EditText[3]/android.view.View");
+    public static By menu_ReferenciasVinculadosDeudas = Element.Mobile_Element(Constantes.XPATH, "//*[@text='Referencias, vínculados, Deudas']");
+    public static By menu_Garantias = Element.Mobile_Element(Constantes.XPATH, "//*[@text='Garantías']");
+    public static By btn_ConsultarGarantiasTitularConyugue = Element.Mobile_Element(Constantes.XPATH, "//android.view.View[2]/android.view.View[1]/android.view.View/android.widget.Button");
+    public static By btn_Referencias = Element.Mobile_Element(Constantes.XPATH, "//android.view.View[2]/android.view.View[1]/android.view.View/android.widget.Button");
+    public static By btn_AgregarReferencias = Element.Mobile_Element(Constantes.XPATH, "//android.view.View[2]/android.widget.Button");
+    public static By campo_TipoReferencia = Element.Mobile_Element(Constantes.XPATH, "//*[@text='Tipo de referencia']");
+    public static By menu_DocumentosVirtuales = Element.Mobile_Element(Constantes.XPATH, "//*[@text='Documentos Virtuales']");
+    public static By btn_TitularAnverso = Element.Mobile_Element(Constantes.XPATH, "//android.view.View[2]/android.view.View[2]/android.view.View/android.widget.Button");
+    public static By btn_Deudas = Element.Mobile_Element(Constantes.XPATH, "//android.view.View[6]/android.view.View/android.widget.Button");
+    public static By btn_AgregarDeudas = Element.Mobile_Element(Constantes.XPATH, "//android.view.View[2]/android.widget.Button");
+    public static By campo_TipoDeuda = Element.Mobile_Element(Constantes.XPATH, "//android.view.View[@content-desc='Menú desplegable'][1]/android.widget.EditText");
+    public static By campo_TipoDeudaDirecta = Element.Mobile_Element(Constantes.XPATH, "//*[@text='Directa']");
+    public static By campo_Frecuencia = Element.Mobile_Element(Constantes.XPATH, "//*[@text='Frecuencia']");
+    public static By campo_CuotasLibres = Element.Mobile_Element(Constantes.XPATH, "//*[@text='¿Cuotas libres?']");
+
+
+
+
+
 
 }

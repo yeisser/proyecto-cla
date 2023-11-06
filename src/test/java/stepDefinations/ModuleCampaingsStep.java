@@ -1,6 +1,7 @@
 package stepDefinations;
 
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.testng.Assert;
@@ -556,6 +557,8 @@ public class ModuleCampaingsStep {
 
     @And("validar boton microfono")
     public void validarBotonMicrofono() {
+        credito.es_Visible_Telefono();
+
         
     }
 
@@ -571,10 +574,12 @@ public class ModuleCampaingsStep {
 
     @And("el usuario ingresa a documentos virtuales")
     public void elUsuarioIngresaADocumentosVirtuales() {
+        credito.clickMenuDocumentosVirtuales();
     }
 
     @And("verificar dni anverso")
     public void verificarDniAnverso() {
+        credito.validarBotonTitularAnverso();
     }
 
     @And("el usuario ingresa a datos de solicitud")
@@ -587,6 +592,8 @@ public class ModuleCampaingsStep {
 
     @And("validar campo llamar")
     public void validarCampoLlamar() {
+        credito.es_Visible_SimularCredito();
+        credito.es_Visible_llamar();
     }
 
     @And("selecciona primer item PERSONAL de subtipo de credito")
@@ -668,5 +675,157 @@ public class ModuleCampaingsStep {
 
     @And("click en boton consultar conyuge")
     public void clickEnBotonConsultarConyuge() {
+    }
+
+    @Then("valido boton simular credito")
+    public void validoBotonSimularCredito() {
+        credito.es_Visible_SimularCredito();
+    }
+
+    @Then("valido campo inicio actividad economica")
+    public void validoCampoInicioActividadEconomica() {
+        credito.es_Visible_InicioActividadEconomica();
+    }
+
+    @Then("valido boton Geoposicion domicilio")
+    public void validoBotonGeoposicionDomicilio() {
+        credito.es_Visible_GeoposicionDomicilio();
+    }
+
+    @And("selecciona subproducto PERSONAL")
+    public void seleccionaSubproductoPERSONAL() {
+        credito.clickItemSubproducto();
+        credito.clickSubProductoPersonal();
+    }
+
+    @Then("Valido boton Consultar motor de decisión cliente no bancarizado")
+    public void validoBotonConsultarMotorDeDecisiónClienteNoBancarizado() {
+        credito.es_Visible_ConsultarMotorDeDecisiónClienteNoBancarizado();
+    }
+
+    @Then("valido boton Mensaje de voz")
+    public void validoBotonMensajeDeVoz() {
+        credito.es_Visible_BotonMensajeVoz();
+    }
+
+    @Then("valido boton consultar cliente")
+    public void validoBotonConsultarCliente() {
+        credito.es_Visible_BotonConsultarCliente();
+    }
+
+    @Then("Valido campo subproducto")
+    public void validoCampoSubproducto() {
+        credito.es_Visible_CampoSubproducto();
+    }
+
+    @And("hago click en boton editar conyugue")
+    public void hagoClickEnBotonEditarConyugue() {
+        credito.clickBotonEditarConyugue();
+    }
+
+    @And("autorizo tratamiento de datos de conyugue")
+    public void autorizoTratamientoDeDatosDeConyugue() {
+        credito.click_autorizacion_datos();
+    }
+
+    @And("autorizo envio de publicidad de conyugue")
+    public void autorizoEnvioDePublicidadDeConyugue() {
+        credito.click_envio_publicidad();
+    }
+
+    @And("el usuario consulta la persona")
+    public void elUsuarioConsultaLaPersona() {
+        credito.click_consultar_cliente();
+    }
+
+    @And("valido campo nombre completo")
+    public void validoCampoNombreCompleto() {
+        credito.es_Visible_CampoNombreCompletoConyugue();
+    }
+
+    @And("valido campo edad conyugue")
+    public void validoCampoEdadConyugue() {
+        credito.es_Visible_CampoEdadConyugue();
+    }
+
+    @And("hago click en el menu Persona - Datos complementarios")
+    public void hagoClickEnElMenuPersonaDatosComplementarios() {
+        credito.clickMenuPersonasDatosComplementarios();
+
+    }
+
+    @And("valido tiempo en la actividad economica años")
+    public void validoTiempoEnLaActividadEconomicaAños() {
+        credito.es_Visible_TiempoActividadEconomicaAnios();
+
+    }
+
+    @Then("valido boton posicion consolidada")
+    public void validoBotonPosicionConsolidada() {
+        credito.es_Visible_PosicionConsolidadaConyugue();
+
+    }
+
+    @Then("valido boton consultar persona")
+    public void validoBotonConsultarPersona() {
+        credito.es_Visible_ConsultarPersonaConyugue();
+    }
+
+    @And("hago click en el menu Referencias vinculados deudas")
+    public void hagoClickEnElMenuReferenciasVinculadosDeudas() {
+        credito.click_MenuReferencias();
+    }
+
+    @And("hago click en el menu Garantias")
+    public void hagoClickEnElMenuGarantias() {
+        credito.click_MenuGarantias();
+    }
+
+    @Then("valido boton Consultar garantias Titular Conyugue")
+    public void validoBotonConsultarGarantiasTitularConyugue() {
+        credito.es_Visible_BotonConsultarGarantiasTitularConyugue();
+    }
+
+    @And("hago click en el boton referencias")
+    public void hagoClickEnElBotonReferencias() {
+        credito.click_botonReferencias();
+    }
+
+    @And("hago click en agregar referencia")
+    public void hagoClickEnAgregarReferencia() {
+        credito.click_botonAgregarReferencias();
+    }
+
+    @Then("valido campo Tipo referencia")
+    public void validoCampoTipoReferencia() {
+        credito.es_Visible_CampoTipoReferencia();
+    }
+
+    @And("hago click en el boton deudas")
+    public void hagoClickEnElBotonDeudas() {
+        credito.click_botonDeudas();
+    }
+
+    @And("hago click en agregar deuda")
+    public void hagoClickEnAgregarDeuda() {
+        credito.click_botonAgregarDeudas();
+
+    }
+
+    @Then("valido campo Frecuencia")
+    public void validoCampoFrecuencia() {
+        credito.es_Visible_CampoFrecuencia();
+    }
+
+    @Then("valido pregunta cuotras libres")
+    public void validoPreguntaCuotrasLibres() {
+        credito.es_Visible_PreguntaCuotrasLibres();
+    }
+
+    @And("seleccionar deuda directa")
+    public void seleccionarDeudaDirecta() {
+        credito.click_TipoDeuda();
+        credito.click_TipoDeudaDirecta();
+
     }
 }

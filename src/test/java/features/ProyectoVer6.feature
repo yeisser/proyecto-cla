@@ -11,9 +11,8 @@ Feature: Escenarios Modulo de recuperaciones
     And el usuario hago click en la opcion cobranza del menu de Tipo de proceso
 
     Examples:
-      | organizacion | usuario                  | password     |
-      | andesqa      | amachaca@craclasadev.com | Testing.1234 |
-      | andesqa      | ncordova@craclasadev.com | Andes$2023   |
+      | organizacion | usuario                  | password   |
+      | andesqa      | ncordova@craclasadev.com | Andes$2023 |
 
   @mobile
   Scenario Outline: CP0001 - Kata Mobile - Monto y número de cuotas - El Monto y número de Cuotas deben mostrarse autocompletados y ser editable
@@ -24,9 +23,7 @@ Feature: Escenarios Modulo de recuperaciones
     And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
     And Autoriza el tratamiento de sus datos personales
     And el usuario autoriza el envio de publicidad
-    ##### revisar aqui###
     And el usuario consulta el cliente
-    ##############################
     And el usuario consulta la posicion consolidada
     And hago click en Mantenimiento cliente
     And hago click menu Datos de solicitud
@@ -282,6 +279,26 @@ Feature: Escenarios Modulo de recuperaciones
     Examples:
       | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoItem | monto | cuotas |
       | Credito        | Credito_Individual | DNI           | 40603206     | CONSUMO  | 5000  | 336    |
+
+  @mobile
+  Scenario Outline: CP0050 - Validar las condiciones correctas  del campo  'Simular crédito', tipo de campo Botón plugin. Si  esta visible , Si  esta habilitado  , Si esta requerido
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And hago click menu Datos de solicitud
+    Then valido boton simular credito
+
+    Examples:
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | Credito        | Credito_Individual | DNI           | 71431849     |
+
 
   @mobile
   Scenario Outline: CP0050 - Validar las condiciones correctas  del campo  'Simular crédito', tipo de campo Botón plugin. Si  esta visible , Si  esta habilitado  , Si esta requerido
@@ -673,9 +690,7 @@ Feature: Escenarios Modulo de recuperaciones
 
   @mobile
   Scenario Outline: CP0079 - El Servicio de Reniec debe funcionar para el proceso de Campaña.
-    Given se observa la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
-    When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
-    And el usuario ingresa al home y hace click en el boton de nueva orden
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
     And el usuario hace click en la opcion "<TipoFormulario>" del menu
     And el usuario hace click en la opcion "<TipoFormulario2>" del menu
     And el usuario hace click en boton crear
@@ -685,15 +700,27 @@ Feature: Escenarios Modulo de recuperaciones
     And el usuario consulta el cliente
 
     Examples:
-      | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
-      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 02040013     |
-
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | Credito        | Credito_Individual | DNI           | 02040013     |
 
   @mobile
-  Scenario Outline: CP091 - Validar que Botón Servicio 'Consultar garantías Titular y conyuge' Si esté visible, Si esté habilitado, Si esté requerido y cumpla con la condición 'se lleva la información de titular y conyuge para poder consultar y subproducto'.
-    Given se observa la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
-    When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
-    And el usuario ingresa al home y hace click en el boton de nueva orden
+  Scenario Outline: CP0085 - Validar condiciones correctas en el campo botón servicio "Consultar cliente". El campo botón servicio debe ser visible, habilitado y requerido.
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    Then valido boton consultar cliente
+
+    Examples:
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | Credito        | Credito_Individual | DNI           | 71431849     |
+
+  @mobile
+  Scenario Outline: CP0088 - Validar las condiciones correctas  del campo  'Consultar motor de decisión cliente no bancarizado', tipo de campo Botón Servicio. es visible y habilitado de acuerdo a la precondición
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
     And el usuario hace click en la opcion "<TipoFormulario>" del menu
     And el usuario hace click en la opcion "<TipoFormulario2>" del menu
     And el usuario hace click en boton crear
@@ -702,18 +729,25 @@ Feature: Escenarios Modulo de recuperaciones
     And el usuario autoriza el envio de publicidad
     And el usuario consulta el cliente
     And el usuario consulta la posicion consolidada
-    And click en pestaña garantias
-    And click en boton consultar garantias
+    And hago click en Mantenimiento cliente
+    And hago click menu Datos de solicitud
+    And ingresa tipo de credito
+    And selecciona item CONSUMO
+    And hago click en subtipo de credito
+    And selecciona subtipo de credito CONSUMO
+    And selecciona producto PERSONAL
+    And selecciona subproducto PYME
+    And selecciona subproducto PERSONAL
+    Then Valido boton Consultar motor de decisión cliente no bancarizado
 
     Examples:
-      | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
-      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 46829398     |
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | Credito        | Credito_Individual | DNI           | 71431849     |
+
 
   @mobile
-  Scenario Outline: CP092 - Validar que Botón Servicio 'Consultar posición consolidada' Si esté visible, No esté habilitado, No esté requerido
-    Given se observa la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
-    When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
-    And el usuario ingresa al home y hace click en el boton de nueva orden
+  Scenario Outline: CP00091 - Validar que Botón Servicio 'Consultar garantías Titular y conyuge' Si esté visible, Si esté habilitado, Si esté requerido y cumpla con la condición 'se lleva la información de titular y conyuge para poder consultar y subproducto'.
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
     And el usuario hace click en la opcion "<TipoFormulario>" del menu
     And el usuario hace click en la opcion "<TipoFormulario2>" del menu
     And el usuario hace click en boton crear
@@ -722,17 +756,46 @@ Feature: Escenarios Modulo de recuperaciones
     And el usuario autoriza el envio de publicidad
     And el usuario consulta el cliente
     And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And hago click menu Datos de solicitud
+    And hago click en el menu Datos del conyuge
+    And hago click en el menu Excepciones
+    And hago click en el menu Referencias vinculados deudas
+    And hago click en el menu Garantias
+    Then valido boton Consultar garantias Titular Conyugue
+
 
     Examples:
-      | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
-      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 46829398     |
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | Credito        | Credito_Individual | DNI           | 20066498  |
 
+  @mobile
+  Scenario Outline: CP092|94 - Validar que Botón Servicio 'Consultar posición consolidada' Si esté visible, No esté habilitado, No esté requerido
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And hago click menu Datos de solicitud
+    And hago click en el menu Datos del conyuge
+    And hago click en boton editar conyugue
+    And autorizo tratamiento de datos de conyugue
+    And autorizo envio de publicidad de conyugue
+    And el usuario consulta la persona
+    Then valido boton posicion consolidada
+
+    Examples:
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | Credito        | Credito_Individual | DNI           | 20066498  |
 
   @mobile
   Scenario Outline: CP093 - Validar que Botón Servicio 'Consultar cónyuge' Si esté visible, Si esté habilitado, No esté requerido
-    Given se observa la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
-    When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
-    And el usuario ingresa al home y hace click en el boton de nueva orden
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
     And el usuario hace click en la opcion "<TipoFormulario>" del menu
     And el usuario hace click en la opcion "<TipoFormulario2>" del menu
     And el usuario hace click en boton crear
@@ -741,47 +804,21 @@ Feature: Escenarios Modulo de recuperaciones
     And el usuario autoriza el envio de publicidad
     And el usuario consulta el cliente
     And el usuario consulta la posicion consolidada
-    And click en pestaña garantias
-    And click en boton consultar conyuge
+    And hago click en Mantenimiento cliente
+    And hago click menu Datos de solicitud
+    And hago click en el menu Datos del conyuge
+    And hago click en boton editar conyugue
+    And autorizo tratamiento de datos de conyugue
+    And autorizo envio de publicidad de conyugue
+    Then valido boton consultar persona
 
     Examples:
-      | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
-      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 46829398     |
-
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | Credito        | Credito_Individual | DNI           | 20066498  |
 
   @mobile
   Scenario Outline: CP00100 - Validar que Calculado 'Nombre Completo' No esté visible, No esté habilitado, No esté requerido y cumpla con la condición 'Mostrar para clientes : 1 Con Id_Cliente y 2 Sin Id_Cliente pero con información recuperada del Servicio RENIEC El orden de mostrado es Primer Nombre + Segundo Nombre + Tercer Nombre + Otros Nombres+ Apellido Paterno+Apellido Materno+ Apellido de Casada'
-    Given se observa la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
-    When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
-    And el usuario ingresa al home y hace click en el boton de nueva orden
-    And el usuario hace click en la opcion "<TipoFormulario>" del menu
-    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
-    And el usuario hace click en boton crear
-    And validar campo Nombre completo vacio
-    Examples:
-      | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    |
-      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual |
-
-  @mobile
-  Scenario Outline: CP0101 - Validar que Calculado 'Edad' Sí esté visible, Sí esté habilitado, Sí esté requerido y cumpla con la condición 'Calculada de acuerdo a la fecha de nacimiento y debe ser mayor de 18 años'
-    Given se observa la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
-    When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
-    And el usuario ingresa al home y hace click en el boton de nueva orden
-    And el usuario hace click en la opcion "<TipoFormulario>" del menu
-    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
-    And el usuario hace click en boton crear
-    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
-    And validar campo edad
-
-    Examples:
-      | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
-      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 02040013     |
-
-  @mobile
-  Scenario Outline: CP0102|103 - Validar que Calculado 'Tiempo en la actividad económica (años)' Sí esté visible, No esté habilitado, No esté requerido y cumpla con la condición 'tiempoEnActividadEconomicaMesesFiadorTitular/12'
-    Given se observa la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
-    When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
-    And el usuario ingresa al home y hace click en el boton de nueva orden
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
     And el usuario hace click en la opcion "<TipoFormulario>" del menu
     And el usuario hace click en la opcion "<TipoFormulario2>" del menu
     And el usuario hace click en boton crear
@@ -789,17 +826,73 @@ Feature: Escenarios Modulo de recuperaciones
     And Autoriza el tratamiento de sus datos personales
     And el usuario autoriza el envio de publicidad
     And el usuario consulta el cliente
-    And validar actividad economica
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And hago click menu Datos de solicitud
+    And hago click en el menu Datos del conyuge
+    And hago click en boton editar conyugue
+    And autorizo tratamiento de datos de conyugue
+    And autorizo envio de publicidad de conyugue
+    And el usuario consulta la persona
+    And valido campo nombre completo
 
     Examples:
-      | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
-      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 02040013     |
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | Credito        | Credito_Individual | DNI           | 20066498  |
+
+  @mobile
+  Scenario Outline: CP00101 - Validar que Calculado 'Edad' Sí esté visible, Sí esté habilitado, Sí esté requerido y cumpla con la condición 'Calculada de acuerdo a la fecha de nacimiento y debe ser mayor de 18 años'
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And hago click menu Datos de solicitud
+    And hago click en el menu Datos del conyuge
+    And hago click en boton editar conyugue
+    And autorizo tratamiento de datos de conyugue
+    And autorizo envio de publicidad de conyugue
+    And el usuario consulta la persona
+    And valido campo edad conyugue
+
+    Examples:
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | Credito        | Credito_Individual | DNI           | 20066498  |
+
+  @mobile
+  Scenario Outline: CP00102|103 - Validar que Calculado 'Nombre Completo' No esté visible, No esté habilitado, No esté requerido y cumpla con la condición 'Mostrar para clientes : 1 Con Id_Cliente y 2 Sin Id_Cliente pero con información recuperada del Servicio RENIEC El orden de mostrado es Primer Nombre + Segundo Nombre + Tercer Nombre + Otros Nombres+ Apellido Paterno+Apellido Materno+ Apellido de Casada'
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And hago click menu Datos de solicitud
+    And hago click en el menu Datos del conyuge
+    And hago click en boton editar conyugue
+    And autorizo tratamiento de datos de conyugue
+    And autorizo envio de publicidad de conyugue
+    And el usuario consulta la persona
+    And el usuario consulta la posicion consolidada
+    And hago click en el menu Persona - Datos complementarios
+    And valido tiempo en la actividad economica años
+
+    Examples:
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | Credito        | Credito_Individual | DNI           | 20066498  |
 
   @mobile
   Scenario Outline: CP0105|117 - Validar las condiciones correctas  del campo  'Mensaje de Voz', tipo de campo Evento. Si  esta visible , Si  esta habilitado  , Si esta requerido.
-    Given se observa la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
-    When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
-    And el usuario ingresa al home y hace click en el boton de nueva orden
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
     And el usuario hace click en la opcion "<TipoFormulario>" del menu
     And el usuario hace click en la opcion "<TipoFormulario2>" del menu
     And el usuario hace click en boton crear
@@ -807,17 +900,14 @@ Feature: Escenarios Modulo de recuperaciones
     And Autoriza el tratamiento de sus datos personales
     And el usuario autoriza el envio de publicidad
     And el usuario consulta el cliente
-    And validar boton microfono
-
+    Then validar boton microfono
     Examples:
-      | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
-      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 02040013     |
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | Credito        | Credito_Individual | DNI           | 71431849     |
 
   @mobile
   Scenario Outline: CP0106 - Validar las condiciones correctas  del campo "Inicio actividad económica". es visible, se habilita de acuerdo a la precondicion, es requerido
-    Given se observa la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
-    When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
-    And el usuario ingresa al home y hace click en el boton de nueva orden
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
     And el usuario hace click en la opcion "<TipoFormulario>" del menu
     And el usuario hace click en la opcion "<TipoFormulario2>" del menu
     And el usuario hace click en boton crear
@@ -825,17 +915,18 @@ Feature: Escenarios Modulo de recuperaciones
     And Autoriza el tratamiento de sus datos personales
     And el usuario autoriza el envio de publicidad
     And el usuario consulta el cliente
-    And validar campo inicio de actividad economica
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    Then valido campo inicio actividad economica
 
     Examples:
-      | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
-      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 02040013     |
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | Credito        | Credito_Individual | RUC           | 20602898025  |
+
 
   @mobile
   Scenario Outline: CP0107 - Validar las condiciones correctas  del campo  'Geoposición Domicilio', tipo de campo GPS Automático. Si  esta visible , Si  esta habilitado  , Si esta requerido.
-    Given se observa la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
-    When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
-    And el usuario ingresa al home y hace click en el boton de nueva orden
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
     And el usuario hace click en la opcion "<TipoFormulario>" del menu
     And el usuario hace click en la opcion "<TipoFormulario2>" del menu
     And el usuario hace click en boton crear
@@ -843,17 +934,18 @@ Feature: Escenarios Modulo de recuperaciones
     And Autoriza el tratamiento de sus datos personales
     And el usuario autoriza el envio de publicidad
     And el usuario consulta el cliente
-    And validar campo geoposicion domicilio
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    Then valido boton Geoposicion domicilio
 
     Examples:
-      | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
-      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 02040013     |
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | Credito        | Credito_Individual | DNI           | 71431849     |
+
 
   @mobile
   Scenario Outline: CP0108 - Validar que Imagen 'DNI titular anverso' Si esté visible, Si esté habilitado, No esté requerido.
-    Given se observa la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
-    When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
-    And el usuario ingresa al home y hace click en el boton de nueva orden
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
     And el usuario hace click en la opcion "<TipoFormulario>" del menu
     And el usuario hace click en la opcion "<TipoFormulario2>" del menu
     And el usuario hace click en boton crear
@@ -861,18 +953,24 @@ Feature: Escenarios Modulo de recuperaciones
     And Autoriza el tratamiento de sus datos personales
     And el usuario autoriza el envio de publicidad
     And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And hago click menu Datos de solicitud
+    And hago click en el menu Datos del conyuge
+    And hago click en el menu Excepciones
+    And hago click en el menu Referencias vinculados deudas
+    And hago click en el menu Garantias
     And el usuario ingresa a documentos virtuales
-    And verificar dni anverso
+    Then verificar dni anverso
 
     Examples:
-      | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
-      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 02040013     |
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | Credito        | Credito_Individual | DNI           | 20066498  |
+
 
   @mobile
   Scenario Outline: CP0109 - Validar condiciones correctas en la lista desplegable "Subproducto". Las opciones de la lista desplegable deben ser visible de acuerdo al tipo de cliente, debe ser habilitado, debe ser requerido.
-    Given se observa la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
-    When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
-    And el usuario ingresa al home y hace click en el boton de nueva orden
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
     And el usuario hace click en la opcion "<TipoFormulario>" del menu
     And el usuario hace click en la opcion "<TipoFormulario2>" del menu
     And el usuario hace click en boton crear
@@ -880,18 +978,67 @@ Feature: Escenarios Modulo de recuperaciones
     And Autoriza el tratamiento de sus datos personales
     And el usuario autoriza el envio de publicidad
     And el usuario consulta el cliente
-    And el usuario ingresa a datos de solicitud
-    And verifica select subproducto
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And hago click menu Datos de solicitud
+    Then Valido campo subproducto
 
     Examples:
-      | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
-      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 02040013     |
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | Credito        | Credito_Individual | DNI           | 71431849     |
+
+  @mobile
+  Scenario Outline: CP00110 - Validar que Lista Desplegable 'Tipo de referencia' Si esté visible, Si esté habilitado, Si esté requerido, debe contener 'Dig-TipoReferencia'
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And hago click menu Datos de solicitud
+    And hago click en el menu Datos del conyuge
+    And hago click en el menu Excepciones
+    And hago click en el menu Referencias vinculados deudas
+    And hago click en el boton referencias
+    And hago click en agregar referencia
+    Then valido campo Tipo referencia
+
+    Examples:
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | Credito        | Credito_Individual | DNI           | 20066498  |
+
+  @mobile
+  Scenario Outline: CP00111 - Validar que Lista Desplegable 'Frecuencia' Si esté visible, Si esté habilitado, Si esté requerido y cumpla con la condición 'habilitado siempre para el ADN', debe contener 'Dig-Frecuencia'
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And hago click menu Datos de solicitud
+    And hago click en el menu Datos del conyuge
+    And hago click en el menu Excepciones
+    And hago click en el menu Referencias vinculados deudas
+    And hago click en el boton deudas
+    And hago click en agregar deuda
+    And seleccionar deuda directa
+    Then valido campo Frecuencia
+
+    Examples:
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | Credito        | Credito_Individual | DNI           | 20066498  |
 
   @mobile
   Scenario Outline: CP0112 - Validar las condiciones correctas  del campo  'Llamar', tipo de campo Llamada. Si  esta visible , Si  esta habilitado  , No esta requerido.
-    Given se observa la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
-    When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
-    And el usuario ingresa al home y hace click en el boton de nueva orden
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
     And el usuario hace click en la opcion "<TipoFormulario>" del menu
     And el usuario hace click en la opcion "<TipoFormulario2>" del menu
     And el usuario hace click en boton crear
@@ -902,14 +1049,12 @@ Feature: Escenarios Modulo de recuperaciones
     And validar campo llamar
 
     Examples:
-      | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
-      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 02040013     |
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | Credito        | Credito_Individual | DNI           | 02040013     |
 
   @mobile
-  Scenario Outline: CP0112 - Validar las condiciones correctas  del campo  'Llamar', tipo de campo Llamada. Si  esta visible , Si  esta habilitado  , No esta requerido.
-    Given se observa la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
-    When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
-    And el usuario ingresa al home y hace click en el boton de nueva orden
+  Scenario Outline: CP00113 - Validar que Radio Botones '¿Cuotas libres?' Si esté visible, Si esté habilitado, Si esté requerido, debe contener 'Si/No'
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
     And el usuario hace click en la opcion "<TipoFormulario>" del menu
     And el usuario hace click en la opcion "<TipoFormulario2>" del menu
     And el usuario hace click en boton crear
@@ -917,29 +1062,35 @@ Feature: Escenarios Modulo de recuperaciones
     And Autoriza el tratamiento de sus datos personales
     And el usuario autoriza el envio de publicidad
     And el usuario consulta el cliente
-    And validar campo llamar
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And hago click menu Datos de solicitud
+    And hago click en el menu Datos del conyuge
+    And hago click en el menu Excepciones
+    And hago click en el menu Referencias vinculados deudas
+    And hago click en el boton deudas
+    And hago click en agregar deuda
+    Then valido pregunta cuotras libres
 
     Examples:
-      | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
-      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 02040013     |
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | Credito        | Credito_Individual | DNI           | 20066498  |
 
   @mobile
-  Scenario Outline: CP0112 - Validar las condiciones correctas  del campo  'Llamar', tipo de campo Llamada. Si  esta visible , Si  esta habilitado  , No esta requerido.
-    Given se observa la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
-    When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
-    And el usuario ingresa al home y hace click en el boton de nueva orden
+  Scenario Outline: CP0117 - Validar condiciones correctas en el campo de voz "Mensaje de Voz". El campo de voz es visible si el cliente da su conformidad en el tratamiento de datos, debe ser habilitado, debe ser requerido.
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
     And el usuario hace click en la opcion "<TipoFormulario>" del menu
     And el usuario hace click en la opcion "<TipoFormulario2>" del menu
     And el usuario hace click en boton crear
     And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
     And Autoriza el tratamiento de sus datos personales
     And el usuario autoriza el envio de publicidad
-    And el usuario consulta el cliente
-    And validar campo llamar
+    Then valido boton Mensaje de voz
 
     Examples:
-      | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
-      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 02040013     |
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | Credito        | Credito_Individual | DNI           | 71431849     |
+
 
   @mobile
   Scenario Outline: CP0147 - El plazo máximo es hasta 18 meses para montos hasta S/ 8,000.00.
