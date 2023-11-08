@@ -336,11 +336,11 @@ public class campaings_screens {
     public String get_mensaje_unoMismo() {
         return UIOperation.getText(Campaings_Task.txtview_unoMismo);
     }
-    public Boolean es_Visible_Monto(){
-        return UIOperation.isVisible(Campaings_Task.campo_Monto);
+    public void es_Visible_Monto(){
+        UIOperation.isVisible(Campaings_Task.campo_Monto);
     }
-    public Boolean es_Visible_Cuotas(){
-        return UIOperation.isVisible(Campaings_Task.campo_Cuota);
+    public void es_Visible_Cuotas(){
+        UIOperation.isVisible(Campaings_Task.campo_Cuota);
     }
     public String get_trae_cliente_activo(){
         return UIOperation.getText(Campaings_Task.txt_tipo_credito);
@@ -351,11 +351,107 @@ public class campaings_screens {
     public String get_trae_datos_computo(){
         return UIOperation.getText(Campaings_Task.txt_datos_computo);
     }
-
     public void iniciar_session() {
         UIOperation.giveClick(Campaings_Task.btn_session);
     }
 
+    public void es_Visible_SimularCredito(){
+        UIOperation.isVisible(Campaings_Task.boton_SimularCredito);
+    }
+    public void es_Visible_Telefono(){
+        UIOperation.isVisible(Campaings_Task.boton_Telefono);
+    }
+    public void es_Visible_InicioActividadEconomica(){
+        UIOperation.isVisible(Campaings_Task.campo_InicioActividadEconomica);
+    }
+    public void es_Visible_GeoposicionDomicilio(){
+        UIOperation.isVisible(Campaings_Task.boton_GeoposicionDomicilio);
+    }
+    public void es_Visible_llamar(){
+        UIOperation.isVisible(Campaings_Task.boton_llamar);
+    }
+
+    public void clickItemSubproducto(){
+        UIOperation.giveClick(Campaings_Task.campo_Subproducto);
+    }
+    public void clickSubProductoPersonal(){
+        UIOperation.isVisible(Campaings_Task.campo_SubproductoPersonal);
+    }
+    public void es_Visible_ConsultarMotorDeDecisiónClienteNoBancarizado(){
+        UIOperation.isVisible(Campaings_Task.boton_ConsultarMotorDeDecisiónClienteNoBancarizado);
+    }
+    public void es_Visible_BotonMensajeVoz(){
+        UIOperation.isVisible(Campaings_Task.boton_MensajeVoz);
+    }
+    public void es_Visible_BotonConsultarCliente(){
+        UIOperation.isVisible(Campaings_Task.btn_consultar_cliente);
+    }
+    public void es_Visible_CampoSubproducto(){
+        UIOperation.isVisible(Campaings_Task.campo_Subproducto);
+    }
+    public void clickBotonEditarConyugue(){
+        UIOperation.isVisible(Campaings_Task.boton_EditarConyugue);
+    }
+    public void es_Visible_CampoNombreCompletoConyugue(){
+        UIOperation.isVisible(Campaings_Task.campo_NombreCompletoConyugue);
+    }
+    public void es_Visible_CampoEdadConyugue(){
+        UIOperation.isVisible(Campaings_Task.campo_EdadConyugue);
+    }
+    public void clickMenuPersonasDatosComplementarios(){
+        UIOperation.giveClick(Campaings_Task.menu_PersonaDatosComplementarios);
+    }
+    public void es_Visible_TiempoActividadEconomicaAnios(){
+        UIOperation.isVisible(Campaings_Task.campo_TiempoActividadEconomicaAnio);
+    }
+    public void es_Visible_PosicionConsolidadaConyugue(){
+        UIOperation.isVisible(Campaings_Task.btn_consultar_posicion_consolidada);
+    }
+    public void es_Visible_ConsultarPersonaConyugue(){
+        UIOperation.isVisible(Campaings_Task.btn_consultar_cliente);
+    }
+    public void es_Visible_BotonConsultarGarantiasTitularConyugue(){
+        UIOperation.isVisible(Campaings_Task.btn_ConsultarGarantiasTitularConyugue);
+    }
+    public void click_MenuReferencias(){
+        UIOperation.giveClick(Campaings_Task.menu_ReferenciasVinculadosDeudas);
+    }
+    public void click_MenuGarantias(){
+        UIOperation.giveClick(Campaings_Task.menu_Garantias);
+    }
+    public void click_botonReferencias(){
+        UIOperation.giveClick(Campaings_Task.btn_Referencias);
+    }
+    public void click_botonDeudas(){
+        UIOperation.giveClick(Campaings_Task.btn_Deudas);
+    }
+    public void click_botonAgregarReferencias(){
+        UIOperation.giveClick(Campaings_Task.btn_AgregarReferencias);
+    }
+    public void click_botonAgregarDeudas(){
+        UIOperation.giveClick(Campaings_Task.btn_AgregarDeudas);
+    }
+    public void es_Visible_CampoTipoReferencia(){
+        UIOperation.isVisible(Campaings_Task.campo_TipoReferencia);
+    }
+    public void clickMenuDocumentosVirtuales(){
+        UIOperation.giveClick(Campaings_Task.menu_DocumentosVirtuales);
+    }
+    public void validarBotonTitularAnverso(){
+        UIOperation.isVisible(Campaings_Task.btn_TitularAnverso);
+    }
+    public void click_TipoDeuda(){
+        UIOperation.giveClick(Campaings_Task.campo_TipoDeuda);
+    }
+    public void click_TipoDeudaDirecta(){
+        UIOperation.giveClick(Campaings_Task.campo_TipoDeudaDirecta);
+    }
+    public void es_Visible_CampoFrecuencia(){
+        UIOperation.isVisible(Campaings_Task.campo_Frecuencia);
+    }
+    public void es_Visible_PreguntaCuotrasLibres(){
+        UIOperation.isVisible(Campaings_Task.campo_CuotasLibres);
+    }
     public void scrollByText() {
         String _scrollContainer = "com.kata.formiik:id/rvFormOrder";
         String _childElement = "android.widget.TextView";
