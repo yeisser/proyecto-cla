@@ -109,8 +109,6 @@ R
 "src/test/java/runner/RunnTest.java,9\9\990b63c44715006272222d4589358a95033fefa7
 T
 $src/test/java/features/Login.feature,7\5\7547904f979a4bd380ac2279c6a2328d8740ff94
-^
-.src/test/java/stepDefinations/WelcomeStep.java,7\2\724c5d0bb442d55dde0246daf563e51264982bc4
 X
 (src/test/java/screens/WelcomeScreen.java,2\8\281dd6441d330c30e3f1e811a7422f764ff8e3ab
 O
@@ -119,5 +117,3 @@ O
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 V
 &src/test/java/screens/LoginScreen.java,e\c\ecd9059acacdda8ac121ea07f289374821fdf502
-\
-,src/test/java/stepDefinations/LoginStep.java,e\7\e7baac45c82a914605e5d5e352ca168abc160cce
