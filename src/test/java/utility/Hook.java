@@ -9,6 +9,7 @@ import io.cucumber.java.Scenario;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.URL;
@@ -17,6 +18,8 @@ import java.util.concurrent.TimeUnit;
 public class Hook {
 
     private static AndroidDriver<WebElement> driver;
+    private static ChromeDriver seleniumDriver;
+
 
     @Before
     public void setUpAppium() throws Exception {
@@ -32,7 +35,10 @@ public class Hook {
         driver.manage().timeouts().implicitlyWait(5000, TimeUnit.SECONDS);
 
     }
-
+    public void setUpSelenium() throws Exception {
+        System.setProperty("webdriver.chrome.driver","src/test/resources/drivers/chromedriver.exe");
+        seleniumDriver = new ChromeDriver();
+    }
     @After
     public void tearDown(Scenario scenario) {
         try {
@@ -52,5 +58,8 @@ public class Hook {
 
     public static AppiumDriver getDriver() {
         return driver;
+    }
+    public static ChromeDriver getSeleniumDriver() {
+        return seleniumDriver;
     }
 }
