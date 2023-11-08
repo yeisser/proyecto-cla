@@ -315,7 +315,6 @@ public class ModuleCampaingsStep {
 
     @And("^hago click Tipo de cronograma$")
     public void click_tipo_cronograma() {
-        //scrollByText_tipo_cronograma();
         credito.click_tipo_cronograma();
     }
 
@@ -623,10 +622,12 @@ public class ModuleCampaingsStep {
 
     @And("Selecciono documentos virtuales")
     public void seleccionoDocumentosVirtuales() {
+        credito.seleccionoDocumentosVirtuales();
     }
 
     @And("proceso solicitud")
     public void procesoSolicitud() {
+        credito.procesoSolicitud();
     }
 
     @And("el usuario verifica que tiene campaña y cambia pestaña excepciones")
@@ -827,5 +828,276 @@ public class ModuleCampaingsStep {
         credito.click_TipoDeuda();
         credito.click_TipoDeudaDirecta();
 
+    }
+
+    @And("hago click en el menu variables socioeconomicas")
+    public void hagoClickEnElMenuVariablesSocioeconomicas() {
+        credito.click_menuVariablesSocioeconomicas();
+    }
+
+    @And("hago click en menu Analisis cualitativo personal")
+    public void hagoClickEnMenuAnalisisCualitativoPersonal() {
+        credito.click_menuAnalisisCualitativoPersonal();
+    }
+
+    @And("hago click en menu Estados de resultados personas")
+    public void hagoClickEnMenuEstadosDeResultadosPersonas() {
+        credito.click_menuEstadosDeResultadosPersonas();
+    }
+
+    @And("hago click en el boton fiadores")
+    public void hagoClickEnElBotonFiadores() {
+        credito.click_botonFiadores();
+    }
+
+    @And("hago click en crear fiador")
+    public void hagoClickEnCrearFiador() {
+        credito.click_CrearFiadores();
+    }
+
+    @And("valido campo Tipo de guardado del formulario")
+    public void validoCampoTipoDeGuardadoDelFormulario() {
+        credito.es_Visible_TipoGuardadoDelFormularioFiadores();
+    }
+
+    @And("ingreso referencia de direccion {string}")
+    public void ingresoReferenciaDeDireccion(String ReferenciaDireccion) {
+        credito.ingresoReferenciaDeDireccion(ReferenciaDireccion);
+    }
+
+    @And("selecciono tipo de vivienda {string}")
+    public void seleccionoTipoDeVivienda(String TipoVivienda) {
+        credito.seleccionoTipoDeVivienda(TipoVivienda);
+    }
+
+    @And("selecciono tipo de construccion {string}")
+    public void seleccionoTipoDeConstruccion(String TipoConstruccion) {
+        credito.seleccionoTipoConstruccion(TipoConstruccion);
+    }
+
+    @And("selecciono tipo de sector {string}")
+    public void seleccionoTipoDeSector(String TipoSector) {
+        credito.seleccionoTipoDeSector(TipoSector);
+
+    }
+
+    @And("ingreso años de residencia {string}")
+    public void ingresoAñosDeResidencia(String AñosDeResidencia) {
+        credito.ingresoAñosDeResidencia(AñosDeResidencia);
+    }
+
+    @And("selecciono ocupacion {string}")
+    public void seleccionoOcupacion(String Ocupacion) {
+        credito.seleccionoOcupacion(Ocupacion);
+    }
+
+    @And("selecciono cargo {string}")
+    public void seleccionoCargo(String Cargo) {
+        credito.seleccionoCargo(Cargo);
+    }
+
+    @And("ingreso numero de personas dependientes {string}")
+    public void ingresoNumeroDePersonasDependientes(String NumeroDePersonasDependientes) {
+        credito.ingresoNumeroDePersonasDependientes(NumeroDePersonasDependientes);
+    }
+
+    @And("ingreso numero de hijos {string}")
+    public void ingresoNumeroDeHijos(String NumeroDeHijos) {
+        credito.ingresoNumeroDeHijos(NumeroDeHijos);
+    }
+
+    @And("selecciono tipo de ingreso {string}")
+    public void seleccionoTipoDeIngreso(String TipoDeIngreso) {
+        credito.seleccionoTipoDeIngreso(TipoDeIngreso);
+    }
+
+    @And("selecciono no cambio de actividad principal")
+    public void seleccionoNoCambioDeActividadPrincipal() {
+        credito.seleccionoNoCambioDeActividadPrincipal();
+    }
+
+    @And("marco no en seguro optativos")
+    public void marcoNoEnSeguroOptativos() {
+        credito.marcoNoEnSeguroOptativos();
+    }
+
+    @And("consulto sobreendeudamiento")
+    public void consultoSobreendeudamiento() {
+        credito.consultoSobreendeudamiento();
+    }
+
+    @And("consulto motor de decision de cliente no bancarizado")
+    public void consultoMotorDeDecisionDeClienteNoBancarizado() {
+        credito.consultoMotorDeDecisionDeClienteNoBancarizado();
+    }
+
+    @And("selecciono tiempo en domicilio {string}")
+    public void seleccionoTiempoEnDomicilio(String TiempoEnDomicilio) {
+        credito.seleccionoTiempoEnDomicilio(TiempoEnDomicilio);
+    }
+
+    @And("ingreso numero de clientes semanales {string}")
+    public void ingresoNumeroDeClientesSemanales(String NroClientesSemanales) {
+        credito.ingresoNumeroDeClientesSemanales(NroClientesSemanales);
+    }
+
+    @And("Selecciono numero de trabajadores {string}")
+    public void seleccionoNumeroDeTrabajadores(String NroTrabajadores) {
+        credito.seleccionoNumeroDeTrabajadores(NroTrabajadores);
+    }
+
+    @And("Selecciono tiempo experiencia en el negocio {string}")
+    public void seleccionoTiempoExperienciaEnElNegocio(String ExperienciaNegocio) {
+        credito.seleccionoTiempoExperienciaEnElNegocio(ExperienciaNegocio);
+    }
+
+    @And("selecciono numero de hijos en edad escolar {string}")
+    public void seleccionoNumeroDeHijosEnEdadEscolar(String HijosEdadEscolar) {
+        credito.seleccionoNumeroDeHijosEnEdadEscolar(HijosEdadEscolar);
+    }
+
+    @And("selecciono posicion en el hogar {string}")
+    public void seleccionoPosicionEnElHogar(String PosicionEnElHogar) {
+        credito.seleccionoPosicionEnElHogar(PosicionEnElHogar);
+    }
+
+    @And("selecciono Si paga por internet")
+    public void seleccionoSiPagaPorInternet() {
+        credito.seleccionoSiPagaPorInternet();
+    }
+
+    @And("selecciono Distancia del negocio {string}")
+    public void seleccionoDistanciaDelNegocio(String DistanciaNegocio) {
+        credito.seleccionoDistanciaDelNegocio(DistanciaNegocio);
+    }
+
+    @And("selecciono Si paga por luz")
+    public void seleccionoSiPagaPorLuz() {
+        credito.seleccionoSiPagaPorLuz();
+    }
+
+    @And("selecciono Si paga por agua")
+    public void seleccionoSiPagaPorAgua() {
+        credito.seleccionoSiPagaPorAgua();
+    }
+
+    @And("Consulto reglas caja")
+    public void consultoReglasCaja() {
+        credito.consultoReglasCaja();
+    }
+
+    @And("selecciono tipo de referencia {string}")
+    public void seleccionoTipoDeReferencia(String TipoReferencia) {
+        credito.seleccionoTipoDeReferencia(TipoReferencia);
+    }
+
+    @And("selecciono vinculo de referencia {string}")
+    public void seleccionoVinculoDeReferencia(String VinculoReferencia) {
+        credito.seleccionoVinculoDeReferencia(VinculoReferencia);
+    }
+
+    @And("ingreso nombre de referencia {string}")
+    public void ingresoNombreDeReferencia(String NombreReferencia) {
+        credito.ingresoNombreDeReferencia(NombreReferencia);
+    }
+
+    @And("ingreso direccion de referencia {string}")
+    public void ingresoDireccionDeReferencia(String DireccionReferencia) {
+        credito.ingresoDireccionDeReferencia(DireccionReferencia);
+    }
+
+    @And("ingreso telefono de referencia {string}")
+    public void ingresoTelefonoDeReferencia(String TelefonoReferencia) {
+        credito.ingresoTelefonoDeReferencia(TelefonoReferencia);
+    }
+
+    @And("ingreso comentarios sobre referencia {string}")
+    public void ingresoComentariosSobreReferencia(String ComentariosReferencia) {
+        credito.ingresoComentariosSobreReferencia(ComentariosReferencia);
+    }
+
+    @And("guardo referencia")
+    public void guardoReferencia() {
+        credito.guardoReferencia();
+    }
+
+    @And("hago click en retroceder referencia")
+    public void hagoClickEnRetrocederReferencia() {
+        credito.hagoClickEnRetrocederReferencia();
+    }
+
+    @And("selecciono ingreso principal {string}")
+    public void seleccionoIngresoPrincipal(String IngresoPrincipal) {
+        credito.seleccionoIngresoPrincipal(IngresoPrincipal);
+    }
+
+    @And("selecciono ingreso secundario {string}")
+    public void seleccionoIngresoSecundario(String IngresoSecundario) {
+        credito.seleccionoIngresoSecundario(IngresoSecundario);
+    }
+
+    @And("selecciono tiempo experiencia en años {string}")
+    public void seleccionoTiempoExperienciaEnAños(String TiempoExperiencia) {
+        credito.seleccionoTiempoExperienciaEnAños(TiempoExperiencia);
+    }
+
+    @And("selecciono estabilidad laboral {string}")
+    public void seleccionoEstabilidadLaboral(String EstabilidadLaboral) {
+        credito.seleccionoEstabilidadLaboral(EstabilidadLaboral);
+    }
+
+    @And("ingreso nombre empresa {string}")
+    public void ingresoNombreEmpresa(String NombreEmpresa) {
+        credito.ingresoNombreEmpresa(NombreEmpresa);
+    }
+
+    @And("ingreso Ruc empresa {string}")
+    public void ingresoRucEmpresa(String RUCEmpresa) {
+        credito.ingresoRucEmpresa(RUCEmpresa);
+    }
+
+    @And("selecciono sector laboral {string}")
+    public void seleccionoSectorLaboral(String SectorLaboral) {
+        credito.seleccionoSectorLaboral(SectorLaboral);
+    }
+
+    @And("selecciono referencia de ubicacion de trabajo {string}")
+    public void seleccionoReferenciaDeUbicacionDeTrabajo(String ReferenciaUbicacion) {
+        credito.seleccionoReferenciaDeUbicacionDeTrabajo(ReferenciaUbicacion);
+    }
+
+    @And("selecciono documento de ingresos {string}")
+    public void seleccionoDocumentoDeIngresos(String DocumentoIngresos) {
+        credito.seleccionoDocumentoDeIngresos(DocumentoIngresos);
+    }
+
+    @And("selecciono SI en capacidad de ahorro")
+    public void seleccionoSIEnCapacidadDeAhorro() {
+        credito.seleccionoSIEnCapacidadDeAhorro();
+    }
+
+    @And("ingreso el ingreso neto del titular {string}")
+    public void ingresoElIngresoNetoDelTitular(String IngresoNetoTitular) {
+        credito.ingresoElIngresoNetoDelTitular(IngresoNetoTitular);
+    }
+
+    @And("ingreso comentarios de propuesta de credito")
+    public void ingresoComentariosDePropuestaDeCredito() {
+        credito.ingresoComentariosDePropuestaDeCredito("Sin comentarios de propuesta");
+    }
+
+    @And("consulto garantias titutlar conyugue")
+    public void consultoGarantiasTitutlarConyugue() {
+        credito.consultoGarantiasTitutlarConyugue();
+    }
+
+    @And("marco NO en requiere garantia")
+    public void marcoNOEnRequiereGarantia() {
+        credito.marcoNOEnRequiereGarantia();
+    }
+
+    @And("hago click en enviar")
+    public void hagoClickEnEnviar() {
+        credito.hagoClickEnEnviar();
     }
 }

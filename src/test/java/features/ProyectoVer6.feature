@@ -602,33 +602,26 @@ Feature: Escenarios Modulo de recuperaciones
     And hago click en Mantenimiento cliente
     And hago click menu Datos de solicitud
     And ingresa tipo de credito
-    And selecciona primer item Microempresas
+    And selecciona item CONSUMO
     And hago click en subtipo de credito
-    And selecciona subtipo de credito empresarial
-    And selecciona producto PYME
-    And selecciona subproducto PYME
-    And hago click en tipo de operacion
-    And selecciona ampliacion del tipo de operacion
-    And selecciona otorgamiento del tipo de operacion
-    And selecciono Modalidad de credito principal
-    And selecciono Destino del credito y hago click en LIBRE DISPONIBILIDAD
-    And hago click Tipo de cronograma
-    And selecciono tipo de cronograma fecha fija
-    And ingreso Monto Solicitado "<monto>"
-    And ingreso Nro de cuotas "<cuotas>"
-    And selecciono no en el seguro de vida
-    And registro fecha de primera cuota
-    And selecciona calculo de plazo en días
-    And consulta niveles de autonomia de tasa
-    And Selecciona tasas
-    And selecciona NORMAL de tasas
-    And hago click en Simulador crédito
-    And Consulta sobreendeudamiento
-    And Consulta motor de decision de cliente no bancarizado
-    And validar lista tipo de guardado
+    And selecciona subtipo de credito CONSUMO
+    And selecciona producto PERSONAL
+    And selecciona subproducto PERSONAL
+    And hago click en el menu Datos del conyuge
+    And hago click en el menu variables socioeconomicas
+    And hago click en el menu Excepciones
+    And hago click en el menu Referencias vinculados deudas
+    And hago click en menu Analisis cualitativo personal
+    And hago click en menu Estados de resultados personas
+    And hago click en el menu Garantias
+    And hago click en el boton fiadores
+    And hago click en crear fiador
+    And valido campo Tipo de guardado del formulario
+
+
     Examples:
-      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoItem | monto | cuotas |
-      | Credito        | Credito_Individual | DNI           | 40603206     | CONSUMO  | 4900  | 12     |
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | Credito        | Credito_Individual | DNI           | 71431849     |
 
   @mobile
   Scenario Outline: CP0075 Validar Actualización de condiciones de crédito, para producto Pyme, sub producto Pyme, con destino Capital de trabajo, para Cliente Persona Jurídica - Nuevo.
@@ -736,7 +729,6 @@ Feature: Escenarios Modulo de recuperaciones
     And hago click en subtipo de credito
     And selecciona subtipo de credito CONSUMO
     And selecciona producto PERSONAL
-    And selecciona subproducto PYME
     And selecciona subproducto PERSONAL
     Then Valido boton Consultar motor de decisión cliente no bancarizado
 
@@ -767,7 +759,7 @@ Feature: Escenarios Modulo de recuperaciones
 
     Examples:
       | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
-      | Credito        | Credito_Individual | DNI           | 20066498  |
+      | Credito        | Credito_Individual | DNI           | 20066498     |
 
   @mobile
   Scenario Outline: CP092|94 - Validar que Botón Servicio 'Consultar posición consolidada' Si esté visible, No esté habilitado, No esté requerido
@@ -791,7 +783,7 @@ Feature: Escenarios Modulo de recuperaciones
 
     Examples:
       | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
-      | Credito        | Credito_Individual | DNI           | 20066498  |
+      | Credito        | Credito_Individual | DNI           | 20066498     |
 
   @mobile
   Scenario Outline: CP093 - Validar que Botón Servicio 'Consultar cónyuge' Si esté visible, Si esté habilitado, No esté requerido
@@ -814,7 +806,7 @@ Feature: Escenarios Modulo de recuperaciones
 
     Examples:
       | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
-      | Credito        | Credito_Individual | DNI           | 20066498  |
+      | Credito        | Credito_Individual | DNI           | 20066498     |
 
   @mobile
   Scenario Outline: CP00100 - Validar que Calculado 'Nombre Completo' No esté visible, No esté habilitado, No esté requerido y cumpla con la condición 'Mostrar para clientes : 1 Con Id_Cliente y 2 Sin Id_Cliente pero con información recuperada del Servicio RENIEC El orden de mostrado es Primer Nombre + Segundo Nombre + Tercer Nombre + Otros Nombres+ Apellido Paterno+Apellido Materno+ Apellido de Casada'
@@ -838,7 +830,7 @@ Feature: Escenarios Modulo de recuperaciones
 
     Examples:
       | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
-      | Credito        | Credito_Individual | DNI           | 20066498  |
+      | Credito        | Credito_Individual | DNI           | 20066498     |
 
   @mobile
   Scenario Outline: CP00101 - Validar que Calculado 'Edad' Sí esté visible, Sí esté habilitado, Sí esté requerido y cumpla con la condición 'Calculada de acuerdo a la fecha de nacimiento y debe ser mayor de 18 años'
@@ -862,7 +854,7 @@ Feature: Escenarios Modulo de recuperaciones
 
     Examples:
       | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
-      | Credito        | Credito_Individual | DNI           | 20066498  |
+      | Credito        | Credito_Individual | DNI           | 20066498     |
 
   @mobile
   Scenario Outline: CP00102|103 - Validar que Calculado 'Nombre Completo' No esté visible, No esté habilitado, No esté requerido y cumpla con la condición 'Mostrar para clientes : 1 Con Id_Cliente y 2 Sin Id_Cliente pero con información recuperada del Servicio RENIEC El orden de mostrado es Primer Nombre + Segundo Nombre + Tercer Nombre + Otros Nombres+ Apellido Paterno+Apellido Materno+ Apellido de Casada'
@@ -888,7 +880,7 @@ Feature: Escenarios Modulo de recuperaciones
 
     Examples:
       | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
-      | Credito        | Credito_Individual | DNI           | 20066498  |
+      | Credito        | Credito_Individual | DNI           | 20066498     |
 
   @mobile
   Scenario Outline: CP0105|117 - Validar las condiciones correctas  del campo  'Mensaje de Voz', tipo de campo Evento. Si  esta visible , Si  esta habilitado  , Si esta requerido.
@@ -965,7 +957,7 @@ Feature: Escenarios Modulo de recuperaciones
 
     Examples:
       | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
-      | Credito        | Credito_Individual | DNI           | 20066498  |
+      | Credito        | Credito_Individual | DNI           | 20066498     |
 
 
   @mobile
@@ -1009,7 +1001,7 @@ Feature: Escenarios Modulo de recuperaciones
 
     Examples:
       | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
-      | Credito        | Credito_Individual | DNI           | 20066498  |
+      | Credito        | Credito_Individual | DNI           | 20066498     |
 
   @mobile
   Scenario Outline: CP00111 - Validar que Lista Desplegable 'Frecuencia' Si esté visible, Si esté habilitado, Si esté requerido y cumpla con la condición 'habilitado siempre para el ADN', debe contener 'Dig-Frecuencia'
@@ -1034,7 +1026,7 @@ Feature: Escenarios Modulo de recuperaciones
 
     Examples:
       | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
-      | Credito        | Credito_Individual | DNI           | 20066498  |
+      | Credito        | Credito_Individual | DNI           | 20066498     |
 
   @mobile
   Scenario Outline: CP0112 - Validar las condiciones correctas  del campo  'Llamar', tipo de campo Llamada. Si  esta visible , Si  esta habilitado  , No esta requerido.
@@ -1074,7 +1066,7 @@ Feature: Escenarios Modulo de recuperaciones
 
     Examples:
       | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
-      | Credito        | Credito_Individual | DNI           | 20066498  |
+      | Credito        | Credito_Individual | DNI           | 20066498     |
 
   @mobile
   Scenario Outline: CP0117 - Validar condiciones correctas en el campo de voz "Mensaje de Voz". El campo de voz es visible si el cliente da su conformidad en el tratamiento de datos, debe ser habilitado, debe ser requerido.
@@ -1167,7 +1159,7 @@ Feature: Escenarios Modulo de recuperaciones
       | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 02040013     |
 
   @mobile
-  Scenario Outline: CP0203 - Producto Personal: El plazo mínimo es 03 meses.
+  Scenario Outline: CP0202 - Producto Personal: El plazo mínimo es 03 meses. credito con plazo mayor igual a 03 meses. Para tipo de regla No Excepcionable.
     Given el usuario ingresa al home y hace click en el boton de nueva orden
     And el usuario hace click en la opcion "<TipoFormulario>" del menu
     And el usuario hace click en la opcion "<TipoFormulario2>" del menu
@@ -1178,25 +1170,96 @@ Feature: Escenarios Modulo de recuperaciones
     And el usuario consulta el cliente
     And el usuario consulta la posicion consolidada
     And hago click en Mantenimiento cliente
+    And ingresa el nro del celular "987654321"
+    And ingreso referencia de direccion "<ReferenciaDireccion>"
+    And selecciono tipo de vivienda "<TipoVivienda>"
+    And selecciono tipo de construccion "<TipoConstruccion>"
+    And selecciono tipo de sector "<TipoSector>"
+    And ingreso años de residencia "<AñosResidencia>"
+    And selecciono ocupacion "<Ocupacion>"
+    And selecciono cargo "<Cargo>"
+    And ingreso numero de personas dependientes "<NumPersonasDependientes>"
+    And ingreso numero de hijos "<NumHijos>"
+    And selecciono tipo de ingreso "<TipoIngreso>"
+    And selecciono no cambio de actividad principal
     And hago click menu Datos de solicitud
     And ingresa tipo de credito
     And selecciona item CONSUMO
     And hago click en subtipo de credito
-    And selecciona primer item PERSONAL de subtipo de credito
+    And selecciona subtipo de credito CONSUMO
     And selecciona producto PERSONAL
+    And selecciona subproducto PERSONAL
     And hago click en tipo de operacion
-    And selecciona ampliacion del tipo de operacion
+    And selecciona otorgamiento del tipo de operacion
     And selecciono Destino del credito y hago click en LIBRE DISPONIBILIDAD
     And hago click Tipo de cronograma
     And selecciono tipo de cronograma fecha fija
-    And ingreso Monto Solicitado "<monto>"
-    And ingreso Nro de cuotas "<cuotas>"
-    And selecciono agua saneamiento del Destino del crédito
-    And enviar solicitud
+    And ingreso Monto Solicitado "4000"
+    And ingreso Nro de cuotas "6"
+    And marco no en seguro optativos
+    And selecciona calculo de plazo en días
+    And consulta niveles de autonomia de tasa
+    And selecciona NORMAL de tasas
+    And hago click en Simulador crédito
+    And consulto sobreendeudamiento
+    And consulto motor de decision de cliente no bancarizado
+    And hago click en el menu variables socioeconomicas
+    And selecciono tiempo en domicilio "<TiempoEnDomicilio>"
+    And ingreso numero de clientes semanales "<NroClientesSemanales>"
+    And Selecciono numero de trabajadores "<NroTrabajadores>"
+    And Selecciono tiempo experiencia en el negocio "<ExperienciaNegocio>"
+    And selecciono numero de hijos en edad escolar "<HijosEdadEscolar>"
+    And selecciono posicion en el hogar "<PosicionHogar>"
+    And selecciono Si paga por internet
+    And selecciono Distancia del negocio "<DistanciaNegocio>"
+    And selecciono Si paga por luz
+    And selecciono Si paga por agua
+    And hago click en el menu Excepciones
+    And Consulto reglas caja
+    And hago click en el menu Referencias vinculados deudas
+    And hago click en el boton referencias
+    And hago click en agregar referencia
+    And selecciono tipo de referencia "<TipoReferencia1>"
+    And selecciono vinculo de referencia "<VinculoReferencia1>"
+    And ingreso nombre de referencia "<NombreReferencia1>"
+    And ingreso direccion de referencia "<DireccionReferencia1>"
+    And ingreso telefono de referencia "<TelefonoReferencia1>"
+    And ingreso comentarios sobre referencia "<ComentariosReferencia1>"
+    And guardo referencia
+    And hago click en agregar referencia
+    And selecciono tipo de referencia "<TipoReferencia2>"
+    And selecciono vinculo de referencia "<VinculoReferencia2>"
+    And ingreso nombre de referencia "<NombreReferencia2>"
+    And ingreso direccion de referencia "<DireccionReferencia2>"
+    And ingreso telefono de referencia "<TelefonoReferencia2>"
+    And ingreso comentarios sobre referencia "<ComentariosReferencia2>"
+    And guardo referencia
+    And hago click en retroceder referencia
+    And hago click en menu Analisis cualitativo personal
+    And selecciono ingreso principal "<IngresoPrincipal>"
+    And selecciono ingreso secundario "<IngresoSecundario>"
+    And selecciono tiempo experiencia en años "<TiempoExperiencia>"
+    And selecciono estabilidad laboral "<EstabilidadLaboral>"
+    And ingreso nombre empresa "<NombreEmpresa>"
+    And ingreso Ruc empresa "<RUCEmpresa>"
+    And selecciono sector laboral "<SectorLaboral>"
+    And selecciono referencia de ubicacion de trabajo "<ReferenciaUbicacion>"
+    And selecciono documento de ingresos "<DocumentoIngresos>"
+    And selecciono SI en capacidad de ahorro
+    And hago click en menu Estados de resultados personas
+    And ingreso el ingreso neto del titular "<IngresoNetoTitular>"
+    And ingreso comentarios de propuesta de credito
+    And hago click en el menu Garantias
+    And consulto garantias titutlar conyugue
+    And marco NO en requiere garantia
+    And el usuario ingresa a documentos virtuales
+    And proceso solicitud
+    And hago click en enviar
+
 
     Examples:
-      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoItem | monto | cuotas |
-      | Credito        | Credito_Individual | DNI           | 40603206     | CONSUMO  | 1500  | 3      |
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | ReferenciaDireccion      | TipoVivienda | TipoConstruccion | TipoSector | AñosResidencia | Ocupacion | Cargo   | NumPersonasDependientes | NumHijos | TipoIngreso | TiempoEnDomicilio | NroClientesSemanales | NroTrabajadores | ExperienciaNegocio | HijosEdadEscolar | PosicionHogar | DistanciaNegocio | TipoReferencia1 | VinculoReferencia1 | NombreReferencia1      | DireccionReferencia1      | TelefonoReferencia1      | ComentariosReferencia1      | TipoReferencia2 | VinculoReferencia2 | NombreReferencia2      | DireccionReferencia2      | TelefonoReferencia2      | ComentariosReferencia2      | IngresoPrincipal | IngresoSecundario | TiempoExperiencia | EstabilidadLaboral | NombreEmpresa      | RUCEmpresa  | SectorLaboral | ReferenciaUbicacion      | DocumentoIngresos | IngresoNetoTitular |
+      | Credito        | Credito_Individual | DNI           | 70846807     | tet referencia direccion | FAMILIAR     | MATERIAL NOBLE   | URBANO     | 3              | ABOGADO   | AUDITOR | 0                       | 0        | BOLETA      | Más de 24 meses   | 10                   | Solo yo         | 2-3 años           | No tengo         | Padre líder   | Menos de 1 hora  | Personal        | Vecino             | NombreReferencia1 test | DireccionReferencia1 test | TelefonoReferencia1 test | ComentariosReferencia1 test | Laboral         | Jefe inmediato     | NombreReferencia2 test | DireccionReferencia2 test | TelefonoReferencia2 test | ComentariosReferencia2 test | Dependiente      | Dependiente       | Más de 3 años     | Indeterminado      | NombreEmpresa test | 20765465411 | Privado       | ReferenciaUbicacion test | Boleta de pago    | 10000              |
 
 
   @mobile

@@ -1,5 +1,6 @@
 package screens;
 
+import org.openqa.selenium.By;
 import task.Campaings_Task;
 import task.Recoveries_Task;
 import utility.UIOperation;
@@ -452,6 +453,236 @@ public class campaings_screens {
     public void es_Visible_PreguntaCuotrasLibres(){
         UIOperation.isVisible(Campaings_Task.campo_CuotasLibres);
     }
+    public void click_menuVariablesSocioeconomicas(){
+        UIOperation.giveClick(Campaings_Task.menu_VariablesSocioeconomicas);
+    }
+    public void click_menuAnalisisCualitativoPersonal(){
+        UIOperation.giveClick(Campaings_Task.menu_AnalisisCualitativoPersonal);
+    }
+    public void click_menuEstadosDeResultadosPersonas(){
+        UIOperation.giveClick(Campaings_Task.menu_EstadosDeResultadosPersonas);
+    }
+    public void click_botonFiadores(){
+        UIOperation.giveClick(Campaings_Task.btn_botonFiadores);
+    }
+    public void click_CrearFiadores(){
+        UIOperation.giveClick(Campaings_Task.btn_CrearFiadores);
+    }
+    public void es_Visible_TipoGuardadoDelFormularioFiadores(){
+        UIOperation.isVisible(Campaings_Task.campo_TipoGuardadoDelFormularioFiadores);
+    }
+    public void ingresoReferenciaDeDireccion(String ReferenciaDireccion){
+        UIOperation.insertValue(Campaings_Task.campo_ReferenciaDireccion,ReferenciaDireccion);
+    }
+    public void seleccionoTipoDeVivienda(String TipoVivienda){
+        UIOperation.waitAndClick(Campaings_Task.campo_TipoDeVivienda,180);
+        By opcionTipoVivienda = Recoveries_Task.opcionMenu(TipoVivienda);
+        UIOperation.waitAndClick(opcionTipoVivienda,180);
+        Util.implicitWait(60);
+    }
+
+    public void seleccionoTipoConstruccion(String TipoConstruccion){
+        UIOperation.waitAndClick(Campaings_Task.campo_TipoConstruccion,180);
+        By opcionTipoConstruccion = Recoveries_Task.opcionMenu(TipoConstruccion);
+        UIOperation.waitAndClick(opcionTipoConstruccion,180);
+        Util.implicitWait(60);
+    }
+    public void seleccionoTipoDeSector(String TipoDeSector){
+        UIOperation.waitAndClick(Campaings_Task.campo_TipoDeSector,180);
+        By opcionTipoDeSector = Recoveries_Task.opcionMenu(TipoDeSector);
+        UIOperation.waitAndClick(opcionTipoDeSector,180);
+        Util.implicitWait(60);
+    }
+    public void ingresoAñosDeResidencia(String AñosDeResidencia){
+        UIOperation.insertValue(Campaings_Task.campo_AñosDeResidencia,AñosDeResidencia);
+    }
+    public void seleccionoOcupacion(String Ocupacion){
+        UIOperation.waitAndClick(Campaings_Task.campo_Ocupacion,180);
+        By opcionOcupacion = Recoveries_Task.opcionMenu(Ocupacion);
+        UIOperation.waitAndClick(opcionOcupacion,180);
+        Util.implicitWait(60);
+    }
+    public void seleccionoCargo(String Cargo){
+        UIOperation.waitAndClick(Campaings_Task.campo_Cargo,180);
+        By opcionCargo = Recoveries_Task.opcionMenu(Cargo);
+        UIOperation.waitAndClick(opcionCargo,180);
+        Util.implicitWait(60);
+    }
+    public void ingresoNumeroDePersonasDependientes(String NumeroDePersonasDependientes){
+        UIOperation.insertValue(Campaings_Task.campo_NumeroDePersonasDependientes,NumeroDePersonasDependientes);
+    }
+    public void ingresoNumeroDeHijos(String NumeroDeHijos){
+        UIOperation.insertValue(Campaings_Task.campo_NumeroDeHijos,NumeroDeHijos);
+    }
+    public void seleccionoTipoDeIngreso(String TipoDeIngreso){
+        UIOperation.waitAndClick(Campaings_Task.campo_TipoDeIngreso,180);
+        By opcionTipoDeIngreso = Recoveries_Task.opcionMenu(TipoDeIngreso);
+        UIOperation.waitAndClick(opcionTipoDeIngreso,180);
+        Util.implicitWait(60);
+    }
+    public void seleccionoNoCambioDeActividadPrincipal(){
+        UIOperation.giveClick(Campaings_Task.radio_NoCambioDeActividadPrincipal);
+    }
+    public void marcoNoEnSeguroOptativos(){
+        UIOperation.giveClick(Campaings_Task.radio_NoEnSeguroOptativos);
+    }
+    public void consultoSobreendeudamiento(){
+        UIOperation.giveClick(Campaings_Task.btn_Sobreendeudamiento);
+    }
+    public void consultoMotorDeDecisionDeClienteNoBancarizado(){
+        UIOperation.giveClick(Campaings_Task.btn_MotorDeDecisionDeClienteNoBancarizado);
+    }
+    public void seleccionoTiempoEnDomicilio(String TiempoEnDomicilio){
+        UIOperation.waitAndClick(Campaings_Task.campo_TiempoEnDomicilio,180);
+        By opcionTiempoEnDomicilio = Recoveries_Task.opcionMenu(TiempoEnDomicilio);
+        UIOperation.waitAndClick(opcionTiempoEnDomicilio,180);
+        Util.implicitWait(60);
+    }
+    public void ingresoNumeroDeClientesSemanales(String NroClientesSemanales){
+        UIOperation.insertValue(Campaings_Task.campo_NroClientesSemanales,NroClientesSemanales);
+    }
+    public void seleccionoNumeroDeTrabajadores(String NroTrabajadores){
+        UIOperation.waitAndClick(Campaings_Task.campo_NroTrabajadores,180);
+        By opcionNroTrabajadores = Recoveries_Task.opcionMenu(NroTrabajadores);
+        UIOperation.waitAndClick(opcionNroTrabajadores,180);
+        Util.implicitWait(60);
+    }
+    public void seleccionoTiempoExperienciaEnElNegocio(String ExperienciaNegocio){
+        UIOperation.waitAndClick(Campaings_Task.campo_TiempoExperienciaEnElNegocio,180);
+        By opcionTiempoExperienciaEnElNegocio = Recoveries_Task.opcionMenu(ExperienciaNegocio);
+        UIOperation.waitAndClick(opcionTiempoExperienciaEnElNegocio,180);
+        Util.implicitWait(60);
+    }
+    public void seleccionoNumeroDeHijosEnEdadEscolar(String HijosEdadEscolar){
+        UIOperation.waitAndClick(Campaings_Task.campo_HijosEdadEscolar,180);
+        By opcionHijosEdadEscolar = Recoveries_Task.opcionMenu(HijosEdadEscolar);
+        UIOperation.waitAndClick(opcionHijosEdadEscolar,180);
+        Util.implicitWait(60);
+    }
+    public void seleccionoPosicionEnElHogar(String PosicionEnElHogar){
+        UIOperation.waitAndClick(Campaings_Task.campo_PosicionEnElHogar,180);
+        By opcionPosicionEnElHogar = Recoveries_Task.opcionMenu(PosicionEnElHogar);
+        UIOperation.waitAndClick(opcionPosicionEnElHogar,180);
+        Util.implicitWait(60);
+    }
+    public void seleccionoSiPagaPorInternet(){
+        UIOperation.giveClick(Campaings_Task.radio_SiPagaPorInternet);
+    }
+    public void seleccionoDistanciaDelNegocio(String DistanciaDelNegocio){
+        UIOperation.waitAndClick(Campaings_Task.campo_DistanciaDelNegocio,180);
+        By opcionDistanciaDelNegocio = Recoveries_Task.opcionMenu(DistanciaDelNegocio);
+        UIOperation.waitAndClick(opcionDistanciaDelNegocio,180);
+        Util.implicitWait(60);
+    }
+    public void seleccionoSiPagaPorLuz(){
+        UIOperation.giveClick(Campaings_Task.radio_SiPagaPorLuz);
+    }
+    public void seleccionoSiPagaPorAgua(){
+        UIOperation.giveClick(Campaings_Task.radio_SiPagaPorAgua);
+    }
+    public void consultoReglasCaja(){
+        UIOperation.giveClick(Campaings_Task.campo_ReglasCaja);
+    }
+    public void seleccionoTipoDeReferencia(String TipoReferencia){
+        UIOperation.waitAndClick(Campaings_Task.campo_TipoReferencia,180);
+        By opcionTipoReferencia = Recoveries_Task.opcionMenu(TipoReferencia);
+        UIOperation.waitAndClick(opcionTipoReferencia,180);
+        Util.implicitWait(60);
+    }
+    public void seleccionoVinculoDeReferencia(String VinculoReferencia){
+        UIOperation.waitAndClick(Campaings_Task.campo_VinculoReferencia,180);
+        By opcionVinculoReferencia = Recoveries_Task.opcionMenu(VinculoReferencia);
+        UIOperation.waitAndClick(opcionVinculoReferencia,180);
+        Util.implicitWait(60);
+    }
+    public void ingresoNombreDeReferencia(String NombreReferencia){
+        UIOperation.insertValue(Campaings_Task.campo_NombreReferencia,NombreReferencia);
+    }
+    public void ingresoDireccionDeReferencia(String DireccionReferencia){
+        UIOperation.insertValue(Campaings_Task.campo_DireccionReferencia,DireccionReferencia);
+    }
+    public void ingresoTelefonoDeReferencia(String TelefonoReferencia){
+        UIOperation.insertValue(Campaings_Task.campo_TelefonoReferencia,TelefonoReferencia);
+    }
+    public void ingresoComentariosSobreReferencia(String ComentariosReferencia){
+        UIOperation.insertValue(Campaings_Task.campo_ComentariosReferencia,ComentariosReferencia);
+    }
+    public void guardoReferencia(){
+        UIOperation.giveClick(Campaings_Task.campo_guardoReferencia);
+    }
+    public void hagoClickEnRetrocederReferencia(){
+        UIOperation.giveClick(Campaings_Task.btn_RetrocederReferencia);
+    }
+    public void seleccionoIngresoPrincipal(String IngresoPrincipal){
+        UIOperation.waitAndClick(Campaings_Task.campo_IngresoPrincipal,180);
+        By opcionIngresoPrincipal = Recoveries_Task.opcionMenu(IngresoPrincipal);
+        UIOperation.waitAndClick(opcionIngresoPrincipal,180);
+        Util.implicitWait(60);
+    }
+    public void seleccionoIngresoSecundario(String IngresoSecundario){
+        UIOperation.waitAndClick(Campaings_Task.campo_IngresoSecundario,180);
+        By opcionIngresoSecundario = Recoveries_Task.opcionMenu(IngresoSecundario);
+        UIOperation.waitAndClick(opcionIngresoSecundario,180);
+        Util.implicitWait(60);
+    }
+    public void seleccionoTiempoExperienciaEnAños(String TiempoExperiencia){
+        UIOperation.waitAndClick(Campaings_Task.campo_TiempoExperiencia,180);
+        By opcionTiempoExperiencia = Recoveries_Task.opcionMenu(TiempoExperiencia);
+        UIOperation.waitAndClick(opcionTiempoExperiencia,180);
+        Util.implicitWait(60);
+    }
+    public void seleccionoEstabilidadLaboral(String EstabilidadLaboral){
+        UIOperation.waitAndClick(Campaings_Task.campo_EstabilidadLaboral,180);
+        By opcionEstabilidadLaboral = Recoveries_Task.opcionMenu(EstabilidadLaboral);
+        UIOperation.waitAndClick(opcionEstabilidadLaboral,180);
+        Util.implicitWait(60);
+    }
+    public void ingresoNombreEmpresa(String NombreEmpresa){
+        UIOperation.insertValue(Campaings_Task.campo_NombreEmpresa,NombreEmpresa);
+    }
+    public void ingresoRucEmpresa(String RUCEmpresa){
+        UIOperation.insertValue(Campaings_Task.campo_RUCEmpresa,RUCEmpresa);
+    }
+    public void seleccionoSectorLaboral(String SectorLaboral){
+        UIOperation.waitAndClick(Campaings_Task.campo_SectorLaboral,180);
+        By opcionSectorLaboral = Recoveries_Task.opcionMenu(SectorLaboral);
+        UIOperation.waitAndClick(opcionSectorLaboral,180);
+        Util.implicitWait(60);
+    }
+    public void seleccionoReferenciaDeUbicacionDeTrabajo(String ReferenciaUbicacion){
+        UIOperation.insertValue(Campaings_Task.campo_ReferenciaUbicacion,ReferenciaUbicacion);
+    }
+    public void seleccionoDocumentoDeIngresos(String DocumentoIngresos){
+        UIOperation.waitAndClick(Campaings_Task.campo_DocumentoIngresos,180);
+        By opcionSectorLaborall = Recoveries_Task.opcionMenu(DocumentoIngresos);
+        UIOperation.waitAndClick(opcionSectorLaborall,180);
+        Util.implicitWait(60);
+    }
+    public void seleccionoSIEnCapacidadDeAhorro(){
+        UIOperation.giveClick(Campaings_Task.radio_SIEnCapacidadDeAhorro);
+    }
+    public void ingresoElIngresoNetoDelTitular(String IngresoNetoTitular){
+        UIOperation.insertValue(Campaings_Task.campo_IngresoNetoTitular,IngresoNetoTitular);
+    }
+    public void ingresoComentariosDePropuestaDeCredito(String ComentariosDePropuestaDeCredito){
+        UIOperation.insertValue(Campaings_Task.campo_ComentariosDePropuestaDeCredito,ComentariosDePropuestaDeCredito);
+    }
+    public void consultoGarantiasTitutlarConyugue(){
+        UIOperation.giveClick(Campaings_Task.btn_GarantiasTitutlarConyugue);
+    }
+    public void marcoNOEnRequiereGarantia(){
+        UIOperation.giveClick(Campaings_Task.radio_NOEnRequiereGarantia);
+    }
+    public void seleccionoDocumentosVirtuales(){
+        UIOperation.giveClick(Campaings_Task.menu_DocumentosVirtuales);
+    }
+    public void procesoSolicitud(){
+        UIOperation.giveClick(Campaings_Task.btn_ProcesoSolicitud);
+    }
+    public void hagoClickEnEnviar(){
+        UIOperation.giveClick(Campaings_Task.btn_Enviar);
+    }
+
     public void scrollByText() {
         String _scrollContainer = "com.kata.formiik:id/rvFormOrder";
         String _childElement = "android.widget.TextView";
@@ -460,5 +691,4 @@ public class campaings_screens {
         //UIOperation.insertValue(txt_documento,"45000125");
         UIOperation.uiScrollableByText(_scrollContainer, _childElement, _value);
     }
-
 }
