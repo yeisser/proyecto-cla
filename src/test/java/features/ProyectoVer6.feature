@@ -5,8 +5,9 @@ Feature: Escenarios Modulo de recuperaciones
   @web
     #Este feature se va a engine web tomar de ejemplo
   Scenario Outline: CP001 - Kata Mobile - Monto y número de cuotas - El Monto y número de Cuotas deben mostrarse autocompletados y ser editable
-    Given se visualiza la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
-    When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
+   # Given se visualiza la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
+    When el usuario se conecta a kata engine e ingresa al login
+    And el usuario ingresa al engine y hago onbording con "<usuario>" y "<password>"
     And el usuario ingresa al home y hago click en el boton de nueva orden
     And el usuario hago click en la opcion cobranza del menu de Tipo de proceso
 
@@ -114,7 +115,7 @@ Feature: Escenarios Modulo de recuperaciones
       | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | monto | cuotas |
       | Credito        | Credito_Individual | DNI           | 40603206     | 1500  | 3      |
 
-  @mobile
+  @mobile @web
   Scenario Outline: CP027 - Validar Asignación al nivel autorizador correspondiente por respuesta favorable de Analista de Riesgos, para Cliente Persona Jurídica - Nuevo.
     Given el usuario ingresa al home y hace click en el boton de nueva orden
     And el usuario hace click en la opcion "<TipoFormulario>" del menu
@@ -141,12 +142,18 @@ Feature: Escenarios Modulo de recuperaciones
     And ingreso Nro de cuotas "<cuotas>"
     And Selecciono documentos virtuales
     And proceso solicitud
-    And ingreso a engine como analista de riesgo
+    # Step anterior modificado por el ingreso a enginee
+    # And ingreso a engine como analista de riesgo
+    And se visualiza la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
+    When el usuario ingresa engine y hago onbording con "<usuario>" y "<password>"
+    And el usuario ingresa al home y hago click en el boton de nueva orden
+    And el usuario hago click en la opcion cobranza del menu de Tipo de proceso
     And acepto solicitud
 
     Examples:
-      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | monto | cuotas |
-      | Credito        | Credito_Individual | DNI           | 40603206     | 1500  | 3      |
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | monto | cuotas |usuario                  | password   |  organizacion|
+      | Credito        | Credito_Individual | DNI           | 40603206     | 1500  | 3      |ncordova@craclasadev.com | Andes$2023 |AndesQA       |
+
 
     #POR CONSULTAR - DATA ANALISTA DE RIESGO
   @mobile
@@ -336,8 +343,7 @@ Feature: Escenarios Modulo de recuperaciones
       | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | RUC           | 20602898025  | FIJO        |
 
 
-  @mobile
-    #En consulta
+  @mobile @web
   Scenario Outline: CP0054 - Validar Gerente Regional debe revisar información de créditos, para Cliente Persona Natural - Nuevo
     Given el usuario ingresa al home y hace click en el boton de nueva orden
     And el usuario hace click en la opcion "<TipoFormulario>" del menu
@@ -356,10 +362,19 @@ Feature: Escenarios Modulo de recuperaciones
     And selecciona subtipo de credito empresarial
     And selecciona producto PYME
     And selecciona subproducto PYME
+    And hago click en tipo de operacion
+    And selecciona ampliacion del tipo de operacion
+    And selecciono Destino del credito y hago click en LIBRE DISPONIBILIDAD
+    And hago click Tipo de cronograma
+    And selecciono tipo de cronograma fecha fija
+    And ingreso Monto Solicitado "<monto>"
+    And ingreso Nro de cuotas "<cuotas>"
+    And selecciono agua saneamiento del Destino del crédito
+    And enviar solicitud
 
     Examples:
-      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
-      | Credito        | Credito_Individual | DNI           | 40603206     |
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | monto | cuotas |
+      | Credito        | Credito_Individual | DNI           | 40603206     | 36000 | 50     |
 
 
   @mobile
@@ -383,8 +398,8 @@ Feature: Escenarios Modulo de recuperaciones
     And selecciona subproducto PYME
 
     Examples:
-      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoItem | monto | cuotas |
-      | Credito        | Credito_Individual | DNI           | 40603206     | CONSUMO  | 5000  | 336    |
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | Credito        | Credito_Individual | DNI           | 40603206     |
 
 
   @mobile
@@ -464,7 +479,7 @@ Feature: Escenarios Modulo de recuperaciones
       | Credito        | Credito_Individual | DNI           | 40603206     | 20000 | 336    |
 
   @mobile
-    #En consulta, el caso es confuzo ya que indica que el titular debe estr al dia en sus creditos y en la parte final de la descripción indica que no debe estar al dia.
+
   Scenario Outline: CP0059 - El titular y cónyuge deben estar al día en el pago de todos sus créditos directos o indirectos que tengan en la Caja, asimismo el Fiador Solidario, el cónyuge del FS y el Representante Legal de ser el caso. Probar  con un titular que no está al día en el pago de todos sus créditos Para tipo de regla No Excepcionable.
     Given el usuario ingresa al home y hace click en el boton de nueva orden
     And el usuario hace click en la opcion "<TipoFormulario>" del menu
@@ -474,24 +489,6 @@ Feature: Escenarios Modulo de recuperaciones
     And Autoriza el tratamiento de sus datos personales
     And el usuario autoriza el envio de publicidad
     And el usuario consulta el cliente
-    And el usuario consulta la posicion consolidada
-    And hago click en Mantenimiento cliente
-    And hago click menu Datos de solicitud
-    And ingresa tipo de credito
-    And selecciona primer item Microempresas
-    And hago click en subtipo de credito
-    And selecciona subtipo de credito empresarial
-    And selecciona producto PYME
-    And selecciona subproducto PYME
-    And hago click en tipo de operacion
-    And selecciona ampliacion del tipo de operacion
-    And selecciona otorgamiento del tipo de operacion
-    And selecciono Modalidad de credito principal
-    And selecciono Destino del credito y hago click en LIBRE DISPONIBILIDAD
-    And hago click Tipo de cronograma
-    And selecciono tipo de cronograma fecha fija
-    And ingreso Monto Solicitado "<monto>"
-    And ingreso Nro de cuotas "<cuotas>"
 
     Examples:
       | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | monto | cuotas |
@@ -678,7 +675,7 @@ Feature: Escenarios Modulo de recuperaciones
 
     Examples:
       | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoItem | monto | cuotas | dias |
-      | Credito        | Credito_Individual | DNI           | 40603206     | CONSUMO  | 5000  | 336    | 90     |
+      | Credito        | Credito_Individual | DNI           | 40603206     | CONSUMO  | 5000  | 336    | 90   |
 
   @mobile
   Scenario Outline: CP0069 - Validar que Calculado 'Gastos Financieros' Si esté visible, No esté habilitado, No esté requerido y cumpla con la condición 'sumatoriaSaldosIndirectas+cuotaIndirectaFlujo'.
@@ -944,7 +941,7 @@ Feature: Escenarios Modulo de recuperaciones
 
     Examples:
       | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
-      | Credito        | Credito_Individual | DNI           | 20066498  |
+      | Credito        | Credito_Individual | DNI           | 20066498     |
 
   @mobile
   Scenario Outline: CP092|94 - Validar que Botón Servicio 'Consultar posición consolidada' Si esté visible, No esté habilitado, No esté requerido
@@ -968,7 +965,7 @@ Feature: Escenarios Modulo de recuperaciones
 
     Examples:
       | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
-      | Credito        | Credito_Individual | DNI           | 20066498  |
+      | Credito        | Credito_Individual | DNI           | 20066498     |
 
   @mobile
   Scenario Outline: CP093 - Validar que Botón Servicio 'Consultar cónyuge' Si esté visible, Si esté habilitado, No esté requerido
@@ -991,7 +988,7 @@ Feature: Escenarios Modulo de recuperaciones
 
     Examples:
       | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
-      | Credito        | Credito_Individual | DNI           | 20066498  |
+      | Credito        | Credito_Individual | DNI           | 20066498     |
 
   @mobile
   Scenario Outline: CP00100 - Validar que Calculado 'Nombre Completo' No esté visible, No esté habilitado, No esté requerido y cumpla con la condición 'Mostrar para clientes : 1 Con Id_Cliente y 2 Sin Id_Cliente pero con información recuperada del Servicio RENIEC El orden de mostrado es Primer Nombre + Segundo Nombre + Tercer Nombre + Otros Nombres+ Apellido Paterno+Apellido Materno+ Apellido de Casada'
@@ -1015,7 +1012,7 @@ Feature: Escenarios Modulo de recuperaciones
 
     Examples:
       | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
-      | Credito        | Credito_Individual | DNI           | 20066498  |
+      | Credito        | Credito_Individual | DNI           | 20066498     |
 
   @mobile
   Scenario Outline: CP00101 - Validar que Calculado 'Edad' Sí esté visible, Sí esté habilitado, Sí esté requerido y cumpla con la condición 'Calculada de acuerdo a la fecha de nacimiento y debe ser mayor de 18 años'
@@ -1039,7 +1036,7 @@ Feature: Escenarios Modulo de recuperaciones
 
     Examples:
       | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
-      | Credito        | Credito_Individual | DNI           | 20066498  |
+      | Credito        | Credito_Individual | DNI           | 20066498     |
 
   @mobile
   Scenario Outline: CP00102|103 - Validar que Calculado 'Nombre Completo' No esté visible, No esté habilitado, No esté requerido y cumpla con la condición 'Mostrar para clientes : 1 Con Id_Cliente y 2 Sin Id_Cliente pero con información recuperada del Servicio RENIEC El orden de mostrado es Primer Nombre + Segundo Nombre + Tercer Nombre + Otros Nombres+ Apellido Paterno+Apellido Materno+ Apellido de Casada'
@@ -1065,7 +1062,34 @@ Feature: Escenarios Modulo de recuperaciones
 
     Examples:
       | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
-      | Credito        | Credito_Individual | DNI           | 20066498  |
+      | Credito        | Credito_Individual | DNI           | 20066498     |
+
+
+  @mobile
+  Scenario Outline: CP00104 - Validar que Campo de Chequeo 'Consulte flujo de caja para validar si es factible' Si esté visible, Si esté habilitado, Si esté requerido y cumpla con la condición 'se muestra si los campos campoFlujoDeCajaPyme y campoFlujoDeCajaPymeOriginal son diferentes'.
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And hago click menu Datos de solicitud
+    And hago click en el menu Datos del conyuge
+    And hago click en boton editar conyugue
+    And autorizo tratamiento de datos de conyugue
+    And autorizo envio de publicidad de conyugue
+    And el usuario consulta la persona
+    And el usuario consulta la posicion consolidada
+    And hago click en el menu Persona - Datos complementarios
+    And valido tiempo en la actividad economica años
+
+    Examples:
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | Credito        | Credito_Individual | DNI           | 20066498     |
 
   @mobile
   Scenario Outline: CP0105|117 - Validar las condiciones correctas  del campo  'Mensaje de Voz', tipo de campo Evento. Si  esta visible , Si  esta habilitado  , Si esta requerido.
@@ -1142,7 +1166,7 @@ Feature: Escenarios Modulo de recuperaciones
 
     Examples:
       | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
-      | Credito        | Credito_Individual | DNI           | 20066498  |
+      | Credito        | Credito_Individual | DNI           | 20066498     |
 
 
   @mobile
@@ -1186,7 +1210,7 @@ Feature: Escenarios Modulo de recuperaciones
 
     Examples:
       | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
-      | Credito        | Credito_Individual | DNI           | 20066498  |
+      | Credito        | Credito_Individual | DNI           | 20066498     |
 
   @mobile
   Scenario Outline: CP00111 - Validar que Lista Desplegable 'Frecuencia' Si esté visible, Si esté habilitado, Si esté requerido y cumpla con la condición 'habilitado siempre para el ADN', debe contener 'Dig-Frecuencia'
@@ -1211,7 +1235,7 @@ Feature: Escenarios Modulo de recuperaciones
 
     Examples:
       | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
-      | Credito        | Credito_Individual | DNI           | 20066498  |
+      | Credito        | Credito_Individual | DNI           | 20066498     |
 
   @mobile
   Scenario Outline: CP0112 - Validar las condiciones correctas  del campo  'Llamar', tipo de campo Llamada. Si  esta visible , Si  esta habilitado  , No esta requerido.
@@ -1251,7 +1275,7 @@ Feature: Escenarios Modulo de recuperaciones
 
     Examples:
       | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
-      | Credito        | Credito_Individual | DNI           | 20066498  |
+      | Credito        | Credito_Individual | DNI           | 20066498     |
 
   @mobile
   Scenario Outline: CP0117 - Validar condiciones correctas en el campo de voz "Mensaje de Voz". El campo de voz es visible si el cliente da su conformidad en el tratamiento de datos, debe ser habilitado, debe ser requerido.
