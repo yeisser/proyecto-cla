@@ -29,6 +29,14 @@ public class ModuleCampaingsStep {
     public void validarUsuarioPerfilJefeOficina(String mensaje_esperado) {
         Assert.assertEquals(credito.get_mensaje_perfi(), mensaje_esperado);
     }
+    @And("^verifico el mensaje de excepciones vehicular(.*)$")
+    public void validarmensajedeexcepciones(String mensaje_esperado) {
+        Assert.assertEquals(credito.get_mensaje_expceciones(), mensaje_esperado);
+    }
+    @And("^verifico el mensaje de excepciones unidad familiar(.*)$")
+    public void validarmensajedeexcepcionesunidadfamiliar(String mensaje_esperado) {
+        Assert.assertEquals(credito.get_mensaje_expceciones_unidad_familiar(), mensaje_esperado);
+    }
 
     @And("^selecciono autorizacion de tratamiento de datos$")
     public void seleccion_tratamiento_datos() {

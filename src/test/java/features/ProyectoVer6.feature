@@ -461,6 +461,68 @@ Feature: Escenarios Modulo de recuperaciones
       | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoItem | monto | cuotas | dias |
       | Credito        | Credito_Individual | DNI           | 40603206     | CONSUMO  | 20000 | 336    |      |
 
+  Scenario Outline: CP063 - Sobre la titularidad de la unidad familiar: La unidad familiar debe tener un único titular, pero está prohibido atender a ambos miembros de la unidad familiar.
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And ingresa el nro del celular "987654321"
+    And ingreso referencia de direccion "<ReferenciaDireccion>"
+    And selecciono tipo de vivienda "<TipoVivienda>"
+    And selecciono tipo de construccion "<TipoConstruccion>"
+    And selecciono tipo de sector "<TipoSector>"
+    And ingreso años de residencia "<AñosResidencia>"
+    And selecciono ocupacion "<Ocupacion>"
+    And selecciono cargo "<Cargo>"
+    And ingreso numero de personas dependientes "<NumPersonasDependientes>"
+    And ingreso numero de hijos "<NumHijos>"
+    And selecciono tipo de ingreso "<TipoIngreso>"
+    And selecciono no cambio de actividad principal
+    And hago click menu Datos de solicitud
+    And ingresa tipo de credito
+    And selecciona item CONSUMO
+    And hago click en subtipo de credito
+    And selecciona subtipo de credito CONSUMO
+    And selecciona producto PERSONAL
+    And selecciona subproducto PERSONAL
+    And hago click en tipo de operacion
+    And selecciona otorgamiento del tipo de operacion
+    And selecciono Destino del credito y hago click en LIBRE DISPONIBILIDAD
+    And hago click Tipo de cronograma
+    And selecciono tipo de cronograma fecha fija
+    And ingreso Monto Solicitado "4000"
+    And ingreso Nro de cuotas "6"
+    And marco no en seguro optativos
+    And selecciona calculo de plazo en días
+    And consulta niveles de autonomia de tasa
+    And selecciona NORMAL de tasas
+    And hago click en Simulador crédito
+    And consulto sobreendeudamiento
+    And consulto motor de decision de cliente no bancarizado
+    And hago click en el menu variables socioeconomicas
+    And selecciono tiempo en domicilio "<TiempoEnDomicilio>"
+    And ingreso numero de clientes semanales "<NroClientesSemanales>"
+    And Selecciono numero de trabajadores "<NroTrabajadores>"
+    And Selecciono tiempo experiencia en el negocio "<ExperienciaNegocio>"
+    And selecciono numero de hijos en edad escolar "<HijosEdadEscolar>"
+    And selecciono posicion en el hogar "<PosicionHogar>"
+    And selecciono Si paga por internet
+    And selecciono Distancia del negocio "<DistanciaNegocio>"
+    And selecciono Si paga por luz
+    And selecciono Si paga por agua
+    And hago click en el menu Excepciones
+    And verifico el mensaje de excepciones unidad familiar "<Sobre la titularidad de la unidad familiar: La unidad familiar debe tener un único titular, pero está prohibido atender a ambos miembros de la unidad familiar.>"
+
+    Examples:
+      | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 46829398     |
+
   @mobile
   Scenario Outline: CP0065 - Visita de supervisión obligatoria pre desembolso Y/o Verificación. Aprobar crédito Pyme. Para tipo de regla Excepcionable.
     Given el usuario ingresa al home y hace click en el boton de nueva orden
@@ -881,7 +943,32 @@ Feature: Escenarios Modulo de recuperaciones
     Examples:
       | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
       | Credito        | Credito_Individual | DNI           | 20066498     |
+  @mobile
 
+  Scenario Outline: CP00104 - Validar que Campo de Chequeo 'Consulte flujo de caja para validar si es factible' Si esté visible, Si esté habilitado, Si esté requerido y cumpla con la condición 'se muestra si los campos campoFlujoDeCajaPyme y campoFlujoDeCajaPymeOriginal son diferentes'.
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And hago click menu Datos de solicitud
+    And hago click en el menu Datos del conyuge
+    And hago click en boton editar conyugue
+    And autorizo tratamiento de datos de conyugue
+    And autorizo envio de publicidad de conyugue
+    And el usuario consulta la persona
+    And el usuario consulta la posicion consolidada
+    And hago click en el menu Persona - Datos complementarios
+    And valido tiempo en la actividad economica años
+
+    Examples:
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | Credito        | Credito_Individual | DNI           | 20066498     |
   @mobile
   Scenario Outline: CP0105|117 - Validar las condiciones correctas  del campo  'Mensaje de Voz', tipo de campo Evento. Si  esta visible , Si  esta habilitado  , Si esta requerido.
     Given el usuario ingresa al home y hace click en el boton de nueva orden
@@ -1223,7 +1310,131 @@ Feature: Escenarios Modulo de recuperaciones
     Examples:
       | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
       | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 46829398     |
+  @mobile
+  Scenario Outline: CP0172 - Antiguedad de los vehiculos evaluados: Los vehículos de Transporte Público y Particular, deberán tener una antigüedad máxima de 15 años según fecha de fabricación. Probar cuando la antiguedad del vehiculo sea de 15 años Para tipo de regla Excepcionable.
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And ingresa el nro del celular "987654321"
+    And ingreso referencia de direccion "<ReferenciaDireccion>"
+    And selecciono tipo de vivienda "<TipoVivienda>"
+    And selecciono tipo de construccion "<TipoConstruccion>"
+    And selecciono tipo de sector "<TipoSector>"
+    And ingreso años de residencia "<AñosResidencia>"
+    And selecciono ocupacion "<Ocupacion>"
+    And selecciono cargo "<Cargo>"
+    And ingreso numero de personas dependientes "<NumPersonasDependientes>"
+    And ingreso numero de hijos "<NumHijos>"
+    And selecciono tipo de ingreso "<TipoIngreso>"
+    And selecciono no cambio de actividad principal
+    And hago click menu Datos de solicitud
+    And ingresa tipo de credito
+    And selecciona item CONSUMO
+    And hago click en subtipo de credito
+    And selecciona subtipo de credito CONSUMO
+    And selecciona producto PERSONAL
+    And selecciona subproducto PERSONAL
+    And hago click en tipo de operacion
+    And selecciona otorgamiento del tipo de operacion
+    And selecciono Destino del credito y hago click en LIBRE DISPONIBILIDAD
+    And hago click Tipo de cronograma
+    And selecciono tipo de cronograma fecha fija
+    And ingreso Monto Solicitado "4000"
+    And ingreso Nro de cuotas "6"
+    And marco no en seguro optativos
+    And selecciona calculo de plazo en días
+    And consulta niveles de autonomia de tasa
+    And selecciona NORMAL de tasas
+    And hago click en Simulador crédito
+    And consulto sobreendeudamiento
+    And consulto motor de decision de cliente no bancarizado
+    And hago click en el menu variables socioeconomicas
+    And selecciono tiempo en domicilio "<TiempoEnDomicilio>"
+    And ingreso numero de clientes semanales "<NroClientesSemanales>"
+    And Selecciono numero de trabajadores "<NroTrabajadores>"
+    And Selecciono tiempo experiencia en el negocio "<ExperienciaNegocio>"
+    And selecciono numero de hijos en edad escolar "<HijosEdadEscolar>"
+    And selecciono posicion en el hogar "<PosicionHogar>"
+    And selecciono Si paga por internet
+    And selecciono Distancia del negocio "<DistanciaNegocio>"
+    And selecciono Si paga por luz
+    And selecciono Si paga por agua
+    And hago click en el menu Excepciones
+    And verifico el mensaje de excepciones vehicular "<Antiguedad de los vehiculos evaluados: Los vehículos de Transporte Público y Particular, deberán tener una antigüedad máxima de 15 años según fecha de fabricación. Probar cuando la antiguedad del vehiculo sea de 15 años Para tipo de regla Excepcionable.>"
 
+    Examples:
+      | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 46829398     |
+
+  @mobile
+  Scenario Outline: CP0173 - Clasificación crediticia de los intervinientes en los últimos 12 meses reportados (Hasta 2 CPP siempre y cuando no se trate del último mes). Probar con una operación de otorgamiento. Para tipo de regla Excepcionable (Manual).
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And ingresa el nro del celular "987654321"
+    And ingreso referencia de direccion "<ReferenciaDireccion>"
+    And selecciono tipo de vivienda "<TipoVivienda>"
+    And selecciono tipo de construccion "<TipoConstruccion>"
+    And selecciono tipo de sector "<TipoSector>"
+    And ingreso años de residencia "<AñosResidencia>"
+    And selecciono ocupacion "<Ocupacion>"
+    And selecciono cargo "<Cargo>"
+    And ingreso numero de personas dependientes "<NumPersonasDependientes>"
+    And ingreso numero de hijos "<NumHijos>"
+    And selecciono tipo de ingreso "<TipoIngreso>"
+    And selecciono no cambio de actividad principal
+    And hago click menu Datos de solicitud
+    And ingresa tipo de credito
+    And selecciona item CONSUMO
+    And hago click en subtipo de credito
+    And selecciona subtipo de credito CONSUMO
+    And selecciona producto PERSONAL
+    And selecciona subproducto PERSONAL
+    And hago click en tipo de operacion
+    And selecciona otorgamiento del tipo de operacion
+    And selecciono Destino del credito y hago click en LIBRE DISPONIBILIDAD
+    And hago click Tipo de cronograma
+    And selecciono tipo de cronograma fecha fija
+    And ingreso Monto Solicitado "4000"
+    And ingreso Nro de cuotas "6"
+    And marco no en seguro optativos
+    And selecciona calculo de plazo en días
+    And consulta niveles de autonomia de tasa
+    And selecciona NORMAL de tasas
+    And hago click en Simulador crédito
+    And consulto sobreendeudamiento
+    And consulto motor de decision de cliente no bancarizado
+    And hago click en el menu variables socioeconomicas
+    And selecciono tiempo en domicilio "<TiempoEnDomicilio>"
+    And ingreso numero de clientes semanales "<NroClientesSemanales>"
+    And Selecciono numero de trabajadores "<NroTrabajadores>"
+    And Selecciono tiempo experiencia en el negocio "<ExperienciaNegocio>"
+    And selecciono numero de hijos en edad escolar "<HijosEdadEscolar>"
+    And selecciono posicion en el hogar "<PosicionHogar>"
+    And selecciono Si paga por internet
+    And selecciono Distancia del negocio "<DistanciaNegocio>"
+    And selecciono Si paga por luz
+    And selecciono Si paga por agua
+    And hago click en el menu Excepciones
+    And verifico el mensaje de excepciones "<Clasificación crediticia de los intervinientes en los últimos 12 meses reportados (Hasta 2 CPP siempre y cuando no se trate del último mes). Probar con una operación de otorgamiento. Para tipo de regla Excepcionable (Manual).>"
+
+    Examples:
+      | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 46829398     |
 
   @mobile
   Scenario Outline: CP0177 - El monto máximo para destino libre disponibilidad es hasta S/ 20,000.00 (monto solicitado por el cliente).

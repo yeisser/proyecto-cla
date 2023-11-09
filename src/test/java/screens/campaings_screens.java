@@ -334,6 +334,13 @@ public class campaings_screens {
     public String get_mensaje_perfi() {
         return UIOperation.getText(Campaings_Task.txtview_perfil);
     }
+    public String get_mensaje_expceciones() {
+        return UIOperation.getText(Campaings_Task.txtview_excepcion_auto);
+    }
+    public String get_mensaje_expceciones_unidad_familiar() {
+        return UIOperation.getText(Campaings_Task.txtview_excepcion_unidad_familiar);
+    }
+
     public String get_mensaje_unoMismo() {
         return UIOperation.getText(Campaings_Task.txtview_unoMismo);
     }

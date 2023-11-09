@@ -115,5 +115,3 @@ O
 src/test/java/utility/Util.java,0\0\0088fc7883a2e038aa6e2afcb0a44ff911fc8d7a
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
-V
-&src/test/java/screens/LoginScreen.java,e\c\ecd9059acacdda8ac121ea07f289374821fdf502
