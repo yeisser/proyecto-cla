@@ -1269,7 +1269,6 @@ Feature: Escenarios Modulo de recuperaciones
     And proceso solicitud
     And hago click en enviar
 
-
     Examples:
       | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | ReferenciaDireccion      | TipoVivienda | TipoConstruccion | TipoSector | AñosResidencia | Ocupacion | Cargo   | NumPersonasDependientes | NumHijos | TipoIngreso | TiempoEnDomicilio | NroClientesSemanales | NroTrabajadores | ExperienciaNegocio | HijosEdadEscolar | PosicionHogar | DistanciaNegocio | TipoReferencia1 | VinculoReferencia1 | NombreReferencia1      | DireccionReferencia1      | TelefonoReferencia1      | ComentariosReferencia1      | TipoReferencia2 | VinculoReferencia2 | NombreReferencia2      | DireccionReferencia2      | TelefonoReferencia2      | ComentariosReferencia2      | IngresoPrincipal | IngresoSecundario | TiempoExperiencia | EstabilidadLaboral | NombreEmpresa      | RUCEmpresa  | SectorLaboral | ReferenciaUbicacion      | DocumentoIngresos | IngresoNetoTitular |
       | Credito        | Credito_Individual | DNI           | 70087556     | tet referencia direccion | FAMILIAR     | MATERIAL NOBLE   | URBANO     | 3              | ABOGADO   | AUDITOR | 0                       | 0        | BOLETA      | Más de 24 meses   | 10                   | Solo yo         | 2-3 años           | No tengo         | Padre líder   | Menos de 1 hora  | Personal        | Vecino             | NombreReferencia1 test | DireccionReferencia1 test | TelefonoReferencia1 test | ComentariosReferencia1 test | Laboral         | Jefe inmediato     | NombreReferencia2 test | DireccionReferencia2 test | TelefonoReferencia2 test | ComentariosReferencia2 test | Dependiente      | Dependiente       | Más de 3 años     | Indeterminado      | NombreEmpresa test | 20765465411 | Privado       | ReferenciaUbicacion test | Boleta de pago    | 10000              |
@@ -1438,9 +1437,7 @@ Feature: Escenarios Modulo de recuperaciones
 
   @mobile
   Scenario Outline: CP0177 - El monto máximo para destino libre disponibilidad es hasta S/ 20,000.00 (monto solicitado por el cliente).
-    Given se observa la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
-    When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
-    And el usuario ingresa al home y hace click en el boton de nueva orden
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
     And el usuario hace click en la opcion "<TipoFormulario>" del menu
     And el usuario hace click en la opcion "<TipoFormulario2>" del menu
     And el usuario hace click en boton crear
@@ -1448,11 +1445,87 @@ Feature: Escenarios Modulo de recuperaciones
     And Autoriza el tratamiento de sus datos personales
     And el usuario autoriza el envio de publicidad
     And el usuario consulta el cliente
-    And validar campo llamar
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And selecciono tipo de ingreso "<TipoIngreso>"
+    And hago click menu Datos de solicitud
+    And ingresa tipo de credito
+    And selecciona item CONSUMO
+    And hago click en subtipo de credito
+    And selecciona subtipo de credito CONSUMO
+    And selecciona producto PERSONAL
+    And selecciona subproducto PERSONAL
+    And hago click en tipo de operacion
+    And selecciona otorgamiento del tipo de operacion
+    And selecciono Destino del credito y hago click en LIBRE DISPONIBILIDAD
+    And hago click Tipo de cronograma
+    And selecciono tipo de cronograma fecha fija
+    And ingreso Monto Solicitado "20000"
+    And ingreso Nro de cuotas "12"
+    And marco no en seguro optativos
+    And selecciona calculo de plazo en días
+    And consulta niveles de autonomia de tasa
+    And selecciona NORMAL de tasas
+    And hago click en Simulador crédito
+    And consulto sobreendeudamiento
+    And hago click en el menu Datos del conyuge
+    And hago click en el menu variables socioeconomicas
+    And selecciono tiempo en domicilio "<TiempoEnDomicilio>"
+    And ingreso numero de clientes semanales "<NroClientesSemanales>"
+    And Selecciono numero de trabajadores "<NroTrabajadores>"
+    And Selecciono tiempo experiencia en el negocio "<ExperienciaNegocio>"
+    And selecciono numero de hijos en edad escolar "<HijosEdadEscolar>"
+    And selecciono posicion en el hogar "<PosicionHogar>"
+    And selecciono Si paga por internet
+    And selecciono Distancia del negocio "<DistanciaNegocio>"
+    And selecciono Si paga por luz
+    And selecciono Si paga por agua
+    And hago click en el menu Excepciones
+    And Consulto reglas caja
+    And hago click en el menu Referencias vinculados deudas
+    And hago click en el boton referencias
+    And hago click en agregar referencia
+    And selecciono tipo de referencia "<TipoReferencia1>"
+    And selecciono vinculo de referencia "<VinculoReferencia1>"
+    And ingreso nombre de referencia "<NombreReferencia1>"
+    And ingreso direccion de referencia "<DireccionReferencia1>"
+    And ingreso telefono de referencia "<TelefonoReferencia1>"
+    And ingreso comentarios sobre referencia "<ComentariosReferencia1>"
+    And guardo referencia
+    And hago click en agregar referencia
+    And selecciono tipo de referencia "<TipoReferencia2>"
+    And selecciono vinculo de referencia "<VinculoReferencia2>"
+    And ingreso nombre de referencia "<NombreReferencia2>"
+    And ingreso direccion de referencia "<DireccionReferencia2>"
+    And ingreso telefono de referencia "<TelefonoReferencia2>"
+    And ingreso comentarios sobre referencia "<ComentariosReferencia2>"
+    And guardo referencia
+    And hago click en retroceder referencia
+    And hago click en menu Analisis cualitativo personal
+    And selecciono ingreso principal "<IngresoPrincipal>"
+    And selecciono ingreso secundario "<IngresoSecundario>"
+    And selecciono tiempo experiencia en años "<TiempoExperiencia>"
+    And selecciono estabilidad laboral "<EstabilidadLaboral>"
+    And ingreso nombre empresa "<NombreEmpresa>"
+    And ingreso Ruc empresa "<RUCEmpresa>"
+    And selecciono sector laboral "<SectorLaboral>"
+    And selecciono referencia de ubicacion de trabajo "<ReferenciaUbicacion>"
+    And selecciono documento de ingresos "<DocumentoIngresos>"
+    And selecciono SI en capacidad de ahorro
+    And hago click en menu Estados de resultados personas
+    And ingreso el ingreso neto del titular "<IngresoNetoTitular>"
+    And ingreso comentarios de propuesta de credito
+    And hago click en el menu Garantias
+    And consulto garantias titutlar conyugue
+    And marco NO en requiere garantia
+    And el usuario ingresa a documentos virtuales
+    And proceso solicitud
+    And hago click en enviar
+
 
     Examples:
-      | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
-      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 02040013     |
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | ReferenciaDireccion      | TipoVivienda | TipoConstruccion | TipoSector | AñosResidencia | Ocupacion | Cargo   | NumPersonasDependientes | NumHijos | TipoIngreso | TiempoEnDomicilio | NroClientesSemanales | NroTrabajadores | ExperienciaNegocio | HijosEdadEscolar | PosicionHogar | DistanciaNegocio | TipoReferencia1 | VinculoReferencia1 | NombreReferencia1      | DireccionReferencia1      | TelefonoReferencia1      | ComentariosReferencia1      | TipoReferencia2 | VinculoReferencia2 | NombreReferencia2      | DireccionReferencia2      | TelefonoReferencia2      | ComentariosReferencia2      | IngresoPrincipal | IngresoSecundario | TiempoExperiencia | EstabilidadLaboral | NombreEmpresa      | RUCEmpresa  | SectorLaboral | ReferenciaUbicacion      | DocumentoIngresos | IngresoNetoTitular |
+      | Credito        | Credito_Individual | DNI           | 41063101     | tet referencia direccion | FAMILIAR     | MATERIAL NOBLE   | URBANO     | 3              | ABOGADO   | AUDITOR | 0                       | 0        | BOLETA      | Más de 24 meses   | 10                   | Solo yo         | 2-3 años           | No tengo         | Padre líder   | Menos de 1 hora  | Personal        | Vecino             | NombreReferencia1 test | DireccionReferencia1 test | TelefonoReferencia1 test | ComentariosReferencia1 test | Laboral         | Jefe inmediato     | NombreReferencia2 test | DireccionReferencia2 test | TelefonoReferencia2 test | ComentariosReferencia2 test | Dependiente      | Dependiente       | Más de 3 años     | Indeterminado      | NombreEmpresa test | 20765465411 | Privado       | ReferenciaUbicacion test | Boleta de pago    | 10000              |
 
   @mobile
   Scenario Outline: CP0201 - Crédito Estacional: La frecuencia es unicuota y su plazo máximo es hasta 120 días.
@@ -1544,7 +1617,7 @@ Feature: Escenarios Modulo de recuperaciones
     And selecciono Si paga por luz
     And selecciono Si paga por agua
     And hago click en el menu Excepciones
-    And Consulto reglas caja
+    And
     And hago click en el menu Referencias vinculados deudas
     And hago click en el boton referencias
     And hago click en agregar referencia
