@@ -1086,9 +1086,7 @@ Feature: Escenarios Modulo de recuperaciones
 
   @mobile
   Scenario Outline: CP0147 - El plazo máximo es hasta 18 meses para montos hasta S/ 8,000.00.
-    Given se observa la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
-    When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
-    And el usuario ingresa al home y hace click en el boton de nueva orden
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
     And el usuario hace click en la opcion "<TipoFormulario>" del menu
     And el usuario hace click en la opcion "<TipoFormulario2>" del menu
     And el usuario hace click en boton crear
@@ -1096,11 +1094,98 @@ Feature: Escenarios Modulo de recuperaciones
     And Autoriza el tratamiento de sus datos personales
     And el usuario autoriza el envio de publicidad
     And el usuario consulta el cliente
-    And validar campo llamar
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And ingresa el nro del celular "987654321"
+    And ingreso referencia de direccion "<ReferenciaDireccion>"
+    And selecciono tipo de vivienda "<TipoVivienda>"
+    And selecciono tipo de construccion "<TipoConstruccion>"
+    And selecciono tipo de sector "<TipoSector>"
+    And ingreso años de residencia "<AñosResidencia>"
+    And selecciono ocupacion "<Ocupacion>"
+    And selecciono cargo "<Cargo>"
+    And ingreso numero de personas dependientes "<NumPersonasDependientes>"
+    And ingreso numero de hijos "<NumHijos>"
+    And selecciono tipo de ingreso "<TipoIngreso>"
+    And selecciono no cambio de actividad principal
+    And hago click menu Datos de solicitud
+    And ingresa tipo de credito
+    And selecciona item CONSUMO
+    And hago click en subtipo de credito
+    And selecciona subtipo de credito CONSUMO
+    And selecciona producto PERSONAL
+    And selecciona subproducto PERSONAL
+    And hago click en tipo de operacion
+    And selecciona otorgamiento del tipo de operacion
+    And selecciono Destino del credito y hago click en LIBRE DISPONIBILIDAD
+    And hago click Tipo de cronograma
+    And selecciono tipo de cronograma fecha fija
+    And ingreso Monto Solicitado "8000"
+    And ingreso Nro de cuotas "12"
+    And marco no en seguro optativos
+    And selecciona calculo de plazo en días
+    And consulta niveles de autonomia de tasa
+    And selecciona NORMAL de tasas
+    And hago click en Simulador crédito
+    And consulto sobreendeudamiento
+    And consulto motor de decision de cliente no bancarizado
+    And hago click en el menu variables socioeconomicas
+    And selecciono tiempo en domicilio "<TiempoEnDomicilio>"
+    And ingreso numero de clientes semanales "<NroClientesSemanales>"
+    And Selecciono numero de trabajadores "<NroTrabajadores>"
+    And Selecciono tiempo experiencia en el negocio "<ExperienciaNegocio>"
+    And selecciono numero de hijos en edad escolar "<HijosEdadEscolar>"
+    And selecciono posicion en el hogar "<PosicionHogar>"
+    And selecciono Si paga por internet
+    And selecciono Distancia del negocio "<DistanciaNegocio>"
+    And selecciono Si paga por luz
+    And selecciono Si paga por agua
+    And hago click en el menu Excepciones
+    And Consulto reglas caja
+    And hago click en el menu Referencias vinculados deudas
+    And hago click en el boton referencias
+    And hago click en agregar referencia
+    And selecciono tipo de referencia "<TipoReferencia1>"
+    And selecciono vinculo de referencia "<VinculoReferencia1>"
+    And ingreso nombre de referencia "<NombreReferencia1>"
+    And ingreso direccion de referencia "<DireccionReferencia1>"
+    And ingreso telefono de referencia "<TelefonoReferencia1>"
+    And ingreso comentarios sobre referencia "<ComentariosReferencia1>"
+    And guardo referencia
+    And hago click en agregar referencia
+    And selecciono tipo de referencia "<TipoReferencia2>"
+    And selecciono vinculo de referencia "<VinculoReferencia2>"
+    And ingreso nombre de referencia "<NombreReferencia2>"
+    And ingreso direccion de referencia "<DireccionReferencia2>"
+    And ingreso telefono de referencia "<TelefonoReferencia2>"
+    And ingreso comentarios sobre referencia "<ComentariosReferencia2>"
+    And guardo referencia
+    And hago click en retroceder referencia
+    And hago click en menu Analisis cualitativo personal
+    And selecciono ingreso principal "<IngresoPrincipal>"
+    And selecciono ingreso secundario "<IngresoSecundario>"
+    And selecciono tiempo experiencia en años "<TiempoExperiencia>"
+    And selecciono estabilidad laboral "<EstabilidadLaboral>"
+    And ingreso nombre empresa "<NombreEmpresa>"
+    And ingreso Ruc empresa "<RUCEmpresa>"
+    And selecciono sector laboral "<SectorLaboral>"
+    And selecciono referencia de ubicacion de trabajo "<ReferenciaUbicacion>"
+    And selecciono documento de ingresos "<DocumentoIngresos>"
+    And selecciono SI en capacidad de ahorro
+    And hago click en menu Estados de resultados personas
+    And ingreso el ingreso neto del titular "<IngresoNetoTitular>"
+    And ingreso comentarios de propuesta de credito
+    And hago click en el menu Garantias
+    And consulto garantias titutlar conyugue
+    And marco NO en requiere garantia
+    And el usuario ingresa a documentos virtuales
+    And proceso solicitud
+    And hago click en enviar
+
 
     Examples:
-      | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
-      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 02040013     |
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | ReferenciaDireccion      | TipoVivienda | TipoConstruccion | TipoSector | AñosResidencia | Ocupacion | Cargo   | NumPersonasDependientes | NumHijos | TipoIngreso | TiempoEnDomicilio | NroClientesSemanales | NroTrabajadores | ExperienciaNegocio | HijosEdadEscolar | PosicionHogar | DistanciaNegocio | TipoReferencia1 | VinculoReferencia1 | NombreReferencia1      | DireccionReferencia1      | TelefonoReferencia1      | ComentariosReferencia1      | TipoReferencia2 | VinculoReferencia2 | NombreReferencia2      | DireccionReferencia2      | TelefonoReferencia2      | ComentariosReferencia2      | IngresoPrincipal | IngresoSecundario | TiempoExperiencia | EstabilidadLaboral | NombreEmpresa      | RUCEmpresa  | SectorLaboral | ReferenciaUbicacion      | DocumentoIngresos | IngresoNetoTitular |
+      | Credito        | Credito_Individual | DNI           | 70087556     | tet referencia direccion | FAMILIAR     | MATERIAL NOBLE   | URBANO     | 3              | ABOGADO   | AUDITOR | 0                       | 0        | BOLETA      | Más de 24 meses   | 10                   | Solo yo         | 2-3 años           | No tengo         | Padre líder   | Menos de 1 hora  | Personal        | Vecino             | NombreReferencia1 test | DireccionReferencia1 test | TelefonoReferencia1 test | ComentariosReferencia1 test | Laboral         | Jefe inmediato     | NombreReferencia2 test | DireccionReferencia2 test | TelefonoReferencia2 test | ComentariosReferencia2 test | Dependiente      | Dependiente       | Más de 3 años     | Indeterminado      | NombreEmpresa test | 20765465411 | Privado       | ReferenciaUbicacion test | Boleta de pago    | 10000              |
 
   @mobile
   Scenario Outline: CP0152 - La modalidad de pago estacional NO aplica para los productos : Personal, Convenio y Contra depósito y sus campañas
@@ -1157,6 +1242,39 @@ Feature: Escenarios Modulo de recuperaciones
     Examples:
       | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
       | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 02040013     |
+
+  @mobile
+  Scenario Outline: CP0201 - Crédito Estacional: La frecuencia es unicuota y su plazo máximo es hasta 120 días.
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And hago click menu Datos de solicitud
+    And selecciono tipo de credito "<TipoCredito>"
+    And hago click en subtipo de credito
+    And selecciona subtipo de credito empresarial
+    And selecciona producto PYME
+    And selecciona subproducto PYME
+    And hago click en tipo de operacion
+    And selecciona otorgamiento del tipo de operacion
+    And selecciona modalidad de credito "<ModalidadCredito>"
+    And selecciono Destino del credito y hago click en CAPITAL DE TRABAJO
+    And hago click Tipo de cronograma
+    And selecciono tipo de cronograma periodo Fijo
+    And seleccino frecuencia "<Frecuencia>"
+    And ingreso cantidad en frecuencia en dias "<CantidadFrencuenciaDias>"
+    Then valido advertencia El plazo solicitado incumple con las condiciones permitidas.
+
+    Examples:
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | TipoCredito   | ModalidadCredito | Frecuencia | CantidadFrencuenciaDias |
+      | Credito        | Credito_Individual | DNI           | 70846807     | MICROEMPRESAS | ESTACIONAL       | Unicuota   | 130                     |
+
 
   @mobile
   Scenario Outline: CP0202 - Producto Personal: El plazo mínimo es 03 meses. credito con plazo mayor igual a 03 meses. Para tipo de regla No Excepcionable.
@@ -1261,6 +1379,50 @@ Feature: Escenarios Modulo de recuperaciones
       | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | ReferenciaDireccion      | TipoVivienda | TipoConstruccion | TipoSector | AñosResidencia | Ocupacion | Cargo   | NumPersonasDependientes | NumHijos | TipoIngreso | TiempoEnDomicilio | NroClientesSemanales | NroTrabajadores | ExperienciaNegocio | HijosEdadEscolar | PosicionHogar | DistanciaNegocio | TipoReferencia1 | VinculoReferencia1 | NombreReferencia1      | DireccionReferencia1      | TelefonoReferencia1      | ComentariosReferencia1      | TipoReferencia2 | VinculoReferencia2 | NombreReferencia2      | DireccionReferencia2      | TelefonoReferencia2      | ComentariosReferencia2      | IngresoPrincipal | IngresoSecundario | TiempoExperiencia | EstabilidadLaboral | NombreEmpresa      | RUCEmpresa  | SectorLaboral | ReferenciaUbicacion      | DocumentoIngresos | IngresoNetoTitular |
       | Credito        | Credito_Individual | DNI           | 70846807     | tet referencia direccion | FAMILIAR     | MATERIAL NOBLE   | URBANO     | 3              | ABOGADO   | AUDITOR | 0                       | 0        | BOLETA      | Más de 24 meses   | 10                   | Solo yo         | 2-3 años           | No tengo         | Padre líder   | Menos de 1 hora  | Personal        | Vecino             | NombreReferencia1 test | DireccionReferencia1 test | TelefonoReferencia1 test | ComentariosReferencia1 test | Laboral         | Jefe inmediato     | NombreReferencia2 test | DireccionReferencia2 test | TelefonoReferencia2 test | ComentariosReferencia2 test | Dependiente      | Dependiente       | Más de 3 años     | Indeterminado      | NombreEmpresa test | 20765465411 | Privado       | ReferenciaUbicacion test | Boleta de pago    | 10000              |
 
+  @mobile
+  Scenario Outline: CP0203 - Producto Personal: credito con plazo menor a 03 meses. Para tipo de regla No Excepcionable.
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And ingresa el nro del celular "987654321"
+    And ingreso referencia de direccion "<ReferenciaDireccion>"
+    And selecciono tipo de vivienda "<TipoVivienda>"
+    And selecciono tipo de construccion "<TipoConstruccion>"
+    And selecciono tipo de sector "<TipoSector>"
+    And ingreso años de residencia "<AñosResidencia>"
+    And selecciono ocupacion "<Ocupacion>"
+    And selecciono cargo "<Cargo>"
+    And ingreso numero de personas dependientes "<NumPersonasDependientes>"
+    And ingreso numero de hijos "<NumHijos>"
+    And selecciono tipo de ingreso "<TipoIngreso>"
+    And selecciono no cambio de actividad principal
+    And hago click menu Datos de solicitud
+    And ingresa tipo de credito
+    And selecciona item CONSUMO
+    And hago click en subtipo de credito
+    And selecciona subtipo de credito CONSUMO
+    And selecciona producto PERSONAL
+    And selecciona subproducto PERSONAL
+    And hago click en tipo de operacion
+    And selecciona otorgamiento del tipo de operacion
+    And selecciono Destino del credito y hago click en LIBRE DISPONIBILIDAD
+    And hago click Tipo de cronograma
+    And selecciono tipo de cronograma fecha fija
+    And ingreso Monto Solicitado "4000"
+    And ingreso Nro de cuotas "2"
+    Then valido advertencia El plazo solicitado incumple con las condiciones permitidas.
+
+    Examples:
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | ReferenciaDireccion      | TipoVivienda | TipoConstruccion | TipoSector | AñosResidencia | Ocupacion | Cargo   | NumPersonasDependientes | NumHijos | TipoIngreso | TiempoEnDomicilio | NroClientesSemanales | NroTrabajadores | ExperienciaNegocio | HijosEdadEscolar | PosicionHogar | DistanciaNegocio | TipoReferencia1 | VinculoReferencia1 | NombreReferencia1      | DireccionReferencia1      | TelefonoReferencia1      | ComentariosReferencia1      | TipoReferencia2 | VinculoReferencia2 | NombreReferencia2      | DireccionReferencia2      | TelefonoReferencia2      | ComentariosReferencia2      | IngresoPrincipal | IngresoSecundario | TiempoExperiencia | EstabilidadLaboral | NombreEmpresa      | RUCEmpresa  | SectorLaboral | ReferenciaUbicacion      | DocumentoIngresos | IngresoNetoTitular |
+      | Credito        | Credito_Individual | DNI           | 70846807     | tet referencia direccion | FAMILIAR     | MATERIAL NOBLE   | URBANO     | 3              | ABOGADO   | AUDITOR | 0                       | 0        | BOLETA      | Más de 24 meses   | 10                   | Solo yo         | 2-3 años           | No tengo         | Padre líder   | Menos de 1 hora  | Personal        | Vecino             | NombreReferencia1 test | DireccionReferencia1 test | TelefonoReferencia1 test | ComentariosReferencia1 test | Laboral         | Jefe inmediato     | NombreReferencia2 test | DireccionReferencia2 test | TelefonoReferencia2 test | ComentariosReferencia2 test | Dependiente      | Dependiente       | Más de 3 años     | Indeterminado      | NombreEmpresa test | 20765465411 | Privado       | ReferenciaUbicacion test | Boleta de pago    | 10000              |
+
 
   @mobile
   Scenario Outline: CP0301 - Validar que no se debe poder elegir credito paralelo o estacional cuando el titular del credito no tiene ningun credito activo para Flujo campaña.
@@ -1293,12 +1455,9 @@ Feature: Escenarios Modulo de recuperaciones
       | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | monto | cuotas |
       | Credito        | Credito_Individual | DNI           | 40603206     | 1500  | 3      |
 
-
   @mobile
-  Scenario Outline: CP0320 - Validar y verificar que el campo TEA% tenga 4 decimales en el acta de resolución para campaña aprobada, persona natural recurrente.
-    Given se observa la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
-    When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
-    And el usuario ingresa al home y hace click en el boton de nueva orden
+  Scenario Outline: CP0313 - Validar que las deudas (directas, indirectas) se precargue correctamente en el subformulario deudas el cual debe ser corrobarado en la posicion integral de intervinientes del corebank.
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
     And el usuario hace click en la opcion "<TipoFormulario>" del menu
     And el usuario hace click en la opcion "<TipoFormulario2>" del menu
     And el usuario hace click en boton crear
@@ -1306,12 +1465,36 @@ Feature: Escenarios Modulo de recuperaciones
     And Autoriza el tratamiento de sus datos personales
     And el usuario autoriza el envio de publicidad
     And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
+    And el usuario ingresa a datos de solicitud
+    And hago click en el menu Excepciones
+    And hago click en el menu Referencias vinculados deudas
+    And hago click en el boton deudas
+    And valido existencia de deudas
+
+    Examples:
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | Credito        | Credito_Individual | DNI           | 47911932     |
+
+  @mobile
+  Scenario Outline: CP0320 - Validar y verificar que el campo TEA% tenga 4 decimales en el acta de resolución para campaña aprobada, persona natural recurrente.
+    Given el usuario ingresa al home y hace click en el boton de nueva orden
+    And el usuario hace click en la opcion "<TipoFormulario>" del menu
+    And el usuario hace click en la opcion "<TipoFormulario2>" del menu
+    And el usuario hace click en boton crear
+    And el usuario selecciona el tipo de documento "<TipoDocumento>" e ingresa el numero de documento "<NumDocumento>"
+    And Autoriza el tratamiento de sus datos personales
+    And el usuario autoriza el envio de publicidad
+    And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
     And el usuario ingresa a datos de solicitud
     And valida campo TEA
 
     Examples:
-      | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
-      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 02040013     |
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | Credito        | Credito_Individual | DNI           | 01279895     |
 
   @mobile
   Scenario Outline: CP0321 - Validar y verificar que el campo TEM% tenga 4 decimales en el acta de resolución para campaña aprobada, persona natural recurrente.
@@ -1325,7 +1508,14 @@ Feature: Escenarios Modulo de recuperaciones
     And Autoriza el tratamiento de sus datos personales
     And el usuario autoriza el envio de publicidad
     And el usuario consulta el cliente
+    And el usuario consulta la posicion consolidada
+    And hago click en Mantenimiento cliente
     And el usuario ingresa a datos de solicitud
+    And marco no en seguro optativos
+    And selecciona calculo de plazo en días
+    And consulta niveles de autonomia de tasa
+    And selecciona NORMAL de tasas
+
     And valida campo TEM
 
     Examples:

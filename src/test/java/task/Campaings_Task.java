@@ -188,6 +188,13 @@ public class Campaings_Task {
     public static By radio_NOEnRequiereGarantia = Element.Mobile_Element(Constantes.XPATH, "//android.view.View[2]/android.view.View[2]/android.view.View[2]/android.widget.TextView");
     public static By btn_ProcesoSolicitud = Element.Mobile_Element(Constantes.XPATH, "//android.view.View[4]/android.view.View/android.widget.Button");
     public static By btn_Enviar = Element.Mobile_Element(Constantes.XPATH, "//*[@text='ENVIAR']");
+    public static By advertencia_PlazoIncumple = Element.Mobile_Element(Constantes.XPATH, "//*[@text='El plazo solicitado incumple con las condiciones permitidas.']");
+    public static By campo_ModalidadCredito = Element.Mobile_Element(Constantes.XPATH, "(//android.view.View[@content-desc='Menú desplegable'])[6]/android.widget.EditText/android.view.View");
+    public static By select_Frecuencia = Element.Mobile_Element(Constantes.XPATH, "//android.view.View[@content-desc='Menú desplegable'][5]/android.widget.EditText/android.view.View");
+    public static By campo_CantidadFrencuenciaDias = Element.Mobile_Element(Constantes.XPATH, "//androidx.compose.ui.platform.m1/android.view.View/android.view.View/android.view.View[2]/android.widget.EditText[1]/android.view.View");
+    public static By campo_TEA = Element.Mobile_Element(Constantes.XPATH, "//androidx.compose.ui.platform.m1/android.view.View/android.view.View/android.view.View[2]/android.widget.EditText/android.view.View");
+    public static By campo_deudaDirecta = Element.Mobile_Element(Constantes.XPATH, "//*[@text='Directa']");
+    public static By campo_deudaIndirecta = Element.Mobile_Element(Constantes.XPATH, "//*[@text='Indirecta']");
 
 
 

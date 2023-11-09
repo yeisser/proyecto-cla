@@ -682,6 +682,47 @@ public class campaings_screens {
     public void hagoClickEnEnviar(){
         UIOperation.giveClick(Campaings_Task.btn_Enviar);
     }
+    public void validoAdvertenciaElPlazoSolicitadoIncumpleConLasCondicionesPermitidas(){
+        UIOperation.isVisible(Campaings_Task.advertencia_PlazoIncumple);
+    }
+    public void seleccionoTipoDeCredito(String TipoCredito){
+        UIOperation.waitAndClick(Campaings_Task.opt_tipo_credito,180);
+        By opcionTipoCredito = Recoveries_Task.opcionMenu(TipoCredito);
+        UIOperation.waitAndClick(opcionTipoCredito,180);
+        Util.implicitWait(60);
+    }
+    public void seleccionaModalidadDeCredito(String ModalidadCredito){
+        UIOperation.waitAndClick(Campaings_Task.campo_ModalidadCredito,180);
+        By opcionModalidadCredito = Recoveries_Task.opcionMenu(ModalidadCredito);
+        UIOperation.waitAndClick(opcionModalidadCredito,180);
+        Util.implicitWait(60);
+    }
+    public void seleccinoFrecuencia(String Frecuencia){
+        UIOperation.waitAndClick(Campaings_Task.select_Frecuencia,180);
+        By opcionFrecuencia = Recoveries_Task.opcionMenu(Frecuencia);
+        UIOperation.waitAndClick(opcionFrecuencia,180);
+        Util.implicitWait(60);
+    }
+    public void ingresoCantidadEnFrecuenciaEnDias(String CantidadFrencuenciaDias){
+        UIOperation.insertValue(Campaings_Task.campo_CantidadFrencuenciaDias,CantidadFrencuenciaDias);
+    }
+    public void validaCampoTEA(){
+        UIOperation.isVisible(Campaings_Task.campo_TEA);
+    }
+    public void validoExistenciaDeDeudas(){
+        try{
+            UIOperation.isVisible(Campaings_Task.campo_deudaDirecta);
+        }catch (Exception e){
+            System.out.println("No existe deuda directa");
+        }
+        try{
+            UIOperation.isVisible(Campaings_Task.campo_deudaIndirecta);
+        }catch (Exception e){
+            System.out.println("No existe deuda indirecta");
+        }
+
+
+    }
 
     public void scrollByText() {
         String _scrollContainer = "com.kata.formiik:id/rvFormOrder";

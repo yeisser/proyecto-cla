@@ -197,6 +197,7 @@ public class ModuleCampaingsStep {
     public void click_item_consumo_tipo_credito(){
         credito.click_item_consumo();
     }
+
     @And("^selecciona item de tipo de credito \"([^\"]*)\"$")
     public void click_item_seleccion() {
         credito.click_item_microempresas();
@@ -601,6 +602,7 @@ public class ModuleCampaingsStep {
 
     @And("valida campo TEA")
     public void validaCampoTEA() {
+        credito.validaCampoTEA();
     }
 
     @And("valida campo TEM")
@@ -1099,5 +1101,35 @@ public class ModuleCampaingsStep {
     @And("hago click en enviar")
     public void hagoClickEnEnviar() {
         credito.hagoClickEnEnviar();
+    }
+
+    @Then("valido advertencia El plazo solicitado incumple con las condiciones permitidas.")
+    public void validoAdvertenciaElPlazoSolicitadoIncumpleConLasCondicionesPermitidas() {
+        credito.validoAdvertenciaElPlazoSolicitadoIncumpleConLasCondicionesPermitidas();
+    }
+
+    @And("selecciono tipo de credito {string}")
+    public void seleccionoTipoDeCredito(String TipoCredito) {
+        credito.seleccionoTipoDeCredito(TipoCredito);
+    }
+
+    @And("selecciona modalidad de credito {string}")
+    public void seleccionaModalidadDeCredito(String ModalidadCredito) {
+        credito.seleccionaModalidadDeCredito(ModalidadCredito);
+    }
+
+    @And("seleccino frecuencia {string}")
+    public void seleccinoFrecuencia(String Frecuencia) {
+        credito.seleccinoFrecuencia(Frecuencia);
+    }
+
+    @And("ingreso cantidad en frecuencia en dias {string}")
+    public void ingresoCantidadEnFrecuenciaEnDias(String CantidadFrencuenciaDias) {
+        credito.ingresoCantidadEnFrecuenciaEnDias(CantidadFrencuenciaDias);
+    }
+
+    @And("valido existencia de deudas")
+    public void validoExistenciaDeDeudas() {
+        credito.validoExistenciaDeDeudas();
     }
 }
