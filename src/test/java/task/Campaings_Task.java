@@ -8,6 +8,9 @@ public class Campaings_Task {
     public static By btn_credito = Element.Mobile_Element(Constantes.XPATH, "//*[@text='Credito']");
     public static By opt_credito_individual = Element.Mobile_Element(Constantes.XPATH, "//*[@text='Credito_Individual']");
     public static By txtview_perfil = Element.Mobile_Element(Constantes.XPATH, "//*[@text='El perfil seleccionado no es válido para el flujo individual']");
+    public static By txtview_excepcion_auto = Element.Mobile_Element(Constantes.XPATH, "//*[@text='Antiguedad de los vehiculos evaluados: Los vehículos de Transporte Público y Particular, deberán tener una antigüedad máxima de 15 años según fecha de fabricación.']");
+    public static By     txtview_excepcion_unidad_familiar = Element.Mobile_Element(Constantes.XPATH, "//*[@text='Sobre la titularidad de la unidad familiar: La unidad familiar debe tener un único titular, pero está prohibido atender a ambos miembros de la unidad familiar.']");
+
     public static By txtview_unoMismo = Element.Mobile_Element(Constantes.XPATH, "//*[@text='No puede otorgar créditos a sí mismo o familiares']");
     public static By chk_tratamiento_datos = Element.Mobile_Element(Constantes.XPATH, "//*[@class='android.widget.CheckBox']");
     public static By btn_mensaje_voz = Element.Mobile_Element(Constantes.XPATH, "//*[@resource-id='com.kata.formiik:id/widget_audioEdit']");
