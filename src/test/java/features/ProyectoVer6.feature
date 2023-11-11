@@ -1,18 +1,20 @@
 #mvn test -Dcucumber.options="src/test/java/features/ModuleRecoveries.feature:6"
 
-Feature: Escenarios Modulo de recuperaciones
+Feature: Escenarios KataMobile y enginee
 
-  @web
     #Este feature se va a engine web tomar de ejemplo
-  Scenario Outline: CP001 - Kata Mobile - Monto y número de cuotas - El Monto y número de Cuotas deben mostrarse autocompletados y ser editable
-    Given se visualiza la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
-    When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
-    And el usuario ingresa al home y hago click en el boton de nueva orden
-    And el usuario hago click en la opcion cobranza del menu de Tipo de proceso
+  @web
+  Scenario Outline: CP001 - Caso enginee como ejemplo
+    Given se visualiza la pantalla de bievenida al enginee y hace click en INICIAR SESIÓN
+    #When el usuario ingresa al engine y hago onbording con "usuario" y "<password>"
+
+    #And el usuario ingresa al home y hago click en el boton de nueva orden
+    #And el usuario hago click en la opcion cobranza del menu de Tipo de proceso
 
     Examples:
-      | organizacion | usuario                  | password   |
-      | andesqa      | ncordova@craclasadev.com | Andes$2023 |
+      | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 02379972     |
+
 
   @mobile
   Scenario Outline: CP0001 - Kata Mobile - Monto y número de cuotas - El Monto y número de Cuotas deben mostrarse autocompletados y ser editable
@@ -34,11 +36,6 @@ Feature: Escenarios Modulo de recuperaciones
       | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
       | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 02379972     |
 
-
-
-    Examples:
-      | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
-      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 02379972     |
 
   @mobile
   Scenario Outline: CP0008 - Validar No se debe poder registrar una orden con monto mayor al permitido, 10,000.00, para producto Pyme, sub producto Facilito, con destino Capital de trabajo, para Cliente Persona Natural - Recurrente y tipo seguro Desgravamen Individual, Conyugal, Devolución.
@@ -1617,7 +1614,6 @@ Feature: Escenarios Modulo de recuperaciones
     And selecciono Si paga por luz
     And selecciono Si paga por agua
     And hago click en el menu Excepciones
-    And
     And hago click en el menu Referencias vinculados deudas
     And hago click en el boton referencias
     And hago click en agregar referencia

@@ -113,5 +113,3 @@ O
 src/test/java/utility/Util.java,0\0\0088fc7883a2e038aa6e2afcb0a44ff911fc8d7a
 X
 (src/test/java/screens/WelcomeScreen.java,2\8\281dd6441d330c30e3f1e811a7422f764ff8e3ab
-7
-pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
