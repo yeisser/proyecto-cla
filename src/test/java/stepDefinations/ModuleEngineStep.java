@@ -17,10 +17,7 @@ public class ModuleEngineStep {
         driver.navigate().to("https://qa.andes.engine.kata-software.com/login");
         gestionmora.espera_un_min();
     }
-    @When("^el usuario ingresa al engine y hago onbording con \"([^\"]*)\" y \"([^\"]*)\"$")
-    public void usuario_ingresa_engine(String user, String pass) {
-        engine.click_iniciar_sesion();
-    }
+
 
 
 

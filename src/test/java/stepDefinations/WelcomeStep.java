@@ -1,6 +1,7 @@
 package stepDefinations;
 
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
 import org.openqa.selenium.chrome.ChromeDriver;
 import screens.LoginScreen;
 import screens.WelcomeScreen;
@@ -12,12 +13,12 @@ import utility.Util;
 public class WelcomeStep {
     LoginScreen login = new LoginScreen();
     WelcomeScreen welcome = new WelcomeScreen();
-    Chrome enginee=new Chrome();
+    Chrome enginee = new Chrome();
     recoveries_screens gestionmora = new recoveries_screens();
 
     @Given("^se visualiza la bienvenida al app y el usuario hace click en iniciar con la organización \"([^\"]*)\"$")
     public void elUsuarioIngresaAppBienvenida(String organizacion) {
-       Util.implicitWait(50);
+        Util.implicitWait(50);
         welcome.btn_iniciar();
         Util.implicitWait(8);
         int repeticionesSiguiente = 0;
@@ -34,10 +35,15 @@ public class WelcomeStep {
         welcome.btn_continuar();
 
     }
+
     @Given("^se visualiza la pantalla de bievenida al enginee y hace click en INICIAR SESIÓN")
-    public void bienvenidaEnginee(){
+    public void bienvenidaEnginee() {
         enginee.getURL();
+        welcome.IniciarSesion();
     }
+
+
+
     @Given("se observa la bienvenida al app y el usuario hace click en iniciar con la organización {string}")
     public void seObservaLaBienvenidaAlAppYElUsuarioHaceClickEnIniciarConLaOrganización(String organizacion2) {
         Util.implicitWait(50);

@@ -38,8 +38,9 @@ public class HookSelenium {
         }
         //driver.quit();
     }
-    
+
     public static ChromeDriver getSeleniumDriver() {
         return seleniumDriver;
     }
+
 }

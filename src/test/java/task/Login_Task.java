@@ -7,6 +7,7 @@ import utility.Element;
 public class Login_Task {
 
     public static By texto = Element.Mobile_Element(Constantes.XPATH, "//*[@resource-id='i0116']");
+    public static By user=Element.Mobile_Element(Constantes.ID,"//*[@id=\"i0116\"]");
     public static By texto_pass = Element.Mobile_Element(Constantes.XPATH, "//*[@resource-id='i0118']");
     public static By lbl_error_usuario = Element.Mobile_Element(Constantes.XPATH, "//*[@text='To sign in, start by entering a user ID.']");
     public static By lbl_error_password = Element.Mobile_Element(Constantes.XPATH, "//*[@text='Please enter your password.']");

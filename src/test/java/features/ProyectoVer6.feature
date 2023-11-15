@@ -6,7 +6,7 @@ Feature: Escenarios KataMobile y enginee
   @web
   Scenario Outline: CP001 - Caso enginee como ejemplo
     Given se visualiza la pantalla de bievenida al enginee y hace click en INICIAR SESIÓN
-    #When el usuario ingresa al engine y hago onbording con "usuario" y "<password>"
+    When el usuario ingresa al engine y hago onbording con "<usuario>" y "<password>"
 
     #And el usuario ingresa al home y hago click en el boton de nueva orden
     #And el usuario hago click en la opcion cobranza del menu de Tipo de proceso

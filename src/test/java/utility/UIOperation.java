@@ -7,6 +7,8 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.concurrent.TimeUnit;
+
 import static java.time.Duration.ofSeconds;
 
 
@@ -16,6 +18,12 @@ public class UIOperation {
     public static void insertValue(By element, String value) {
         Hook.getDriver().findElement(element).clear();
         Hook.getDriver().findElement(element).sendKeys(value);
+    }
+    public static void insertValueSelenium(By element, String value){
+        HookSelenium.getSeleniumDriver().findElement(element).clear();
+        HookSelenium.getSeleniumDriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        HookSelenium.getSeleniumDriver().findElement(element).sendKeys(value);
+
     }
     public static void insertValueWait(By element, String value, int tiempo) {
         long segundosEspera = ofSeconds(tiempo).getSeconds();
@@ -28,6 +36,10 @@ public class UIOperation {
     public static void giveClick(By element) {
         Hook.getDriver().findElement(element).click();
     }
+    public static void giveClick_selenium(By element) {
+        HookSelenium.getSeleniumDriver().findElement(element).click();
+    }
+
     public static void waitAndClick(By element,int tiempo) {
         long segundosEspera = ofSeconds(tiempo).getSeconds();
         WebDriverWait wait = new WebDriverWait(Hook.getDriver(),segundosEspera);

@@ -4,7 +4,7 @@ Feature: Escenarios Modulo de recuperaciones
 
   @mobile
   Scenario Outline: CP01 - Gestion de Mora - Visualizar dentro del desplegable "Tipo de Documento", los elementos DNI, Carnet de Extranjeria y RUC.
-    Given se visualiza la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
+    #Given se visualiza la bienvenida al app y el usuario hace click en iniciar con la organización "<organizacion>"
     When el usuario ingresa al app y hago onbording con "<usuario>" y "<password>"
     And el usuario ingresa al home y hago click en el boton de nueva orden
     And el usuario hago click en la opcion cobranza del menu de Tipo de proceso

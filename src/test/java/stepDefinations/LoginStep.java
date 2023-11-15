@@ -7,12 +7,14 @@ import io.cucumber.java.en.When;
 import org.testng.Assert;
 import screens.LoginScreen;
 import screens.WelcomeScreen;
+import utility.Chrome;
 import utility.Util;
 
 public class LoginStep {
 
     WelcomeScreen welcome=new WelcomeScreen();
     LoginScreen login = new LoginScreen();
+    Chrome enginee = new Chrome();
 
     @Given("^carga la aplicacion Formiik New$")
     public void cargaLaAplicacionFormiikNew() {
@@ -20,10 +22,15 @@ public class LoginStep {
     }
     @When("^el usuario ingresa al app y hago onbording con \"([^\"]*)\" y \"([^\"]*)\"$")
     public void elUsuarioIngresaAppOnbording(String user, String pass) {
-        login.enter_onbording(user, pass);
+        login.enter_onbording_appium(user, pass);
         login.conditionContinue();
         Util.waitSleep(250);
     }
+    @When("^el usuario ingresa al engine y hago onbording con \"([^\"]*)\" y \"([^\"]*)\"$")
+    public void usuario_ingresa_engine(String user, String pass) {
+        login.ingresa_user_password_selenium(user, pass);
+    }
+
 
     @When("^el ingresa \"([^\"]*)\" y \"([^\"]*)\"$")
     public void elIngresaY(String user, String pass) {

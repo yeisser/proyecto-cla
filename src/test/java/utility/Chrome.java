@@ -15,6 +15,8 @@ public class Chrome {
         HookSelenium.getSeleniumDriver().get("https://qa.andes.engine.kata-software.com/");
         HookSelenium.getSeleniumDriver().manage().window().maximize();
     }
+
+
     public static void insertValue(By element, String value) {
         HookSelenium.getSeleniumDriver().findElement(element).clear();
         HookSelenium.getSeleniumDriver().findElement(element).sendKeys(value);
@@ -27,9 +29,11 @@ public class Chrome {
         HookSelenium.getSeleniumDriver().findElement(element).sendKeys(value);
     }
 
+
     public static void giveClick(By element) {
         HookSelenium.getSeleniumDriver().findElement(element).click();
     }
+
     public static void waitAndClick(By element,int tiempo) {
         long segundosEspera = ofSeconds(tiempo).getSeconds();
         WebDriverWait wait = new WebDriverWait(HookSelenium.getSeleniumDriver(),segundosEspera);

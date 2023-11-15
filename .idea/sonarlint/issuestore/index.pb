@@ -75,8 +75,6 @@ q
 A.allure/allure-2.8.1/plugins/custom-logo-plugin/allure-plugin.yml,9\4\941b0bc51618caa9ef96db87d63dbf03fb2b2a7d
 o
 ?.allure/allure-2.8.1/plugins/behaviors-plugin/allure-plugin.yml,e\1\e1c52b3ab22b74cdd40f4f57b8a2d1af2f614ca5
-R
-"src/test/java/task/Login_Task.java,b\a\ba56af242003857ad5cec30a3715c6b16c37bbd8
 m
 =.allure/allure-2.8.1/plugins/behaviors-plugin/static/index.js,c\d\cd9961f63096673d0a7527bae76ad2b3e0dce2cf
 v
@@ -95,21 +93,11 @@ R
 "src/test/java/data/romario_fa.json,1\3\1390e85ea2b5c66c9564504e3c7ba9381cb6d9cb
 N
 src/test/java/data/user_1.json,a\4\a4de68eb1283a10470435d70fde4df5b9e39482b
-[
-+src/test/java/stepDefinations/HomeStep.java,9\9\992a46e893d071047459f48a08a52d8796dc13d5
-R
-"src/test/java/utility/Element.java,2\4\2477406bba52df172d43f71ccdd977a6e32290bf
-T
-$src/test/java/task/Welcome_Task.java,8\6\86b7c032d8d55d66b4666f00c5f2f9e30ffefc33
 H
 src/test/java/TestNg.xml,3\0\305a0e56333e7e9a29e72c2ad49ce9ca499cca1a
-U
-%src/test/java/utility/Constantes.java,9\d\9daac06ba125080af341a31b4f44761695b02cab
 R
 "src/test/java/runner/RunnTest.java,9\9\990b63c44715006272222d4589358a95033fefa7
 T
 $src/test/java/features/Login.feature,7\5\7547904f979a4bd380ac2279c6a2328d8740ff94
-X
-(src/test/java/screens/WelcomeScreen.java,2\8\281dd6441d330c30e3f1e811a7422f764ff8e3ab
 O
 src/test/java/utility/Util.java,0\0\0088fc7883a2e038aa6e2afcb0a44ff911fc8d7a

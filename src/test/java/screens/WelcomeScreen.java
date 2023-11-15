@@ -1,7 +1,9 @@
 package screens;
 
+import org.openqa.selenium.By;
 import task.Recoveries_Task;
 import task.Welcome_Task;
+import utility.HookSelenium;
 import utility.UIOperation;
 import utility.Util;
 
@@ -57,6 +59,10 @@ public class WelcomeScreen {
     }
     public void btn_continuar() {
         UIOperation.giveClick(Welcome_Task.continuar);
+    }
+
+    public void IniciarSesion() {
+        UIOperation.giveClick_selenium(Welcome_Task.iniciar_sesion_engine);
     }
     public void btn_continuarNew() {
         UIOperation.waitAndClick(Welcome_Task.continuar,15);
