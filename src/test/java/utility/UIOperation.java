@@ -20,8 +20,8 @@ public class UIOperation {
         Hook.getDriver().findElement(element).sendKeys(value);
     }
     public static void insertValueSelenium(By element, String value){
-        HookSelenium.getSeleniumDriver().findElement(element).clear();
-        HookSelenium.getSeleniumDriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        //HookSelenium.getSeleniumDriver().findElement(element).clear();
+
         HookSelenium.getSeleniumDriver().findElement(element).sendKeys(value);
 
     }

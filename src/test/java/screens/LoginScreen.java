@@ -16,11 +16,18 @@ public class LoginScreen {
         UIOperation.insertValue(Login_Task.texto_pass, pass);
         UIOperation.giveClick(Login_Task.btn_sign_in);
     }
-    public void ingresa_user_password_selenium(String user, String pass){
-        Hook.getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+    public void ingresa_user_selenium(String user){
+        HookSelenium.getSeleniumDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         UIOperation.insertValueSelenium(Login_Task.user,user);
-        UIOperation.giveClick_selenium(Login_Task.btn_sign_in);
+        UIOperation.giveClick_selenium(Login_Task.siguiente_enginee);
+
     }
+    public void ingresa_pass_selenium(String pass){
+        HookSelenium.getSeleniumDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        UIOperation.insertValueSelenium(Login_Task.texto_pass_enginee,pass);
+        UIOperation.giveClick_selenium(Login_Task.iniciar_sesion_engine);
+    }
+
 
     public void conditionContinue() {
         boolean displayed = Hook.getDriver().findElement(txt_ConfigTerminada).isDisplayed();

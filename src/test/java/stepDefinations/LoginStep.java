@@ -28,7 +28,8 @@ public class LoginStep {
     }
     @When("^el usuario ingresa al engine y hago onbording con \"([^\"]*)\" y \"([^\"]*)\"$")
     public void usuario_ingresa_engine(String user, String pass) {
-        login.ingresa_user_password_selenium(user, pass);
+        login.ingresa_user_selenium(user);
+        login.ingresa_pass_selenium(pass);
     }
 
 

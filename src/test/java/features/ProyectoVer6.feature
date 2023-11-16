@@ -1,4 +1,4 @@
-#mvn test -Dcucumber.options="src/test/java/features/ModuleRecoveries.feature:6"
+#mvn test -Dcucumber.options="src/test/java/features/ProyectoVer6.feature:6"
 
 Feature: Escenarios KataMobile y enginee
 
@@ -7,13 +7,14 @@ Feature: Escenarios KataMobile y enginee
   Scenario Outline: CP001 - Caso enginee como ejemplo
     Given se visualiza la pantalla de bievenida al enginee y hace click en INICIAR SESIÓN
     When el usuario ingresa al engine y hago onbording con "<usuario>" y "<password>"
+    And ingresa al home de enginee y hace click en Total de pendientes
+    And selecciona el nro de solicitud en engine
+    And hago click en Comite de crédito en enginee
 
-    #And el usuario ingresa al home y hago click en el boton de nueva orden
-    #And el usuario hago click en la opcion cobranza del menu de Tipo de proceso
 
     Examples:
-      | organizacion | usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
-      | andesqa      | ncordova@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 02379972     |
+      |  usuario                  | password   | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento |
+      |  sruiz@craclasadev.com | Andes$2023 | Credito        | Credito_Individual | DNI           | 02379972     |
 
 
   @mobile
@@ -138,12 +139,17 @@ Feature: Escenarios KataMobile y enginee
     And ingreso Nro de cuotas "<cuotas>"
     And Selecciono documentos virtuales
     And proceso solicitud
-    And ingreso a engine como analista de riesgo
+    #Este step es reemplazado por el step: "se visualiza la pantalla de bievenida al enginee y hace click en INICIAR SESIÓN"
+      #And ingreso a engine como analista de riesgo
+    And se visualiza la pantalla de bievenida al enginee y hace click en INICIAR SESIÓN
+    And el usuario ingresa al engine y hago onbording con "<usuario>" y "<password>"
+    And ingresa al home de enginee y hace click en Total de pendientes
+
     And acepto solicitud
 
     Examples:
-      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | monto | cuotas |
-      | Credito        | Credito_Individual | DNI           | 40603206     | 1500  | 3      |
+      | TipoFormulario | TipoFormulario2    | TipoDocumento | NumDocumento | monto | cuotas |   usuario                  | password|
+      | Credito        | Credito_Individual | DNI           | 40603206     | 1500  | 3      |  sruiz@craclasadev.com | Andes$2023|
 
     #POR CONSULTAR - DATA ANALISTA DE RIESGO
   @mobile

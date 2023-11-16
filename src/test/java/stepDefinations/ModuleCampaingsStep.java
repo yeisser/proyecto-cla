@@ -29,10 +29,12 @@ public class ModuleCampaingsStep {
     public void validarUsuarioPerfilJefeOficina(String mensaje_esperado) {
         Assert.assertEquals(credito.get_mensaje_perfi(), mensaje_esperado);
     }
+
     @And("^verifico el mensaje de excepciones vehicular(.*)$")
     public void validarmensajedeexcepciones(String mensaje_esperado) {
         Assert.assertEquals(credito.get_mensaje_expceciones(), mensaje_esperado);
     }
+
     @And("^verifico el mensaje de excepciones unidad familiar(.*)$")
     public void validarmensajedeexcepcionesunidadfamiliar(String mensaje_esperado) {
         Assert.assertEquals(credito.get_mensaje_expceciones_unidad_familiar(), mensaje_esperado);
@@ -62,9 +64,11 @@ public class ModuleCampaingsStep {
 
         UIOperation.uiScrollableByText(_scrollContainer, _childElement, _value);
     }
+
     public static By lbl_si = Element.Mobile_Element(Constantes.XPATH, "//*[@text='No']");
+
     public void clickWebView() {
-        String iframeContext  = "com.kata.formiik:id/action_bar_root";
+        String iframeContext = "com.kata.formiik:id/action_bar_root";
         Hook.getDriver().switchTo().frame(iframeContext);
         Hook.getDriver().findElement(ModuleCampaingsStep.lbl_si).click();
     }
@@ -107,8 +111,9 @@ public class ModuleCampaingsStep {
         credito.click_consultar_posisicion_consolidada();
         credito.click_en_ok();
     }
+
     @And("Le hago click al si del continuar")
-    public void click_si_continuar(){
+    public void click_si_continuar() {
         clickWebView();
     }
 
@@ -201,8 +206,9 @@ public class ModuleCampaingsStep {
     public void click_item_microempresas() {
         credito.click_item_microempresas();
     }
+
     @And("^selecciona item CONSUMO$")
-    public void click_item_consumo_tipo_credito(){
+    public void click_item_consumo_tipo_credito() {
         credito.click_item_consumo();
     }
 
@@ -220,31 +226,37 @@ public class ModuleCampaingsStep {
     public void click_subtipo() {
         credito.click_subtipo();
     }
+
     @And("^selecciona subtipo de credito CONSUMO$")
     public void click_subtipo_consumo() {
         credito.click_subtipo_consumo();
     }
+
     @And("^selecciona subtipo de credito empresarial$")
-    public void click_subtipo_empresarial(){
+    public void click_subtipo_empresarial() {
         credito.click_subtipo_empresarial();
     }
+
     @And("^selecciona producto PYME$")
-    public void click_producto_pymes(){
+    public void click_producto_pymes() {
         credito.click_primer_item_producto();
         credito.click_selecciona_pymes();
     }
+
     @And("^selecciona subproducto pyme$")
-    public void click_subproducto(){
+    public void click_subproducto() {
         credito.click_selecciona_subproducto();
         credito.click_selecciona_pymes();
     }
+
     @And("^selecciona subproducto PYME$")
-    public void click_subproducto_pymes(){
+    public void click_subproducto_pymes() {
         credito.click_primer_item_producto();
         credito.click_selecciona_pymes();
     }
+
     @And("^selecciona subproducto PYME-FACILITO$")
-    public void click_subproducto_pyme_facilito(){
+    public void click_subproducto_pyme_facilito() {
         credito.click_selecciona_subproducto();
         credito.click_selecciona_pyme_facilito();
     }
@@ -258,10 +270,12 @@ public class ModuleCampaingsStep {
     public void click_producto() {
         credito.click_producto();
     }
+
     @And("^selecciona producto CONVENIO$")
     public void click_producto_convenio() {
         credito.click_producto_convenio();
     }
+
     @And("^selecciona producto PERSONAL$")
     public void click_producto_personal() {
         credito.click_producto_personal();
@@ -272,11 +286,13 @@ public class ModuleCampaingsStep {
         credito.click_subproducto_temp();
         credito.click_selecciona_subproducto();
     }
+
     @And("^selecciona subproducto CONVENIO$")
     public void click_selecciona_subproducto_convenio() {
         credito.click_subproducto_temp();
         credito.click_selecciona_subproducto_convenio();
     }
+
     @And("^selecciona subproducto credichamba$")
     public void click_selecciona_subproducto_credichamba() {
         credito.click_subproducto_temp();
@@ -299,6 +315,7 @@ public class ModuleCampaingsStep {
         credito.click_otorgamiento();
         credito.selecciona_modalidad_credito_principal();
     }
+
     @And("^selecciono Modalidad de credito principal$")
     public void click_modalidad_credito() {
         credito.click_modalidad_credito();
@@ -309,17 +326,18 @@ public class ModuleCampaingsStep {
     public void click_ampliacion() {
         credito.click_ampliacion();
     }
+
     @And("^selecciono Destino del credito y hago click en LIBRE DISPONIBILIDAD$")
     public void click_destino_credito_seleccion_libre_disponibilidad() {
         credito.click_destino_credito();
         credito.selecciona_libre_disponibilidad();
     }
+
     @And("^selecciono Destino del credito y hago click en AGUA Y SANEAMIENTO$")
     public void click_destino_credito_seleccion_agua_saneamiento() {
         credito.click_destino_credito();
         credito.selecciona_agua_saneamiento();
     }
-
 
 
     @And("^hago click Tipo de cronograma$")
@@ -331,6 +349,7 @@ public class ModuleCampaingsStep {
     public void selecciono_tipo_cronograma() {
         credito.selecciono_tipo_cronograma();
     }
+
     @And("^selecciono frecuencia Bimensual$")
     public void selecciono_frecuencia() {
         credito.click_frecuencia();
@@ -342,14 +361,17 @@ public class ModuleCampaingsStep {
         credito.selecciono_tipo_cronograma_periodo_fijo();
 
     }
+
     @And("^hago click en el menu Datos del conyuge$")
     public void selecciono_menu_datos_conyuge() {
         credito.selecciono_menu_datos_conyuge();
     }
+
     @And("^hago click en el menu Excepciones$")
     public void selecciono_menu_excepciones() {
         credito.selecciono_menu_excepciones();
     }
+
     @And("^verifico regla max de entidades es tres para clientes solteros$")
     public void verifica_reglas_entidades_soltero_tres_clientes() {
         credito.hago_click_consultar_reglas_caja();
@@ -358,44 +380,46 @@ public class ModuleCampaingsStep {
     }
 
 
-
     @And("^verifico que cliente tenga credito activo$")
     public void cliente_activo() {
-        try{
-            if(credito.get_trae_cliente_activo().toString() != null){
+        try {
+            if (credito.get_trae_cliente_activo().toString() != null) {
 
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     @And("^verifica asesor datos de computo$")
-    public void verifica_datos_asesor(){
-        try{
-            if(credito.get_trae_asesor().toString() != null){
+    public void verifica_datos_asesor() {
+        try {
+            if (credito.get_trae_asesor().toString() != null) {
 
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     @And("^verifica que no aparezca asesor datos de computo$")
-    public void verifica_no_datos_asesor(){
-        try{
-            if(credito.get_trae_asesor().toString() == null){
+    public void verifica_no_datos_asesor() {
+        try {
+            if (credito.get_trae_asesor().toString() == null) {
 
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     @And("^verifica que no aparezca campo DATOS DE COMPUTO$")
-    public void verifica_no_datos_computo(){
-        try{
-            if(credito.get_trae_datos_computo().toString() == null){
+    public void verifica_no_datos_computo() {
+        try {
+            if (credito.get_trae_datos_computo().toString() == null) {
 
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -416,11 +440,13 @@ public class ModuleCampaingsStep {
         scrollByText_baja_hasta_nro_cuotas();
         credito.ingreso_nro_cuotas(cuotas);
     }
+
     @And("^selecciono agua saneamiento del Destino del crédito$")
-    public void selecciono_destino_credito(){
+    public void selecciono_destino_credito() {
         credito.click_destino_credito();
         credito.selecciono_agua_saneamiento();
     }
+
     @And("^registro fecha de primera cuota$")
     public void registrofecha() {
         credito.registro_fecha();
@@ -514,7 +540,7 @@ public class ModuleCampaingsStep {
 
     @And("el usuario realiza manteniento de cliente")
     public void elUsuarioRealizaMantenientoDeCliente() {
-        
+
     }
 
     @And("solicita periodo de gracia por {string} dias")
@@ -537,7 +563,7 @@ public class ModuleCampaingsStep {
 
     @And("verifica creditos vigentes")
     public void verificaCreditosVigentes() {
-        
+
     }
 
     @And("registra condiciones de credito")
@@ -546,7 +572,7 @@ public class ModuleCampaingsStep {
 
     @And("verifico tarifario de cuotas")
     public void verificoTarifarioDeCuotas() {
-        
+
     }
 
     @And("validar campo Nombre completo vacio")
@@ -555,24 +581,24 @@ public class ModuleCampaingsStep {
 
     @And("validar campo edad")
     public void validarCampoEdad() {
-        
+
     }
 
     @And("validar actividad economica")
     public void validarActividadEconomica() {
-        
+
     }
 
     @And("validar boton microfono")
     public void validarBotonMicrofono() {
         credito.es_Visible_Telefono();
 
-        
+
     }
 
     @And("validar campo inicio de actividad economica")
     public void validarCampoInicioDeActividadEconomica() {
-        
+
     }
 
     @And("validar campo geoposicion domicilio")
