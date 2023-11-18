@@ -15,6 +15,8 @@ public class LoginStep {
     WelcomeScreen welcome=new WelcomeScreen();
     LoginScreen login = new LoginScreen();
     Chrome enginee = new Chrome();
+    screens.ModuleEngine engine = new screens.ModuleEngine();
+
 
     @Given("^carga la aplicacion Formiik New$")
     public void cargaLaAplicacionFormiikNew() {
@@ -30,6 +32,7 @@ public class LoginStep {
     public void usuario_ingresa_engine(String user, String pass) {
         login.ingresa_user_selenium(user);
         login.ingresa_pass_selenium(pass);
+        engine.click_iniciar_sesion();
     }
 
 
